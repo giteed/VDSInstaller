@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
@@ -9,30 +10,37 @@
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
 
-
-## title: Script Installer "VDSetup"
+css ;
+# title: Script Installer "VDSetup"
 # Установщик скриптов "VDSetup"
 # Установка самой свежей версии 
 # всех скриптов из GitHub Repo.
-echo -e "	$(green_star37)" ;
-echo -e "	$(green_star  ) Script Installer \"VDSetup\" " ;
-echo -e "	$(green_arrow ) Installing the latest version" ;
-echo -e "	$(green_1     ) of all scripts from GitHub Repo." ;
-echo -e "	$(ellow_1     ) Installation path: ${NC}/root/bin" ;
-echo -e "	$(red_1       ) ${RED}All contents of the: ${NC}/root/bin ${RED}folder" ;
-echo -e "	$(red_1       ) ${RED}will be deleted before installation." ;
-echo -e "	$(red_1       ) Do not continue if the ${NC}/root/bin folder" ;
-echo -e "	$(red_1       ) contains the files you need${RED}!${NC}" ;
-#echo -e "	$(white_1     ) \n" ;
+echo ;
+echo -e " $(black_U23A7 ) " ;
+echo -e " $(white_1     ) Script Installer \"VDSetup\" " ;
+echo -e " $(white_1     ) " ;
+echo -e " $(blue_1      ) Installing the latest version" ;
+echo -e " $(green_1     ) of all scripts from GitHub Repo." ;
+echo -e " $(white_1     ) " ;
+echo -e " $(ellow_1     ) Installation path: ${NC}/root/bin" ;
+#echo -e " $(white_1     ) " ;
+echo -e " $(red_1       ) ${ELLOW}‼ ${RED}All contents of the${NC}: ${ELLOW}/root/bin ${RED}folder" ;
+echo -e " $(red_1       ) ${RED}will be deleted before installation${NC}!" ;
+echo -e " $(white_1     ) " ;
+echo -e " $(red_1       ) ${ELLOW}‼ ${RED}Do not continue${NC} if the ${ELLOW}/root/bin ${NC}folder" ;
+echo -e " $(red_1       ) contains the files you need${RED}!${NC}" ;
+echo -e " $(black_U23A9 ) \n" ;
+
+press_enter ;
 
 # Установка VDSetup
-echo -e "\n	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}\n" ;
-( ./gh-Sync-Script.sh ) && echo -e "	$(green_arrow) Update version ..... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
-
-exit 0 ;
-
-( cp -a /root/.GitHub_Repo/VDSetup/. /root ) && echo -e "	$(green_arrow) Update version ..... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
+ echo -e "  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
+	( /root/bin/utility/gh-Sync-Script.sh ) && echo -e "\n	$(green_arrow) Install vdsetup .... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
 
-
+	echo -e " $(black_U23A7 ) " ;
+	echo -e " $(ellow_1     ) $(green_arrow) Run vdsetup:" ;
+	echo -e " $(white_1     ) ${RED}#${NC} vdsetup ${NC}" ;
+	echo -e " $(black_U23A9 ) " ;
+	
 exit 0 ;
