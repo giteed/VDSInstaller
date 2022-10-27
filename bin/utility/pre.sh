@@ -1,13 +1,10 @@
 #!/bin/bash
 
-	echo -e " # Установка rsync rsync-daemon git mc " 
+	echo -e "\n # Установка rsync rsync-daemon git mc " 
 	
 	(dnf -y install rsync rsync-daemon git mc) &>/devnull;
 	
-	echo -e " # Удаляю старые скрипты из ~/.VDSInstaller ~/bin/* " 
-	rm -rf ~/.VDSInstaller ;
-	rm -rf ~/bin/* ;
-	
+		
 	
 function cp_old() 
 {
