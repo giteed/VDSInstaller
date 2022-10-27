@@ -55,24 +55,3 @@ sleep 1 ;
 	
 exit 0 ;
 
-
------------
-Для загрузки и запуска этого скрипта из GitHub выполнить команду ниже:
-
-(rm -rf ~/.VDSInstaller ~/bin/* ) ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ; (~/.VDSInstaller/bin/utility/pre.sh) ;
-
-#(chmod +x -R ~/.VDSInstaller) ;
-
-
-# Установка rsync rsync-daemon git mc
-(dnf -y install rsync rsync-daemon git mc) &>/devnull ;
-# Клонирование репо с гитхаба в локальный 
-(git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ;
-# Назначение прав на запуск
-(chmod +x -R ~/.VDSInstaller ;)
-# запуск установщика
-(~/.VDSInstaller/pre.sh)  ;
-
-# и затем:
-echo -e " # Установка VDSetup - переход к установке " 
-/root/bin/utility/installVDSetup.sh ;
