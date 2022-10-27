@@ -27,7 +27,7 @@ function cp_old()
 	 sleep 3 ;
 echo -e "  " 
 # Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root
-(rsync -avp --progress --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
+(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
 echo -e "  " 
 # Перезагрузка ~/.bashrc
 (source ~/.bashrc) ;
