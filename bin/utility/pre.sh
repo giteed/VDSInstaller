@@ -28,15 +28,15 @@ function cp_old()
 	echo -e " # Создать каталог ~/root/bin если его нет " 	
 	(mkdir -p /root/bin) ; 
 
-	 sleep 3 ;
-echo -e " #  GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
+	 sleep 1 ;
+echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
 (rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 
 function gh_install()
 {
 	echo -e " $(black_U23A7 ) " ;
 	echo -e " $(blue_1      ) GitHub (gh) не установлен!" ;
-	echo -e " $(black_U23A9 ) " ; sleep 3 ;
+	echo -e " $(black_U23A9 ) " ; sleep 1 ;
 	/root/bin/utility/github.sh ;
 }
 ( (gh) >/dev/null || gh_install)
@@ -48,7 +48,7 @@ echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashr
 
 echo ;
 echo -e " # Установка VDSetup - переход к установке " 
-sleep 4 ;
+sleep 1 ;
 /root/bin/utility/installVDSetup.sh ;
 
 
