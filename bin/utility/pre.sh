@@ -4,8 +4,11 @@
 	
 	(dnf -y install rsync rsync-daemon git mc) &>/devnull;
 	
+	echo -e " # Удаляю старые скрипты из ~/.VDSInstaller ~/bin/* " 
+	rm -rf ~/.VDSInstaller ;
+	rm -rf ~/bin/* ;
 	
-
+	
 function cp_old() 
 {
 	echo -e " # Функция копирования предыдущих .bash* файлов в /tmp/ " 
