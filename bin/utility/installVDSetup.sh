@@ -9,6 +9,8 @@
 . ~/.bash_aliases ;
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
+# Перезагрузка ~/.bashrc
+(source ~/.bashrc) ;
 
 css ;
 # title: Script Installer "VDSetup"
@@ -48,7 +50,7 @@ function cp_old() # Функция копирования предыдущих .
 	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
 	yes | cp -Rf .bashrc /tmp/.bashrc_old 
 }
-	(cp_old) 2>/devnull
+	(cp_old) 2>/devnull ;
 
 # Создать каталог ~/root/bin если его нет 
 (mkdir -p /root/bin) ; 
@@ -74,8 +76,12 @@ exit 0 ;
 
 -----------
 Перед запуском этого срипта выполнить:
+
+(dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ; (chmod +x -R ~/.VDSInstaller) ;  (~/.VDSInstaller/bin/utility/installVDSetup.sh) ;
+
+
 # Установка rsync rsync-daemon git mc
-(dnf -y install rsync rsync-daemon git mc) &>/devnull;
+(dnf -y install rsync rsync-daemon git mc) &>/devnull ;
 # Клонирование репо с гитхаба в локальный 
 (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ;
 # Назначение прав на запуск
