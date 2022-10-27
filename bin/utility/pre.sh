@@ -25,7 +25,7 @@ function cp_old()
 	(mkdir -p /root/bin) ; 
 
 	 sleep 3 ;
-echo -e " # Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root " 
+echo -e " # Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root \n" 
 
 (rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
 
