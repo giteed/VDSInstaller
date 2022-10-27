@@ -39,7 +39,8 @@ echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashr
 
 echo ;
 echo -e " # Установка VDSetup - переход к установке " 
-#/root/bin/utility/installVDSetup.sh ;
+sleep 4 ;
+/root/bin/utility/installVDSetup.sh ;
 
 
 	
