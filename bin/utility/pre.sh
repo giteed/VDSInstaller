@@ -36,10 +36,10 @@ function gh_install()
 {
 	echo -e " $(black_U23A7 ) " ;
 	echo -e " $(blue_1      ) GitHub (gh) не установлен!" ;
-	echo -e " $(black_U23A9 ) " ;
+	echo -e " $(black_U23A9 ) " ; sleep 3 ;
 	/root/bin/utility/github.sh ;
 }
-(gh || gh_install)
+( (gh) >/dev/null || gh_install)
 
 
 echo -e "\n # Перезагрузка ~/.bashrc " ;
