@@ -20,7 +20,7 @@ function cp_old() # Функция копирования предыдущих .
 # Создать каталог ~/root/bin если его нет 
 	(mkdir -p /root/bin) ; 
 
-
+cs ;
 	css ;
 	echo ok1 ; sleep 3 ;
 
