@@ -16,25 +16,27 @@ css ;
 # Установка самой свежей версии 
 # всех скриптов из GitHub Repo.
 echo ;
-echo -e " $(black_U23A7 ) " ;
-echo -e " $(white_1     ) Script Installer \"VDSetup\" " ;
-echo -e " $(white_1     ) " ;
-echo -e " $(blue_1      ) Installing the latest version" ;
-echo -e " $(green_1     ) of all scripts from GitHub Repo." ;
-echo -e " $(white_1     ) " ;
-echo -e " $(ellow_1     ) Installation path: ${NC}/root/bin" ;
-#echo -e " $(white_1     ) " ;
-echo -e " $(red_1       ) ${ELLOW}‼ ${RED}All contents of the${NC}: ${ELLOW}/root/bin ${RED}folder" ;
-echo -e " $(red_1       ) ${RED}will be deleted before installation${NC}!" ;
-echo -e " $(white_1     ) " ;
-echo -e " $(red_1       ) ${ELLOW}‼ ${RED}Do not continue${NC} if the ${ELLOW}/root/bin ${NC}folder" ;
-echo -e " $(red_1       ) contains the files you need${RED}!${NC}" ;
-echo -e " $(black_U23A9 ) \n" ;
 
-press_enter ;
+
+(( echo -e "   Welcome to VDSetup Installer " ; echo -e "   for CentOS\n") | bat -l nix -p 2>/dev/null ) || ( echo -e "   Welcome to VDSetup Installer " ; echo -e "   for CentOS\n") ;
+
+echo -e " $(black_U23A7    ) " ;
+echo -e " $(blue_1         ) Installing the latest version" ;
+echo -e " $(green_1        ) of all scripts from GitHub Repo." ;
+echo -e " $(black_U23A9    )\n" ;
+echo -e " $(black_U23A7    ) " ;
+echo -e " $(ellow_1        ) Installation path: ${NC}/root/bin" ;
+echo -e " $(red_1          ) ${RED}All contents of the${NC}: ${ELLOW}/root/bin ${RED}folder" ;
+echo -e " $(red_1          ) ${RED}will be deleted before installation${NC}!" ;
+echo -e " $(red_1          ) ${RED}Do not continue${NC} if the ${ELLOW}/root/bin ${NC}folder" ;
+echo -e " $(red_1          ) contains the files you need${RED}!${NC}" ;
+echo -e " $(black_U23A9    ) \n" ;
+
+press_anykey ; css ;
+#press_enter ;
 
 # Установка VDSetup
- echo -e "  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
+ echo -e "\n  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
 	( /root/bin/utility/gh-Sync-Script.sh ) && echo -e "\n	$(green_arrow) Install vdsetup .... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
 

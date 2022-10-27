@@ -18,7 +18,7 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
 	
    function Version_vdsetup()
    {
-      $( echo -e "Ver: GH-1.0.0" ) #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
+      echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
       
    }
    
@@ -63,6 +63,10 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
    function blue_1() { echo -e "${BLUE}|${NC}" ; } ;
    function ellow_1() { echo -e "${ELLOW}|${NC}" ; } ;
    function purple_1() { echo -e "${PURPLE}|${NC}" ; } ;
+   function black_1() { echo -e "${BLACK}|${NC}" ; } ;
+   
+   
+   
    
    
    
@@ -71,9 +75,10 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
       echo -e "$(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) " ;
    }
    
+   #read -n1 -r -p " Нажмите любую кнопку..." 
    function press_enter()
    {
-      echo -en "   <<< "$RED"# ${ELLOW}PRESS ENTER ${NC}to continue...\n\n       (or esc + enter to cancel) "
+      echo -en "   <<< "$RED"# ${ELLOW}PRESS ENTER ${NC}to continue...\n    ${BLACK}(or Any key + Enter to Cancel)${NC} "
       read yesno
       
       if [[ "$yesno" == "" ]]
@@ -84,7 +89,12 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
             
       fi ;
    }
-
+   
+   function press_anykey()
+   {
+      ( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
+   }
+    
    
    
    #------------------------------------
@@ -202,8 +212,14 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
    #-----------------------------------
    
    # Поиск информации о программе. пример: ww hh
-   function ww() { type -a $* | bat  --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ; }
+   #function ww() { type -a $* | bat  --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ; }
    
+   function ww() 
+   {  
+      ( type -a $* | bat --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ) || ( type -a $* p ; echo ; yum info $1 ) ;
+   }
+   
+
    #-----------------------------------
    
    function vpn-f() # Connect to VPN - help
@@ -350,19 +366,20 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
    
    #-----------------------------------
    
+   # Если ali используется без аргументов == "" то просто alias, если ali с аргументами != "", то подставляются они после alias "$Val2"
    function ali() # alias | bat
    {
    
       if [ "$*" == "" ] ; 
          then Val1="" ;
          echo -e "$green""\n***"$NC" Все Алиасы $(whoami)"$green" ***"$NC"\n " ;
-         alias | bat -p --paging=never -l .bash_aliases ;
+         ( alias | bat -p --paging=never -l .bash_aliases ) || ( alias ) ;
          return ;
       fi
          if [ "$*" != "" ] ; 
          then Val2="$*"
          echo -e "$green""\n***"$NC" Алиас "$cyan""$Val2""$NC" для $(whoami)"$green" ***"$NC"\n " ;
-         alias "$Val2" | bat -p --paging=never -l .bash_aliases ;
+         alias "$Val2" | bat -p --paging=never -l .bash_aliases ||  ( alias "$Val2" ) ;
          return ;
       fi	
       

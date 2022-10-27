@@ -57,11 +57,13 @@ function GitHub_install()
 	function version_GH_NO_bat()
 	{
 		echo -e "\n GitHub version : $( gh --version 2>/dev/null || $(not_found_MSG) )" ;
+		
 	}
 	version_GH_bat || version_GH_NO_bat ;
 	
 }
 
 GitHub_info_and_update ;
-
+echo -e "		$(green_star) GitHub reference";
+echo -e "		$(red_U0023) gh reference";
 exit 0 ; 
