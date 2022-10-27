@@ -29,8 +29,8 @@ function cp_old()
 	(mkdir -p /root/bin) ; 
 
 	 sleep 3 ;
-echo -e " #  GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root \n" 
-(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
+echo -e " #  GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
+(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 
 function gh_install()
 {
