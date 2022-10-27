@@ -35,18 +35,23 @@ echo -e " # Синхронизация локального репо /root/.VDSI
 
 echo -e "\n # Перезагрузка ~/.bashrc " ;
 (source ~/.bashrc) ;
-echo -e " # Установка VDSetup - переход к установке " 
-
 echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " ;
+
+echo ;
+echo -e " # Установка VDSetup - переход к установке " 
+#/root/bin/utility/installVDSetup.sh ;
+
 
 	
 exit 0 ;
 
 
 -----------
-Перед запуском этого срипта выполнить:
+Для загрузки и запуска этого скрипта из GitHub выполнить команду ниже:
 
-(dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ; (chmod +x -R ~/.VDSInstaller) ;  (~/.VDSInstaller/bin/utility/installVDSetup.sh) ;
+(rm -rf ~/.VDSInstaller ~/bin/* ) ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ; (~/.VDSInstaller/bin/utility/pre.sh) ;
+
+#(chmod +x -R ~/.VDSInstaller) ;
 
 
 # Установка rsync rsync-daemon git mc
@@ -56,4 +61,8 @@ exit 0 ;
 # Назначение прав на запуск
 (chmod +x -R ~/.VDSInstaller ;)
 # запуск установщика
-(~/.VDSInstaller/installVDSetup.sh)  ;
+(~/.VDSInstaller/pre.sh)  ;
+
+# и затем:
+echo -e " # Установка VDSetup - переход к установке " 
+/root/bin/utility/installVDSetup.sh ;
