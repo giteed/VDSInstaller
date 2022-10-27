@@ -35,7 +35,7 @@
   (~/.VDSInstaller/pre.sh)  ;
   
   # А затем:
-- Переход к установке VDSetup " 
+- Переход к установке VDSetup:
   /root/bin/utility/installVDSetup.sh ;
 
   
