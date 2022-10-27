@@ -12,13 +12,13 @@
 # https://htmlacademy.ru/blog/git/git-console?ysclid=l9if42mmm732459151
 		echo ;
 
-function hi_giteed()
-{
+	function hi_giteed()
+	{
+	 
 	 function txt_bat()
-	 { 
+	 	{ 
 		 echo -e " $(ellow_1    ) " ;  bat hi_giteed.txt | bat -l nix -p ; 
-		 #echo -e " $(white_1    )   $(cat hi_giteed.txt) " ; 
-	 } 
+	 	} 
 	 function txt_nobat()
 	  { 
 		  echo -e " $(white_1     )   $(cat hi_giteed.txt) " ; 
@@ -43,7 +43,6 @@ function SSH_keys_here()
 		echo -en " $(blue_1     ) $(green_arrow) Use this GitHub Token .....: ${GREEN}" ; 
 		echo -e "${CYAN}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 ${NC} " ;
 		echo -e " $(black_U23A9 ) " ;
-	
 		echo ;
 		#press_enter ;
 
@@ -52,11 +51,12 @@ function SSH_keys_here()
 	echo -en " $(ellow_1       ) $(red_U0023) gh auth token " ;
 
 
+
 gh auth token &> login.txt
 auth_token=$(cat login.txt) 
-if [[ $auth_token == "$( echo "no oauth token" )" ]]
- then gh auth login ;
- else hi_giteed ;
+ if [[ $auth_token == "$( echo "no oauth token" )" ]]
+    then gh auth login ;
+    else hi_giteed ;
  fi ;
 
 # gh auth login
@@ -65,7 +65,7 @@ function gh_auth_Token_login()
 	echo -en " $(white_1      ) $(green_tick) Now you use GitHub Token ${RED}" ; echo -e " : $(gh auth token)"  ;
 }
 
-		gh_auth_Token_login || gh auth login ;
+		gh_auth_Token_login || gh auth login  ;
 
 
 	echo -e " $(black_U23A9   ) " ;
