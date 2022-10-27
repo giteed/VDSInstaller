@@ -1,7 +1,7 @@
 #!/bin/bash
 
-	echo -e "  " 
-	# Установка rsync rsync-daemon git mc
+	echo -e " # Установка rsync rsync-daemon git mc " 
+	
 	(dnf -y install rsync rsync-daemon git mc) &>/devnull;
 	
 	
@@ -25,16 +25,16 @@ function cp_old()
 	(mkdir -p /root/bin) ; 
 
 	 sleep 3 ;
-echo -e "  " 
-# Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root
+echo -e " # Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root " 
+
 (rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
-echo -e "  " 
-# Перезагрузка ~/.bashrc
+
+echo -e " # Перезагрузка ~/.bashrc " ;
 (source ~/.bashrc) ;
 echo -e " # Установка VDSetup - переход к установке " 
 
+echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " ;
 
-	
 	
 exit 0 ;
 
