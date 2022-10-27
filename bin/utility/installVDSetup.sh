@@ -10,9 +10,29 @@
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
 # Перезагрузка ~/.bashrc
-(source ~/.bashrc) ;
 
-css ;
+
+	# Установка rsync rsync-daemon git mc
+	(dnf -y install rsync rsync-daemon git mc) &>/devnull;
+	
+	
+
+function cp_old() # Функция копирования предыдущих .bash* файлов в /tmp/
+{
+	# Переход в домашний каталог (root)
+	(cd ~/) ; 
+	yes | cp -Rf .bash_ali_hosts /tmp/.bash_ali_hosts_old ;
+	yes | cp -Rf .bash_profile /tmp/.bash_profile_old ; 
+	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
+	yes | cp -Rf .bashrc /tmp/.bashrc_old 
+}
+	(cp_old) 2>/devnull ;
+	(source ~/.bashrc) ;
+# Создать каталог ~/root/bin если его нет 
+	(mkdir -p /root/bin) ; 
+
+
+	css ;
 # title: Script Installer "VDSetup"
 # Установщик скриптов "VDSetup"
 # Установка самой свежей версии 
@@ -36,24 +56,7 @@ echo -e " $(black_U23A9    ) \n" ;
 
 press_anykey ; css ;
 
-	# Установка rsync rsync-daemon git mc
-	(dnf -y install rsync rsync-daemon git mc) &>/devnull;
-	
-	
 
-function cp_old() # Функция копирования предыдущих .bash* файлов в /tmp/
-{
-	# Переход в домашний каталог (root)
-	(cd ~/) ; 
-	yes | cp -Rf .bash_ali_hosts /tmp/.bash_ali_hosts_old ;
-	yes | cp -Rf .bash_profile /tmp/.bash_profile_old ; 
-	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
-	yes | cp -Rf .bashrc /tmp/.bashrc_old 
-}
-	(cp_old) 2>/devnull ;
-
-# Создать каталог ~/root/bin если его нет 
-(mkdir -p /root/bin) ; 
 
 # Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root
 (rsync -avp --progress --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) ;
