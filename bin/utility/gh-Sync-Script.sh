@@ -108,7 +108,7 @@ function gh_auth_Token_login()
 	
 	# gh auth login 
 	echo -e " $(black_U23A7    )" ;
-	echo -en " $(white_1       ) $(green_tick) Now you use GitHub Token ${RED}" ; echo -e " : $(gh auth token)" ;
+	echo -en " $(white_1       ) $(green_tick) Now you use GitHub Token ${BLACK}" ; echo -e " : $(gh auth token)" ;
 	echo -e " $(blue_1         )" ;
 	echo -e " $(white_1        ) $(green_arrow) if you want Logged out of github.com account 'giteed' run:" ;
 	echo -en " $(blue_1        )" ; echo -e " $(red_U0023) gh auth logout" ;
