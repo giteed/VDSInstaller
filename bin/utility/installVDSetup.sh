@@ -39,12 +39,12 @@ echo -e " $(black_U23A9    ) \n" ;
 
 press_anykey ; css ; sleep 1 ;
 
-
+echo "sftp://10.0.1.6:22//Users/macpro/Documents/GitHub/VDSetup-Script-Installer/bin/utility/installVDSetup.sh"
 # Установка VDSetup
  echo -e "\n  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
 	( /root/bin/utility/gh-Sync-Script.sh ) && echo -e "\n	$(green_arrow) Install vdsetup .... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
-
+echo "sftp://10.0.1.6:22//Users/macpro/Documents/GitHub/VDSetup-Script-Installer/bin/utility/installVDSetup.sh"
 	echo -e " $(black_U23A7 ) " ;
 	echo -e " $(ellow_1     ) $(green_arrow) Reload ~/.bashrc and Run vdsetup" ;
 	echo -e " $(white_1     ) ${RED}#${NC} source ~/.bashrc ${NC}" ;
