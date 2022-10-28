@@ -1,84 +1,11 @@
 #!/bin/bash
 
-#-----------------------------------
-# Цвета терминала
-#-----------------------------------
-NC='\e[0m' ; WHITE='\e[1;0m' ; white='\e[0;0m' ; BLACK='\e[1;30m' ; black='\e[0;30m' ; RED='\e[1;31m' ; red='\e[0;31m' ; GREEN='\e[1;32m' ; green='\e[0;32m' ; ELLOW='\e[1;33m' ; ellow='\e[0;33m' ; PURPLE='\e[1;35m' ; purple='\e[0;35m' ; BLUE='\e[1;34m' ; blue='\e[0;34m'  ; CYAN='\e[1;36m' ; cyan='\e[0;36m' ; GRAY='\e[1;37m' ; gray='\e[0;37m' ; 
-#-----------------------------------
-# Дата: $D $T $Day $Month $Data $DMY
-D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ print $1 } '))" ; Month="$(echo -e $( date | awk '{ print $2 } '))" ; Data="$(echo -e $( date | awk '{ print $3 } '))" ; DMY="$(echo -e "${red}"$( date | awk '{ print $1, $2, $6 } ')"${NC}")" 
-	
-	# ФУНКЦИЯ: Мой ip
-	function mi() { wget -qO- icanhazip.com ; } ;
-	# ФУНКЦИЯ: User
-	function im() { whoami ; } ;
-	
-	#-----------------------------------
-	function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
-	
-   function Version_vdsetup()
-   {
-      echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
-      
-   }
-   
-   function css() 
-   { 
-      echo -e "$( clear && source ~/.bashrc && hip )\n  ${gray}(For update type: vdsetup -ghs)${NC}\n  ${RED}======${ELLOW}=${ellow}=${GREEN}=${green}=${NC}=====================================================================\n ${NC} $(red_star) VDSetup scripts $(Version_vdsetup)" 
-   }
-   
- 
-   
-	# ################################
-	# Таблица символов Юникода
-	# https://unicode-table.com/ru/ 
-	# ################################
-	
-   function red_pipe() { echo -e "${RED}|${NC}" ; } ;
-   function red_U0023() { echo -e "${RED}#${NC}" ; } ;
-   function black_U23A7() { echo -e "${BLACK}⎧${NC}" ; } ;
-   function black_U23A9() { echo -e "${BLACK}⎩${NC}" ; } ;
-   
-   function purple_U23A6() { echo -e "${GREEN}⎬${NC}" ; } ;
-   function purple_U23A4() { echo -e "${GREEN}⎬${NC}" ; } ;
-   
-   function green_OK() { echo -e "${GREEN}OK${NC}" ; } ;
-   function red_NO() { echo -e "${RED}NO${NC}" ; } ;
-   function red_crash() { echo -e "${RED}✖ Crash${NC}" ; } ;
-   function not_found_MSG() { echo -e "${RED}✖ Не найден${NC}" ; } ;
-   function found_MSG() { echo -e "${GREEN}✓ Найден${NC}" ; } ;
-   function error_MSG() { echo -e "${RED}✖ Error${NC}" ; } ;
-   function error_exit_MSG() { echo -e "${RED}✖ Выход${NC} " ; exit 0 ; } ;
-   function green_tick() { echo -e "${GREEN}✓${NC}" ; } ;
-   function red_tick() { echo -e "${RED}✓${NC}" ; } ;
-   function ellow_tick() { echo -e "${ELLOW}✓${NC}" ; } ;
-   function red_cross() {  echo -e "${RED}✖${NC}" ; } ;
-   function green_arrow() { echo -e "${GREEN}⤑${NC}" ; } ;
-   function green_star() { echo -e "${GREEN}☆${NC}" ; } ;
-   function red_star() { echo -e "${RED}☆${NC}" ; } ;
-   function green_1() { echo -e "${GREEN}|${NC}" ; } ;
-   function white_1() { echo -e "${WHITE}|${NC}" ; } ;
-   function red_1() { echo -e "${RED}|${NC}" ; } ;
-   function cyan_1() { echo -e "${CYAN}|${NC}" ; } ;
-   function blue_1() { echo -e "${BLUE}|${NC}" ; } ;
-   function ellow_1() { echo -e "${ELLOW}|${NC}" ; } ;
-   function purple_1() { echo -e "${PURPLE}|${NC}" ; } ;
-   function black_1() { echo -e "${BLACK}|${NC}" ; } ;
-   
-   
-   
-   
-   
-   
-   function green_star37()
-   {
-      echo -e "$(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) " ;
-   }
+
    
    #read -n1 -r -p " Нажмите любую кнопку..." 
    function press_enter()
    {
-      echo -en "   <<< "$RED"# ${ELLOW}PRESS ENTER ${NC}to continue...\n    ${BLACK}(or Any key + Enter to Cancel)${NC} "
+      echo -en "                "$RED"# ${BLACK}PRESS ${NC}\"${ELLOW}ENTER${NC}\" ${green}to Continue ${NC}...\n\n${NC}     ${BLACK}... or ${NC}\"${cyan}any key${NC}\" ${GREEN}+ ${NC}\"${ellow}ENTER${NC}\" ${red}to Cancel.\n "
       read yesno
       
       if [[ "$yesno" == "" ]]
@@ -342,17 +269,7 @@ D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ pri
       echo -en "\n${cyan}*** ${green}FILE SYSTEM ${RED}***$NC"; df; 
    }
    
-   #-----------------------------------
-   
-   function hip() # host/ip
-   {
-      echo -en "          ¯\_("$RED"ツ"${NC}")_/¯"
-      echo -e " ${NC}" && ip=$(wget -qO- icanhazip.com)
-      echo -e " ${green} Host ${white} Name  : ${RED} ${HOSTNAME}"
-      echo -e " ${green} Server ${white} ip  : ${gray} ${ip} ${white}"
-      ip=''
-   
-   }
+
    
    #-----------------------------------
    

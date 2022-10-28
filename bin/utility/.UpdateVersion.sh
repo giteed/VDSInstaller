@@ -1,11 +1,19 @@
 #!/bin/bash
-	# Source global definitions
+
+# Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
-# --> Прочитать настройки из ~/bin/.varfunc.sh
+# --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
-# --> Использовать ~/.bash_aliases
+. ~/bin/utility/.css.sh
+. ~/bin/utility/.dnf-fix-help.sh
+. ~/bin/utility/.dnf-update-upgrade.sh
+. ~/bin/utility/webmin_install.sh
+. ~/bin/utility/reinstall_update_remove_vdsetup.sh
+
+# --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
+. ~/.bash_ali_hosts ;
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
 
@@ -13,10 +21,15 @@
 
 
 # Чистим каталог ~/bin
-rm -rf ~/bin/* || echo -e "error \"rm -rf ~/bin/*\" " ;
+# rm -rf ~/bin/* || echo -e "error \"rm -rf ~/bin/*\" " ;
 # Cкопировать из локального репо в папку bin только новые и свежие файлы
 echo -e "	$(green_arrow) Upgraded scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
 ( cp -a /root/.GitHub_Repo/VDSetup/. /root ) && echo -e "	$(green_arrow) Update version ..... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
+
+(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
+
+# ( cp -a /root/.GitHub_Repo/VDSetup/. /root )
+
 
 exit 0 ;
 

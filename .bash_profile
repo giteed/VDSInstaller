@@ -5,10 +5,17 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
-# --> Прочитать настройки из ~/bin/.varfunc.sh
+# --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
-# --> Использовать ~/.bash_aliases
+. ~/bin/utility/.css.sh
+. ~/bin/utility/.dnf-fix-help.sh
+. ~/bin/utility/.dnf-update-upgrade.sh
+. ~/bin/utility/webmin_install.sh
+. ~/bin/utility/reinstall_update_remove_vdsetup.sh
+
+# --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
+. ~/.bash_ali_hosts ;
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
 

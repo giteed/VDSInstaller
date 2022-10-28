@@ -1,32 +1,31 @@
 #!/bin/bash
-	# Source global definitions
+
+# Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
-# --> Прочитать настройки из ~/bin/.varfunc.sh
+# --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
-# --> Использовать ~/.bash_aliases
-# -------------------->>>. ~/.bash_aliases ;
+. ~/bin/utility/.css.sh
+. ~/bin/utility/.dnf-fix-help.sh
+. ~/bin/utility/.dnf-update-upgrade.sh
+. ~/bin/utility/webmin_install.sh
+. ~/bin/utility/reinstall_update_remove_vdsetup.sh
+
+# --> Использовать ~/.bash_ali*
+. ~/.bash_aliases ;
+. ~/.bash_ali_hosts ;
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
-
 # https://htmlacademy.ru/blog/git/git-console?ysclid=l9if42mmm732459151
-		echo ;
-
+	
+	echo ;
+		
 	function hi_giteed()
 	{
-	 
-	 function txt_bat()
-	 	{ 
-		 echo -e " $(ellow_1    ) " ;  bat hi_giteed.txt | bat -l nix -p ; 
-	 	} 
-	 function txt_nobat()
-	  { 
-		  echo -e " $(white_1     )   $(cat hi_giteed.txt) " ; 
-	  } 
-	 
-	
-	( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) && txt_nobat ; ) || ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) ; txt_nobat )  ;
-}
+		 function txt_bat(){ echo -e " $(ellow_1    ) " ;  bat hi_giteed.txt | bat -l nix -p ; } 
+		 function txt_nobat(){ echo -e " $(white_1     )   $(cat hi_giteed.txt) " ; } 
+		 ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) && txt_nobat ; ) || ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) ; txt_nobat )  ;
+	}
 	
 function SSH_keys_here()
 {
@@ -44,13 +43,9 @@ function SSH_keys_here()
 		echo -e "${CYAN}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 ${NC} " ;
 		echo -e " $(black_U23A9 ) " ;
 		echo ;
-		#press_enter ;
-
 
 	echo -e " $(black_U23A7    ) " ;
 	echo -en " $(ellow_1       ) $(red_U0023) gh auth token " ;
-
-
 
 gh auth token &> login.txt
 auth_token=$(cat login.txt) 
@@ -61,9 +56,9 @@ auth_token=$(cat login.txt)
 
 # gh auth login
 function gh_auth_Token_login()
-{
+	{
 	echo -en " $(white_1      ) $(green_tick) Now you use GitHub Token ${RED}" ; echo -e " : $(gh auth token)"  ;
-}
+	}
 
 		gh_auth_Token_login || gh auth login  ;
 
@@ -71,7 +66,8 @@ function gh_auth_Token_login()
 	echo -e " $(black_U23A9   ) " ;
 
 		echo ;
-		press_enter ;
+		
+	    press_enter ;
 
 	echo -e " $(black_U23A7    ) " ;
 	echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
@@ -80,14 +76,14 @@ function gh_auth_Token_login()
 		gh repo list ; echo ;
 		( git --version ) ;
 		( gh --version ) ;
-	echo -e "\n $(purple_U23A4 ) " ;
+	echo -e "\n $(purple_U23A6 ) " ;
 	echo -e " $(ellow_1        ) $(green_arrow) Release List " ;
 	echo -e " $(white_1        ) $(red_U0023) gh release list " ;
 	echo -e " $(purple_U23A6   ) \n" ;
 		( gh release list ) 2>/dev/null ; 
-	echo -e "\n $(purple_U23A4   )" ;
+	echo -e "\n $(purple_U23A6   )" ;
 	echo -e " $(black_U23A9    )" ;
-
+		
 		echo ;
 		press_enter ;
 
@@ -121,20 +117,9 @@ function gh_auth_Token_login()
 	echo -en " $(blue_1        )" ; echo -e " $(red_U0023) gh auth logout" ;
 	echo -e " $(black_U23A9    )" ;
 
-
-exit 0 ; 
+		# echo -e "\n $(blue_1         ) Ver 1.04" ;
+		exit 0 ; 
 
 
 # https://serveradmin.ru/nastrojka-web-servera-nginx-php-fpm-php7-na-centos-8/?ysclid=l7nou55afx191688767
 
-
-# temp
-echo -en " ["$RED"$(im)"$NC"@"$GRAY""$(hostname)""$NC"] "$NC"<<< "$RED"# "$NC" "
-	read yesno
-
-if [[ "$yesno" == "" ]]
-then echo -e " "$WHITE" Отмена."
-	exit 0 ;
-else 
-	echo -e ;	
-fi ;
