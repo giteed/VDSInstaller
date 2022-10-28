@@ -6,10 +6,7 @@
 # --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
-. ~/bin/utility/.dnf-fix-help.sh
-. ~/bin/utility/.dnf-update-upgrade.sh
-. ~/bin/utility/webmin_install.sh
-. ~/bin/utility/reinstall_update_remove_vdsetup.sh
+
 
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
