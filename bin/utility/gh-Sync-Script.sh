@@ -87,8 +87,7 @@ function gh_auth_Token_login()
 	echo -e " $(black_U23A7    )" ;
 	echo -e " $(ellow_1        ) $(green_arrow) Sync now Repo: ${ELLOW}giteed/VDSetup " ;
 	echo -e " $(blue_1         )" ;
-	 	 
-		( cd /root/.GitHub_Repo/VDSetup ) 2>/dev/null ;
+	 	cd /root/.GitHub_Repo/VDSetup 2>/dev/null ;
 	echo -e " $(white_1        ) $(red_U0023) gh repo sync " ;
 	( echo -en " $(white_1     )" ; ( gh repo sync )) 2>/dev/null || ( echo -en "\n $(red_1      ) " ; ( echo -e "$(red_cross) Sync REPO error, Cloning now .." ) && ( cd ~ ; gh repo clone giteed/VDSetup /root/.GitHub_Repo/VDSetup )) ; 
 	
