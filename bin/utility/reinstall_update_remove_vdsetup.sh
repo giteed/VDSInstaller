@@ -26,7 +26,7 @@
        echo -e " $(red_1          ) $(red_n4  )) Удалить полностью. ${BLACK}(todo)${NC}" 
        echo -e " $(black_U23A9    )\n" ;
        
-       press_enter ;
+       # press_enter ;
        
        return | sync_1 ;
        
@@ -67,7 +67,7 @@
        # remove vdsetup
        echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ; 
        echo -e " $(black_U23A9) $(green_tick) ${green_n4} Удалить полностью$(RED)!" ;
-       press_enter ;
+       # press_enter ;
        sleep 3 ;
        
     }

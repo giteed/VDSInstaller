@@ -57,7 +57,8 @@
    #------------------------------------   
       function script_name()
       {
-         echo -en "${BLACK}Script Name${NC}:${GREEN} $(pwd)/"$0" ${NC}"
+         echo -e "$(pwd)" ;
+         echo -e "${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}"
          pwd ; date ; echo ;
       }
       
