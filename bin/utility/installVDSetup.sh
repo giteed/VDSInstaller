@@ -41,7 +41,7 @@ echo -e " $(red_1          ) ${RED}Do not continue${NC} if the ${ELLOW}/root/bin
 echo -e " $(red_1          ) contains the files you need${RED}!${NC}" ;
 echo -e " $(black_U23A9    ) \n" ;
 
-press_anykey ; # css ; 
+#press_anykey ; # css ; 
 
 
 # Установка VDSetup
