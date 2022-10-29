@@ -43,8 +43,8 @@ function gh_install()
 ( (gh) >/dev/null || gh_install)
 
 
-echo -e "\n # Перезагрузка ~/.bashrc " ;
-(source ~/.bashrc) ;
+# echo -e "\n # Перезагрузка ~/.bashrc " ;
+#(source ~/.bashrc) ;
 echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " ;
 
 echo ;
