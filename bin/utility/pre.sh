@@ -15,7 +15,7 @@
 	
 	echo -e "\n # Установка rsync rsync-daemon git mc gh" 
 	
-	(dnf -y install rsync rsync-daemon git mc gh) &>/dev/null ;
+	(dnf -y install rsync rsync-daemon git mc gh ; sudo systemctl start rsync ; sudo systemctl enable rsync ) &>/dev/null ;
 	
 		echo ;
 	
