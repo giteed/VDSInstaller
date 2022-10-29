@@ -33,7 +33,7 @@ function cp_old()
 
 	}
 	
-	( erase_old_content ) 2>/devnull ;
+	# ( erase_old_content ) 2>/devnull ;
 	
 	echo -e " # Создать каталог ~/root/bin если его нет " 	
 	(mkdir -p /root/bin) ; 
