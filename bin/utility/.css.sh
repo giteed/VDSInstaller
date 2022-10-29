@@ -9,7 +9,7 @@
    
    function css() 
    { 
-      echo -e "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -ghs)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" 
+      echo -e "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" 
    }
    
    #-----------------------------------
@@ -52,6 +52,16 @@
          
       }
       
+   #------------------------------------
+   # script_name
+   #------------------------------------   
+      function script_name()
+      {
+         echo -en "${BLACK}Script Name${NC}:${GREEN} $(pwd)/"$0" ${NC}"
+         pwd ; date ; echo ;
+      }
+      
+    
    #-----------------------------------
    # Таблица символов Юникода
    # https://unicode-table.com/ru/ 

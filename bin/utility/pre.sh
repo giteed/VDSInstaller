@@ -1,5 +1,14 @@
 #!/bin/bash
 	
+	script_name ;
+	
+# Source global definitions
+	# --> Прочитать настройки из /etc/bashrc
+	. ~/.bashrc
+	# --> Прочитать настройки:
+	. ~/bin/utility/.varfunc.sh
+	. ~/bin/utility/.css.sh
+	
 	clear ;
 	
 	echo ;

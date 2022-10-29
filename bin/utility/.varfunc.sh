@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
+   script_name ;
    
+
    #read -n1 -r -p " Нажмите любую кнопку..." 
    function press_enter()
    {

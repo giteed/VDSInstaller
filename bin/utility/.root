@@ -1,4 +1,5 @@
 #!/bin/bash
+script_name ;
 
 	if [[ "$EUID" -ne 0 ]]; then
     echo " Скрипт нужно запустить с правами root $( error_exit_MSG )"
