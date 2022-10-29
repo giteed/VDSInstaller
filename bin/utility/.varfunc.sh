@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Source global definitions
+# --> Прочитать настройки:
+. ~/bin/utility/.css.sh
+
+# --> Использовать ~/.bash_ali*
+. ~/.bash_aliases ;
+. ~/.bash_ali_hosts ;
+
 
    script_name ;
    
