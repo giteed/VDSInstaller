@@ -1,7 +1,11 @@
 #!/bin/bash
 
 
+ # --> Прочитать настройки:
+ . ~/bin/utility/.varfunc.sh
+ . ~/bin/utility/.css.sh
  
+ script_name ; 
  
  #------------------------------------
  # install-reinstall-remove_vdsetup
@@ -38,7 +42,7 @@
     {
        # sync
        echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ;
-       echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать до последней доступной бета версии." ;
+       echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать до последней доступной бета версии.\n" ;
        ~/bin/utility/gh-Sync-Script.sh ;
        #(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
        
@@ -48,7 +52,7 @@
     {
        # auto sync
        echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ; 
-       echo -e " $(black_U23A9) $(green_tick) 2) Включить/отключить автоматическую синхронизацию. (todo)" ;
+       echo -e " $(black_U23A9) $(green_tick) 2) Включить/отключить автоматическую синхронизацию. (todo)\n" ;
     }
     
     function del_reinstall_3()
@@ -56,7 +60,7 @@
        # del reinstall 
        {
           echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ;
-          echo -e " $(black_U23A9) $(green_tick) 3) Удалить и переустановить vdsetup на последнюю доступную бета версию." ; 
+          echo -e " $(black_U23A9) $(green_tick) 3) Удалить и переустановить vdsetup на последнюю доступную бета версию.\n" ; 
           (rm -rf ~/.VDSInstaller ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git /.VDSInstaller) ; sleep 2; (/.VDSInstaller/bin/utility/pre.sh) ;
           
        }
@@ -66,7 +70,7 @@
     {
        # remove vdsetup
        echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ; 
-       echo -e " $(black_U23A9) $(green_tick) ${green_n4} Удалить полностью$(RED)!" ;
+       echo -e " $(black_U23A9) $(green_tick) ${green_n4} Удалить полностью$(RED)!\n" ;
        # press_enter ;
        sleep 3 ;
        

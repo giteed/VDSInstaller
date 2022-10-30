@@ -8,8 +8,6 @@
 . ~/.bash_aliases ;
 . ~/.bash_ali_hosts ;
 
-
-   script_name ;
    
 
    #read -n1 -r -p " Нажмите любую кнопку..." 

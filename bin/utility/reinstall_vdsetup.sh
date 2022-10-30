@@ -7,6 +7,8 @@ script_name ;
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 
+script_name ; 
+
 	
 	clear ;
 	function done_erase()

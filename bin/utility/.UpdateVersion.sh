@@ -1,5 +1,5 @@
 #!/bin/bash
-script_name ;
+
 
 
 # Source global definitions
@@ -8,6 +8,8 @@ script_name ;
 # --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
+
+script_name ; 
 
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;

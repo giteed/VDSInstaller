@@ -1,6 +1,5 @@
 #!/bin/bash
-	
-	script_name ;
+
 	
 # Source global definitions
 	# --> Прочитать настройки из /etc/bashrc
@@ -9,7 +8,9 @@
 	. ~/bin/utility/.varfunc.sh
 	. ~/bin/utility/.css.sh
 	
-	clear ;
+	script_name ; 
+	
+	#clear ;
 	
 	echo ;
 	

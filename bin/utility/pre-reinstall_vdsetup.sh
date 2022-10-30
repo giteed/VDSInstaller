@@ -1,7 +1,7 @@
 #!/bin/bash
 	
-	clear ;
-
+	# clear ;
+echo ;
 
 
 	cp /root/bin/utility/reinstall_vdsetup.sh /tmp/ ; 

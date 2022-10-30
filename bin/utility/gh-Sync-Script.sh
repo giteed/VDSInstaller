@@ -1,5 +1,5 @@
 #!/bin/bash
-script_name ;
+
 
 
 # Source global definitions
@@ -9,6 +9,7 @@ script_name ;
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 
+script_name ;
 
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
@@ -84,7 +85,7 @@ function gh_auth_Token_login()
 	echo -e " $(black_U23A9    )" ;
 		
 		echo ;
-		press_enter ;
+		#press_enter ;
 
 	echo -e " $(black_U23A7    )" ;
 	echo -e " $(ellow_1        ) $(green_arrow) Sync now Repo: ${ELLOW}giteed/VDSetup " ;

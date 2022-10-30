@@ -1,5 +1,10 @@
 #!/bin/bash
-script_name ;
+
+# --> Прочитать настройки:
+. ~/bin/utility/.varfunc.sh
+. ~/bin/utility/.css.sh
+
+script_name ; 
 
 	if [[ "$EUID" -ne 0 ]]; then
     echo " Скрипт нужно запустить с правами root $( error_exit_MSG )"

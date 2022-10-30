@@ -57,13 +57,13 @@
    #------------------------------------   
       function script_name()
       {
-         echo -e " $(black_U23A7    ) " ;
-         echo -e " $(red_1          ) ${RED}!${NC}${BLACK}#------------------------------------ ${RED}!${NC}" ;
-         echo -e " $(ellow_1        )  ${BLACK}Path: ${NC}$(pwd)" ;
-         echo -e " $(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
-         echo -e " $(ellow_1        )  ${BLACK}Date${NC}:${GREEN} "$date" ${NC}" ;
-         echo -e " $(red_1          )  ${BLACK}Debug${RED}!${NC}" ;
-         echo -e " $(black_U23A9    ) \n" ;
+         echo -e "   $(black_U23A7    ) " ;
+         echo -e "  $(red_star)$(red_1          ) ${RED}!${NC}${BLACK}#${RED}----------------${BLACK}Debug${RED}---------------- ${NC}!" ;
+         echo -en "  $(red_star)$(ellow_1        )  ${BLACK}Path${NC}: " ; echo -e "${NC}$(pwd)" ;
+         echo -e "  $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
+         echo -e "  $(red_star)$(ellow_1        )  ${BLACK}Date${NC}:${NC} "$(date)" ${NC}" ;
+         echo -e "  $(red_star)$(red_1          )  ${RED}!${NC}${BLACK}Debug${RED}!${NC}" ;
+         echo -e "   $(black_U23A9    ) \n" ;
       }
       
     

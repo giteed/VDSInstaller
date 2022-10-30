@@ -11,6 +11,8 @@ script_name ;
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 
+script_name ; 
+
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
 . ~/.bash_ali_hosts ;
