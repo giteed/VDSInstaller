@@ -60,7 +60,7 @@
       
       
       
-      # function debug()
+      function debug()
       {
          path_n=$0
          echo -e "        $(black_U23A7    ) " ;
