@@ -63,11 +63,6 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
  function debug()
    {
       
-      debug_status = 1 ;
-      
-      
-      
-      
       function debug_on()
       {
          path_n=$0
@@ -89,6 +84,8 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function debug_on_off()
       {
+         debug_status = 1 ;
+         
       if [[ debug_status == 1 ]]
          then debug_on 
          else debug_off
