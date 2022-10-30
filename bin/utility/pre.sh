@@ -5,7 +5,7 @@
 	echo -e  "    Script Name: "$0"\n" ;
 	( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
 	sleep 1 ;
-	echo -e " #\n GitHub Синхронизация, " 
+	echo -e "\n # GitHub Синхронизация, " 
 	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
 	echo -e " #        с папкой: /root\n" 
 	
