@@ -102,9 +102,9 @@ function gh_auth_Token_login()
 	 echo -en " $(white_1      )" ; echo -e " $(red_U0023) cd ${CYAN}/root/.GitHub_Repo/VDSetup ${NC}" ;
 	 echo -e " $(blue_1        )" ;
 	 echo -en " $(white_1      )" ; echo -e " $(green_arrow) For Update VDSetup Version - Run:" ;
-	 echo -en " $(white_1      )" ; echo -e " $(red_U0023)${CYAN} vdsetup -ghs ${NC}" ;
+	 echo -en " $(white_1      )" ; echo -e " $(red_U0023)${CYAN} vdsetup -sync ${NC}" ;
 	 echo -e " $(blue_1        )" ;
-	 echo -e " $(black_U23A9   )" ; 
+	 echo -e " $(black_U23A9   )\n" ; 
 	 
 	/root/bin/utility/.UpdateVersion.sh || echo -e "	${RED}ERRORRR ${NC} .UpdateVersion.sh\n" ;
 	echo ;
