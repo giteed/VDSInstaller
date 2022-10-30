@@ -4,13 +4,16 @@
 	echo -en "\n   Path: " ; pwd ;
 	echo -e "   Script Name: "$0"\n" ;
 	sleep 1 ;
-	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика, с папкой ~/root\n" 
+	echo -e " # GitHub Синхронизация, " 
+	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
+	echo -e " # с папкой: ~/root\n" 
+	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 	
 	
 	function inesync()
 	{
-			echo -e "\n # Установка rsync rsync-daemon git mc gh" 
+			echo -e "\n # Установка rsync rsync-daemon git mc gh." 
 	
 	(dnf -y install rsync rsync-daemon git mc gh ; sudo systemctl start rsync ; sudo systemctl enable rsync ) &>/dev/null ;
 	
@@ -20,23 +23,21 @@
 	
 function cp_old() 
 {
-	echo -e " # Функция копирования предыдущих .bash* файлов в /tmp/ " 
-	echo -e " # Переход в домашний каталог (root) " 
+	echo -e " # Функция копирования предыдущих: .bash* файлов в: /tmp/ " 
+	echo -e " # Переход в домашний каталог (root). " 
 	
 	(cd ~/) ; 
-	echo -e " # Сохранение старых версий  " 
+	echo -e " # Сохранение старых версий.  " 
 	
 	yes | cp -Rf .bash_ali_hosts /tmp/.bash_ali_hosts_old ;
 	yes | cp -Rf .bash_profile /tmp/.bash_profile_old ; 
 	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
 	yes | cp -Rf .bashrc /tmp/.bashrc_old 
 	
-	echo -e " # Создать каталог ~/root/bin если его нет " 	
+	echo -e " # Создать каталог ~/root/bin если его нет. " 	
 	(mkdir -p /root/bin) ; 
-	
-	
+
 }
-	
 
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
