@@ -2,7 +2,7 @@
 
 	
 	echo ;
-	
+	echo -e "debug: $(0)"
 	sleep 1 ;
 	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root\n" 
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
