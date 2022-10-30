@@ -4,11 +4,8 @@
 # Source global definitions
 	# --> Прочитать настройки из /etc/bashrc
 	. ~/.bashrc
-	# --> Прочитать настройки:
-	. ~/bin/utility/.varfunc.sh
-	. ~/bin/utility/.css.sh
-	
-	script_name ; 
+
+
 	
 	#clear ;
 	
@@ -42,6 +39,12 @@ function cp_old()
 	 sleep 1 ;
 echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
 (rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
+
+	# --> Прочитать настройки:
+. ~/bin/utility/.varfunc.sh
+. ~/bin/utility/.css.sh
+	
+script_name ; 
 
 function gh_install()
 {
