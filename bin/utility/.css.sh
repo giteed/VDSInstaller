@@ -61,6 +61,14 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
    #------------------------------------   
    
  function debug()
+   {
+      
+      debug_status = 1 ;
+      
+      
+      
+      
+      function debug_on()
       {
          path_n=$0
          
@@ -73,6 +81,23 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          echo -e "       $(red_star)$(ellow_1        ) " ;
          echo -e "        $(black_U23A9    ) \n" ;
       }
+      
+      function debug_off()
+      {
+         echo debug_off ;
+      }
+      
+      function debug_on_off()
+      {
+      if [[ debug_status == 1 ]]
+         then debug_on 
+         else debug_off
+      fi ;
+      }
+      
+      debug_on_off ;
+      
+   }
 
    #------------------------------------
    # script_name
