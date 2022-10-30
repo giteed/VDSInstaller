@@ -1,9 +1,5 @@
 #!/bin/bash
 
-script_name ;
-
-
-
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
