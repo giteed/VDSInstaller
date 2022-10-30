@@ -7,14 +7,14 @@
    # баннер
    #------------------------------------
    
-   function css() 
+function css() 
    { 
       echo -e "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" 
    }
    
    #-----------------------------------
    
-   function hip() # host/ip
+function hip() # host/ip
    {
       echo -en "${NC}         ¯\_("$RED"ツ"${NC}")_/¯"
       echo -e "${NC}" && ip=$(wget -qO- icanhazip.com)
@@ -23,9 +23,7 @@
       ip=''
    
    }
-   #-----------------------------------
-   
-   
+
    #------------------------------------
    # баннер
    #------------------------------------
@@ -43,26 +41,29 @@
       # ФУНКЦИЯ: User
       function im() { whoami ; } ;
       
-   #-----------------------------------
-      function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
+
+
+   #------------------------------------
+   # script_name Debug
+   #------------------------------------ 
+   
+function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function Version_vdsetup()
       {
          echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
          
       }
-      
+
+
    #------------------------------------
-   # script_name Debug
+   # script_name debug
    #------------------------------------   
-      
-      
-      
-      
-      
-      function debug()
+   
+ function debug()
       {
          path_n=$0
+         
          echo -e "        $(black_U23A7    ) " ;
          echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
          echo -en "       $(red_star)$(ellow_1        )  ${BLACK}Path$ .....${NC}: " ; echo -e "${NC}$(pwd)" ;
@@ -72,8 +73,13 @@
          echo -e "       $(red_star)$(ellow_1        ) " ;
          echo -e "        $(black_U23A9    ) \n" ;
       }
-      
-      function script_name()
+
+   #------------------------------------
+   # script_name
+   #------------------------------------  
+   
+function script_name()
+
       {
          (debug ;) 2>/dev/null || echo no_debug ;
       }
@@ -109,7 +115,6 @@
          
          function green_OK() { echo -e "${GREEN}OK${NC}" ; } ;
          
-        
          
          function green_1() { echo -e "${GREEN}|${NC}" ; } ;
          function white_1() { echo -e "${WHITE}|${NC}" ; } ;
@@ -151,7 +156,7 @@
          function red_n10() { echo -e "${RED}10${NC}" ; } ;
          
          
-         function green_star37()
+function green_star37()
          {
             echo -e "$(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) " ;
          }
