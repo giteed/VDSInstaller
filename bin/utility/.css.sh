@@ -79,7 +79,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function debug_off()
       {
-         echo debug_off ;
+         2>/dev/null ;
       }
       
       function debug_on_off()
