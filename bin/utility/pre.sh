@@ -1,14 +1,6 @@
 #!/bin/bash
 
 	
-# Source global definitions
-	# --> Прочитать настройки из /etc/bashrc
-	. ~/.bashrc
-
-
-	
-	#clear ;
-	
 	echo ;
 	
 	echo -e "\n # Установка rsync rsync-daemon git mc gh" 
@@ -40,6 +32,10 @@ function cp_old()
 echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
 (rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 
+
+# Source global definitions
+# --> Прочитать настройки из /etc/bashrc
+. ~/.bashrc
 	# --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
