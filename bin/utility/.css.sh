@@ -64,6 +64,7 @@
          echo -e "   $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
          echo -e "   $(red_star)$(ellow_1        )  ${BLACK}Date${NC}:${NC} "$(date)" ${NC}" ;
          echo -e "   $(red_star)$(ellow_1        ) " ; ps aux | grep $path_n ;
+         echo -e "   $(red_star)$(ellow_1        ) " ;
          echo -e "    $(black_U23A9    ) \n" ;
       }
       
