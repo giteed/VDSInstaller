@@ -5,8 +5,6 @@
  . ~/bin/utility/.varfunc.sh
  . ~/bin/utility/.css.sh
  
- script_name ; 
- 
  #------------------------------------
  # install-reinstall-remove_vdsetup
  #------------------------------------
@@ -14,7 +12,7 @@
  function reinstall_update_remove_vdsetup()
  {
     
-    
+    script_name ;
     
     function menu()
     {
