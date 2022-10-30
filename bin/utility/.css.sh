@@ -84,9 +84,9 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function debug_on_off()
       {
-         debug_status = 1 ;
+         debug_status=1 ;
          
-      if [[ debug_status == 1 ]]
+      if [[ $debug_status == 1 ]]
          then debug_on 
          else debug_off
       fi ;
