@@ -1,12 +1,14 @@
 #!/bin/bash
 
-	
-	echo -en "\n        Path: " ; pwd ;
-	echo -e "        Script Name: "$0"\n" ;
+	echo -en "\n    >>>>> Debug! " ;
+	echo -en "\n           Path: " ; pwd ;
+	echo -e "       Script Name: "$0"\n" ;
 	sleep 1 ;
 	echo -e " # GitHub Синхронизация, " 
 	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
-	echo -e " # с папкой     : ~/root\n" 
+	echo -e " #        с папкой: ~/root\n" 
+	( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
+	
 	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 	
