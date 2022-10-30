@@ -1,7 +1,7 @@
 #!/bin/bash
 
 	
-	echo ;
+	echo -en "Path: " ; pwd ;
 	echo -e "   Script Name: "$0"\n" ;
 	sleep 1 ;
 	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика, с папкой ~/root\n" 
