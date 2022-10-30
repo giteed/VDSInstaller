@@ -17,7 +17,7 @@
       read yesno
       
       if [[ "$yesno" == "" ]]
-      then css ;
+      then echo ; css ;
          echo -e ;
       else 
          exit 0 ;

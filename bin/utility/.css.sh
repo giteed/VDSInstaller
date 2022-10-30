@@ -55,7 +55,12 @@
    #------------------------------------
    # script_name Debug
    #------------------------------------   
-      function debug()
+      
+      
+      
+      
+      
+      # function debug()
       {
          path_n=$0
          echo -e "        $(black_U23A7    ) " ;
@@ -70,7 +75,7 @@
       
       function script_name()
       {
-         debug ; #2>/dev/null
+         debug  2>/dev/null || echo no_debug ;
       }
     
    #-----------------------------------
