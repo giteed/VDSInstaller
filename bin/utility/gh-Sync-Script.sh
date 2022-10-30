@@ -39,8 +39,8 @@ function SSH_keys_here()
 		echo -e " $(white_1     ) with ${CYAN}> SSH ${NC} " ;
 		echo -e " $(blue_1      ) this key ${CYAN}> /root/.ssh/id_rsa.pub ${NC}" ;
 		echo -e " $(blue_1      ) and ${CYAN}> Paste an authentication token${NC}" ;
-		echo -en " $(blue_1     ) $(green_arrow) Use this GitHub Token .....: ${GREEN}" ; 
-		echo -e "${CYAN}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 ${NC} " ;
+		echo -en " $(blue_1     ) $(green_arrow) Use this GitHub Token .....${GREEN}: " ; 
+		echo -e "${ELLOW} $(cat /root/token_vdsetup.txt) ${NC} " ;
 		echo -e " $(black_U23A9 ) " ;
 		echo ;
 
@@ -57,7 +57,7 @@ auth_token=$(cat login.txt)
 # gh auth login
 function gh_auth_Token_login()
 	{
-	echo -en " $(white_1      ) $(green_tick) Now you use GitHub Token ${RED}" ; echo -e " : $(gh auth token)"  ;
+	echo -en " $(white_1      ) $(green_tick) Now you use GitHub Token ${GREEN}" ; echo -e " : $(gh auth token)"  ;
 	}
 
 		gh_auth_Token_login || gh auth login  ;
