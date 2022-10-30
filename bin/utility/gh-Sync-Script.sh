@@ -40,7 +40,7 @@ function SSH_keys_here()
 		echo -e " $(blue_1      ) this key ${CYAN}> /root/.ssh/id_rsa.pub ${NC}" ;
 		echo -e " $(blue_1      ) and ${CYAN}> Paste an authentication token${NC}" ;
 		echo -en " $(blue_1     ) $(green_arrow) Use this GitHub Token .....${GREEN}: " ; 
-		echo -e "${ELLOW} $(cat /root/token_vdsetup.txt) ${NC} " ;
+		echo -e "${ELLOW} $(cat /root/token_vdsetup.txt 2>/dev/null ;) ${NC} " ;
 		echo -e " $(black_U23A9 ) " ;
 		echo ;
 
