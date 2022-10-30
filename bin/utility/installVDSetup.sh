@@ -3,11 +3,12 @@
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
-# --> Прочитать настройки:
-. ~/bin/utility/.varfunc.sh
-. ~/bin/utility/.css.sh
 
-script_name ; 
+# --> Прочитать настройки:
+. ~/bin/utility/.varfunc.sh &>/dev/null ;
+. ~/bin/utility/.css.sh &>/dev/null ;
+
+script_name ;
 
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;

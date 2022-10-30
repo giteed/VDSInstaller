@@ -5,9 +5,10 @@
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
+
 # --> Прочитать настройки:
-. ~/bin/utility/.varfunc.sh
-. ~/bin/utility/.css.sh
+. ~/bin/utility/.varfunc.sh &>/dev/null ;
+. ~/bin/utility/.css.sh &>/dev/null ;
 
 script_name ;
 

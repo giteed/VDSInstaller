@@ -1,10 +1,12 @@
 #!/bin/bash
 
 
- # --> Прочитать настройки:
- . ~/bin/utility/.varfunc.sh
- . ~/bin/utility/.css.sh
- script_name ;
+# --> Прочитать настройки:
+. ~/bin/utility/.varfunc.sh &>/dev/null ;
+. ~/bin/utility/.css.sh &>/dev/null ;
+
+script_name ;
+
  #------------------------------------
  # install-reinstall-remove_vdsetup
  #------------------------------------
@@ -17,6 +19,7 @@
     function menu()
     {
        # gh auth login 
+       script_name ;
        echo -e "\n $(black_U23A7    )" ;
        echo -en " $(white_1       ) $(green_tick) Now you use GitHub Token" ; echo -e " : ${BLACK}$(gh auth token)" ;
        echo -e " $(white_1        ) " ; 

@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Source global definitions
+
 # --> Прочитать настройки:
-. ~/bin/utility/.css.sh
+. ~/bin/utility/.css.sh &>/dev/null ;
+
 
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;

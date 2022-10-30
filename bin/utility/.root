@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # --> Прочитать настройки:
-. ~/bin/utility/.varfunc.sh
-. ~/bin/utility/.css.sh
+. ~/bin/utility/.varfunc.sh &>/dev/null ;
+. ~/bin/utility/.css.sh &>/dev/null ;
+
+
 
 
 	if [[ "$EUID" -ne 0 ]]; then

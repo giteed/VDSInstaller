@@ -1,5 +1,8 @@
 #!/bin/bash
+
+
 	path_n=$0 ;
+	
 	echo -en "\n    >>>>> Debug! " ;
 	echo -en "\n           Path: " ; pwd ;
 	echo -e  "    Script Name: "$0"\n" ;
