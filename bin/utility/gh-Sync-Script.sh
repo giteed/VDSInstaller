@@ -66,7 +66,7 @@ function gh_auth_Token_login()
 
 		echo ;
 		
-	    press_enter ;
+	    #press_enter ;
 
 	echo -e " $(black_U23A7    ) " ;
 	echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
