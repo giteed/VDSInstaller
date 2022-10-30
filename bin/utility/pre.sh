@@ -2,7 +2,7 @@
 	path_n=$0 ;
 	echo -en "\n    >>>>> Debug! " ;
 	echo -en "\n           Path: " ; pwd ;
-	echo -e  "        Script Name: "$0"\n" ;
+	echo -e  "   Script Name: "$0"\n" ;
 	sleep 1 ;
 	echo -e " # GitHub Синхронизация, " 
 	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
