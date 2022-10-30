@@ -4,7 +4,7 @@
  # --> Прочитать настройки:
  . ~/bin/utility/.varfunc.sh
  . ~/bin/utility/.css.sh
- 
+ script_name ;
  #------------------------------------
  # install-reinstall-remove_vdsetup
  #------------------------------------
@@ -12,7 +12,7 @@
  function reinstall_update_remove_vdsetup()
  {
     
-    script_name ;
+    
     
     function menu()
     {
@@ -43,7 +43,7 @@
        echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать до последней доступной бета версии.\n" ;
        ~/bin/utility/gh-Sync-Script.sh ;
        #(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
-       
+       script_name ;
     }
     
     function auto_sync_2()
