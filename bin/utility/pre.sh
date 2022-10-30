@@ -2,9 +2,9 @@
 
 	
 	echo ;
-	echo -e "  Script Name: "$0"\n" ;
+	echo -e "   Script Name: "$0"\n" ;
 	sleep 1 ;
-	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root\n" 
+	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика, с папкой ~/root\n" 
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 	
 	
@@ -65,7 +65,7 @@ function gh_install()
 echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " ;
 
 echo ;
-echo -e " # Установка VDSetup - переход к установке " 
+echo -e " # Установка VDSetup - переход к установке \n" 
 sleep 1 ;
 /root/bin/utility/installVDSetup.sh ;
 

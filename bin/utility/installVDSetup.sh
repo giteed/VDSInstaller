@@ -12,6 +12,7 @@ script_name ;
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
 . ~/.bash_ali_hosts ;
+
 # --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
 . ~/bin/utility/.root
 # Перезагрузка ~/.bashrc
@@ -43,7 +44,7 @@ echo -e " $(black_U23A9    ) \n" ;
 
 
 # Установка VDSetup
- echo -e "\n  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
+ echo -e "  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}\n" ;
 	( /root/bin/utility/gh-Sync-Script.sh ) && echo -e "\n	$(green_arrow) Install vdsetup .... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
 	echo -e "\n $(black_U23A7 ) " ;
