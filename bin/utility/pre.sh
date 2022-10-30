@@ -2,12 +2,15 @@
 
 	
 	echo ;
-	
-	echo -e "\n # Установка rsync rsync-daemon git mc gh" 
+	function inesync()
+	{
+			echo -e "\n # Установка rsync rsync-daemon git mc gh" 
 	
 	(dnf -y install rsync rsync-daemon git mc gh ; sudo systemctl start rsync ; sudo systemctl enable rsync ) &>/dev/null ;
 	
 		echo ;
+	}
+
 	
 function cp_old() 
 {
@@ -21,17 +24,15 @@ function cp_old()
 	yes | cp -Rf .bash_profile /tmp/.bash_profile_old ; 
 	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
 	yes | cp -Rf .bashrc /tmp/.bashrc_old 
-}
-	(cp_old) 2>/devnull ;
-	
 	
 	echo -e " # Создать каталог ~/root/bin если его нет " 	
 	(mkdir -p /root/bin) ; 
-
-	 sleep 1 ;
-echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
-(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
-
+	
+	sleep 1 ;
+	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
+	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
+}
+	
 
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
@@ -41,6 +42,9 @@ echo -e " # GitHub Синхронизация локального репо /roo
 . ~/bin/utility/.css.sh
 	
 script_name ; 
+
+inesync ;
+(cp_old) 2>/devnull ;
 
 function gh_install()
 {
