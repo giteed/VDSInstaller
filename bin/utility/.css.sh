@@ -75,7 +75,7 @@
       
       function script_name()
       {
-         debug # 2>/dev/null || echo no_debug ;
+         (debug ;) 2>/dev/null || echo no_debug ;
       }
     
    #-----------------------------------
