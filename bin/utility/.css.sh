@@ -63,7 +63,7 @@
          echo -en "   $(red_star)$(ellow_1        )  ${BLACK}Path${NC}: " ; echo -e "${NC}$(pwd)" ;
          echo -e "   $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
          echo -e "   $(red_star)$(ellow_1        )  ${BLACK}Date${NC}:${NC} "$(date)" ${NC}" ;
-         echo -e "   $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix ) 2>/dev/null || ps aux | grep $path_n ) ;
+         echo -e "   $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
          echo -e "   $(red_star)$(ellow_1        ) " ;
          echo -e "    $(black_U23A9    ) \n" ;
       }
