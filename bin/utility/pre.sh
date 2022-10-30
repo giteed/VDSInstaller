@@ -2,6 +2,12 @@
 
 	
 	echo ;
+	
+	sleep 1 ;
+	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
+	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
+	
+	
 	function inesync()
 	{
 			echo -e "\n # Установка rsync rsync-daemon git mc gh" 
@@ -28,9 +34,7 @@ function cp_old()
 	echo -e " # Создать каталог ~/root/bin если его нет " 	
 	(mkdir -p /root/bin) ; 
 	
-	sleep 1 ;
-	echo -e " # GitHub Синхронизация локального репо /root/.VDSInstaller/ установщика с папкой ~/root" 
-	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
+	
 }
 	
 
