@@ -58,7 +58,7 @@
       function debug()
       {
          echo -e "   $(black_U23A7    ) " ;
-         echo -e "  $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED}----------------${BLACK}Debug${RED}---------------- ${NC}!" ;
+         echo -e "  $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED}----------------${BLACK}Debug${RED}----------------${BLACK}#${NC}!" ;
          echo -en "  $(red_star)$(ellow_1        )  ${BLACK}Path${NC}: " ; echo -e "${NC}$(pwd)" ;
          echo -e "  $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
          echo -e "  $(red_star)$(ellow_1        )  ${BLACK}Date${NC}:${NC} "$(date)" ${NC}" ;
@@ -67,7 +67,7 @@
       
       function script_name()
       {
-         debug 2>/dev/null
+         debug ; #2>/dev/null
       }
     
    #-----------------------------------
