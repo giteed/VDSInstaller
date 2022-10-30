@@ -13,8 +13,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# --> Прочитать настройки из ~/bin/.varfunc.sh
+# --> Прочитать настройки из
 . ~/bin/utility/.varfunc.sh
+. ~/bin/utility/.css.sh
 #-----------------------------------
 
 chmod +x -R /root/bin/ ;
