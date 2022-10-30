@@ -6,7 +6,7 @@
 	sleep 1 ;
 	echo -e " # GitHub Синхронизация, " 
 	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
-	echo -e " # с папкой: ~/root\n" 
+	echo -e " # с папкой     : ~/root\n" 
 	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
 	
