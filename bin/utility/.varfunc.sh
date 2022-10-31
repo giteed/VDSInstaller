@@ -13,48 +13,31 @@
    
    function press_enter_to_continue_or_any_key_to_cancel()
    {
-      function _enter-to-continue() 
-      {
-         ( read -p " _enter-to-continue " ) ;
-      }
-      
-      function press_anykey_to_cancel()
-      {
-         #( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
-         ( read -n 1 -s -r -p " press_anykey_to_cancel " ) ;
-      }
-      
-       _enter-to-continue || press_anykey_to_cancel ;
+         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  "
+         read answ ;
+      if 
+         [[ "$answ" == "" ]] 
+      then 
+         echo enter ;
+      else 
+         exit 0 ;
+         
+      fi
       
    }
    
    
    
    
-   function press_enter_to_continue_or_ESC_to_cancel()
-   {
+   #function press_enter_to_continue_or_ESC_to_cancel()
+   
+     #printf "Press 'ENTER' to continue or 'ESC' to cancel... "
      
-     
-     function _enter-to-continue() {
-         local hold='\n'        # this solution i tried, but without success
-     
-         ##printf "${BLACK}     Press '${ELLOW}ENTER${BLACK}' to continue or '${RED}ESC${NC}'${BLACK} to cancel...${NC} "
-         printf "Press 'ENTER' to continue or 'ESC' to cancel... "
-         local original_tty_state=$(stty -g)
-         trap "stty $original_tty_state; exit 0" 2
-         stty intr \033
-     
-         stty raw isig noflsh echo icrnl
-     
-         until [ -z "${hold#$in}" ]; do
-             in=$(dd bs=1 count=1 </dev/tty 2>/dev/null)
-         done
-     
-         stty "$original_tty_state"
-     }
-      _enter-to-continue ;
+   #function press_enter_to_continue_or_ESC_to_cancel() 
+   #{
       
-   }
+   #}
+
    
 
    
