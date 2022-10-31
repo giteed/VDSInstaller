@@ -44,16 +44,21 @@ function hip() # host/ip
 
 
    #------------------------------------
-   # script_name Debug
+   # Version_vdsetup
    #------------------------------------ 
    
-function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
+function Version_vdsetup()
+   {
+      echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
       
-      function Version_vdsetup()
-      {
-         echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
-         
-      }
+   }
+
+   #------------------------------------
+   # Version_vdsetup
+   #------------------------------------ 
+
+function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
+
 
 
    #------------------------------------
@@ -86,7 +91,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       {
          debug_status=$(cat /root/.debug.txt) ;
          
-      if [[ $debug_status == 1 ]]
+      if [[ $debug_status == "Debug enabled" ]]
          then debug_on 
          else debug_off
       fi ;
@@ -100,18 +105,13 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
    # script_name
    #------------------------------------  
    
-function script_name()
-
-      {
-         (debug ;) 2>/dev/null || echo no_debug ;
-      }
+function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
     
    #-----------------------------------
    # Таблица символов Юникода
    # https://unicode-table.com/ru/ 
    #-----------------------------------
-      
-
+   
          function not_found_MSG() { echo -e "${RED}✖ Не найден${NC}" ; } ;
          function found_MSG() { echo -e "${GREEN}✓ Найден${NC}" ; } ;
          
@@ -179,6 +179,6 @@ function script_name()
          
          
 function green_star37()
-         {
-            echo -e "$(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) " ;
-         }
+   {
+      echo -e "$(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) $(green_star) " ;
+   }
