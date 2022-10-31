@@ -9,7 +9,7 @@
    
 function css() 
    { 
-      echo -e "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup $(echo $(bat ~/.debug.txt)))" 
+      echo -e "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup (echo $(cat ~/.debug.txt)))" 
    }
    
    #-----------------------------------
