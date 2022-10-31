@@ -29,7 +29,8 @@
    
    function press_anykey()
    {
-      ( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
+      #( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
+      ( read -n 1 -s -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
    }
     
    
