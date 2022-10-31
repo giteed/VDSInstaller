@@ -24,7 +24,7 @@
          ( read -n 1 -s -r -p " press_anykey_to_cancel " ) ;
       }
       
-      press_anykey_to_cancel || _enter-to-continue ;
+       _enter-to-continue || press_anykey_to_cancel ;
       
    }
    
