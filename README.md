@@ -33,8 +33,7 @@
 
 - Запуск установщика:
   (~/.VDSInstaller/preloader.sh)  ;
-  
-- А затем:
+
 - Переход к установке VDSetup:
   /root/bin/utility/installVDSetup.sh ;
 
