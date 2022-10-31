@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Source global definitions
+# --> Прочитать настройки из /etc/bashrc
+. ~/.bashrc
 
 # --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh &>/dev/null ;

@@ -48,7 +48,8 @@ function cp_old()
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
-	# --> Прочитать настройки:
+
+# --> Прочитать настройки:
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 	
