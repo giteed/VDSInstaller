@@ -43,7 +43,7 @@ echo -e " $(black_U23A9    ) \n" ;
 
 press_anykey ; echo -e "\n" ;
 press_enter_to_continue_or_ESC_to_cancel ; echo -e "\n" ; # css ; 
-
+press_enter_to_continue_or_any_key_to_cancel ;
 
 # Установка VDSetup
  echo -e "  	$(green_arrow) Installing \"VDSetup\" scripts ... : $(green_tick) ${GREEN}In progress ...${NC}\n" ;
