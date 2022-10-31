@@ -23,19 +23,24 @@
 - Удаление всего содержимого ~/bin/ (если оно было)
 - Не запускайте этот инсталлятор, если в папке  ~/bin/
   содержатся нужные вам файлы:
+
   rm -rf ~/.VDSInstaller ~/bin/* ;
 
 - Установка rsync rsync-daemon git mc:
+
   (dnf -y install rsync rsync-daemon git mc) &>/devnull ;
 
 - Клонирование репо с GitHub в локальный репо:
+
   (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ;
 
 - Запуск установщика:
+
   (~/.VDSInstaller/preloader.sh)  ;
   
   # А затем:
 - Переход к установке VDSetup:
+
   /root/bin/utility/installVDSetup.sh ;
 
   
