@@ -27,7 +27,7 @@ script_name ;
 echo -e "	$(green_arrow) Upgraded scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
 ( cp -a /root/.GitHub_Repo/VDSetup/. /root ) && echo -e "	$(green_arrow) Update version ..... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
-(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
+#(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log
 
 # ( cp -a /root/.GitHub_Repo/VDSetup/. /root )
 
