@@ -9,11 +9,41 @@
 # --> Использовать ~/.bash_ali*
 . ~/.bash_aliases ;
 . ~/.bash_ali_hosts ;
-
+   
+   
+   function press_enter_to_continue_or_ESC_to_cancel()
+   {
+      function _enter-to-continue() {
+          local hold='\n'        # this solution i tried, but without success
+      
+          printf "Press 'ENTER' to continue or 'ESC' to cancel... "
+          local original_tty_state=$(stty -g)
+          trap "stty $original_tty_state; exit 0" 2
+          stty intr \033
+      
+          stty raw isig noflsh echo icrnl
+      
+          until [ -z "${hold#$in}" ]; do
+              in=$(dd bs=1 count=1 </dev/tty 2>/dev/null)
+          done
+      
+          stty "$original_tty_state"
+      }
+      _enter-to-continue ;
+      
+   }
+   
+   
+   
+   
+   function press_enter()
+   {
+      read -p "Press ENTER to continue $(echo -e $BLACK)(Ctrl+c to quit)" || read -p "Press ENTER to continue (Ctrl+c to quit)" ;
+   }
    
 
    #read -n1 -r -p " Нажмите любую кнопку..." 
-   function press_enter()
+   function press_enter_or_cancel()
    {
       echo -en "                "$RED"# ${BLACK}PRESS ${NC}\"${ELLOW}ENTER${NC}\" ${green}to Continue ${NC}...\n\n${NC}     ${BLACK}... or ${NC}\"${cyan}any key${NC}\" ${GREEN}+ ${NC}\"${ellow}ENTER${NC}\" ${red}to Cancel.\n ${NC}"
       read yesno
@@ -30,7 +60,7 @@
    function press_anykey()
    {
       #( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
-      ( read -n 1 -s -r -p " $(echo -e "$ELLOW\n")    PRESS $(echo -e $BLACK)any key ...$(echo -e "$NC \n")" ) ;
+      ( read -n 1 -s -r -p " $(echo -e "$ELLOW\n")    Press $(echo -e $BLACK)any key ...$(echo -e "$NC \n")" ) ;
    }
     
    
