@@ -1,16 +1,58 @@
 #!/bin/bash
 
 
-	path_n=$0 ;
 	
-	echo -en "\n    >>>>> Debug! " ;
-	echo -en "\n           Path: " ; pwd ;
-	echo -e  "    Script Name: "$0"\n" ;
-	( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
-	sleep 1 ;
-	echo -e "\n # GitHub Синхронизация, " 
-	echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
-	echo -e " #        с папкой: /root\n" 
+	
+	
+	#------------------------------------
+	   # script_name debug
+	   #------------------------------------   
+	   
+	 function debug()
+	   {
+		  
+		  function debug_on()
+		  {
+			 path_n=$0
+			 
+			 echo -e "        $(black_U23A7    ) " ;
+			 echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
+			 echo -en "       $(red_star)$(ellow_1        )  ${BLACK}Path$ .....${NC}: " ; echo -e "${NC}$(pwd)" ;
+			 echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
+			 echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Date ......${NC}: "$(date)" ${NC}" ;
+			 echo -e "       $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
+			 echo -e "       $(red_star)$(ellow_1        ) " ;
+			 echo -e "        $(black_U23A9    ) \n" ;
+		  }
+		  
+		  function debug_off()
+		  {
+			 2>/dev/null ;
+		  }
+		  
+		  function debug_on_off()
+		  {
+			 debug_status=$(cat /root/.debug.txt) ;
+			 
+		  if [[ $debug_status == "Debug enabled" ]]
+			 then debug_on 
+			 else debug_off
+		  fi ;
+		  }
+		  
+		  debug_on_off ;
+		  
+	   }
+	
+	
+	
+	#------------------------------------
+	   # script_name
+	   #------------------------------------  
+	   
+	function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
+	
+	script_name ;
 	
 	
 	
@@ -53,7 +95,7 @@ function cp_old()
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 	
-script_name ; 
+#script_name ; 
 
 inesync ;
 (cp_old) 2>/devnull ;
@@ -81,3 +123,14 @@ sleep 1 ;
 	
 exit 0 ;
 
+
+path_n=$0 ;
+
+echo -en "\n    >>>>> Debug! " ;
+echo -en "\n           Path: " ; pwd ;
+echo -e  "    Script Name: "$0"\n" ;
+( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
+sleep 1 ;
+echo -e "\n # GitHub Синхронизация, " 
+echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
+echo -e " #        с папкой: /root\n" 
