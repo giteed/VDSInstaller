@@ -16,7 +16,7 @@
       function _enter-to-continue() {
           local hold='\n'        # this solution i tried, but without success
       
-          printf "Press 'ENTER' to continue or 'ESC' to cancel... "
+          printf "${BLACK}   Press 'ENTER' to continue or 'ESC' to cancel... "
           local original_tty_state=$(stty -g)
           trap "stty $original_tty_state; exit 0" 2
           stty intr \033
