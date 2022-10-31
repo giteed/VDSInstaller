@@ -32,12 +32,12 @@
   (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ;
 
 - Запуск установщика:
-  (~/.VDSInstaller/pre.sh)  ;
+  (~/.VDSInstaller/preloader.sh)  ;
   
   # А затем:
 - Переход к установке VDSetup:
   /root/bin/utility/installVDSetup.sh ;
 
   
-  # Спасибо за проявленный интерес! :)
+ - Спасибо за проявленный интерес! :)
   
