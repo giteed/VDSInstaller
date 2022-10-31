@@ -93,7 +93,7 @@ function gh_auth_Token_login()
 	echo -e " $(blue_1         )" ;
 	 	cd /root/.GitHub_Repo/VDSetup 2>/dev/null ;
 	echo -e " $(white_1        ) $(red_U0023) gh repo sync " ;
-	( echo -en " $(white_1     )" ; ( gh repo sync )) 2>/dev/null || ( echo -en "\n $(red_1      ) " ; ( echo -e "$(red_cross) Sync REPO error, Cloning now .." ) && ( cd ~ ; gh repo clone giteed/VDSetup /root/.GitHub_Repo/VDSetup )) ; 
+	( echo -en " $(white_1     ) " ; ( gh repo sync )) 2>/dev/null || ( echo -en "\n $(red_1      ) " ; ( echo -e "$(red_cross) Sync REPO error, Cloning now .." ) && ( cd ~ ; gh repo clone giteed/VDSetup /root/.GitHub_Repo/VDSetup )) ; 
 	
 	
 	# Папка с локальным репозиторием находится по пути: /root/.GitHub_Repo/VDSetup
