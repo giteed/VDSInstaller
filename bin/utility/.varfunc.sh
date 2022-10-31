@@ -33,19 +33,25 @@
    
    function press_enter_to_continue_or_ESC_to_cancel()
    {
-      function _enter-to-continue() 
-      {
-          local hold='\n'        # this solution i tried, but without success   
-          printf "${BLACK}     Press '${ELLOW}ENTER${BLACK}' to continue or '${RED}ESC${NC}'${BLACK} to cancel...${NC} "
-          local original_tty_state=$(stty -g)
-          trap "stty $original_tty_state; exit 0" 2
-          stty intr \033
-          stty raw isig noflsh echo icrnl
-          until [ -z "${hold#$in}" ]; do
-              in=$(dd bs=1 count=1 </dev/tty 2>/dev/null)
-          done
-          stty "$original_tty_state"
-      }
+     
+     
+     function _enter-to-continue() {
+         local hold='\n'        # this solution i tried, but without success
+     
+         ##printf "${BLACK}     Press '${ELLOW}ENTER${BLACK}' to continue or '${RED}ESC${NC}'${BLACK} to cancel...${NC} "
+         printf "Press 'ENTER' to continue or 'ESC' to cancel... "
+         local original_tty_state=$(stty -g)
+         trap "stty $original_tty_state; exit 0" 2
+         stty intr \033
+     
+         stty raw isig noflsh echo icrnl
+     
+         until [ -z "${hold#$in}" ]; do
+             in=$(dd bs=1 count=1 </dev/tty 2>/dev/null)
+         done
+     
+         stty "$original_tty_state"
+     }
       _enter-to-continue ;
       
    }
