@@ -84,7 +84,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function debug_off()
       {
-         2>/dev/null ;
+        set +x 2>/dev/null ;
       }
       
       function debug_on_off()
@@ -92,7 +92,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          debug_status=$(cat /root/.debug.txt) ;
          
       if [[ $debug_status == "Debug enabled" ]]
-         then debug_on 
+         then debug_on ; set -x 2>/dev/null ;
          else debug_off
       fi ;
       }
