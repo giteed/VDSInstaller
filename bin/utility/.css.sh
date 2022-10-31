@@ -54,7 +54,7 @@ function Version_vdsetup()
    }
 
    #------------------------------------
-   # Version_vdsetup
+   # my ip
    #------------------------------------ 
 
 function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
