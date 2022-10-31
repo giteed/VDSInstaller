@@ -58,13 +58,17 @@ script_name ;
         
         function del_reinstall_3()
         {
-           # del reinstall 
+            function del_reinstall()
            {
               echo -e " $(black_U23A7) $(green_star) Вы выбрали:" ;
               echo -e " $(black_U23A9) $(green_tick) 3) Удалить и переустановить vdsetup на последнюю доступную бета версию.\n" ; 
-              (rm -rf ~/.VDSInstaller ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (git clone https://github.com/giteed/VDSInstaller.git /.VDSInstaller) ; sleep 2; (/.VDSInstaller/bin/utility/pre.sh) ;
+              
+              (rm -rf /root/.VDSInstaller ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/pre.sh) ;
               
            }
+          
+           del_reinstall ;
+           
         }
         
         function remove_vdsetup_4()
