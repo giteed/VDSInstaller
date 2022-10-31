@@ -74,7 +74,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          
          echo -e "        $(black_U23A7    ) " ;
          echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
-         echo -en "       $(red_star)$(ellow_1        )  ${BLACK}Path .....${NC}: " ; echo -e "${NC}$(pwd)" ;
+         echo -en "       $(red_star)$(ellow_1       )  ${BLACK}Path ......${NC}: " ; echo -e "${NC}$(pwd)" ;
          echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
          echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Date ......${NC}: "$(date)" ${NC}" ;
          echo -e "       $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
@@ -84,7 +84,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       
       function debug_off()
       {
-        set +x 2>/dev/null ;
+        set +x #2>/dev/null ;
       }
       
       function debug_on_off()
@@ -92,7 +92,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          debug_status=$(cat /root/.debug.txt) ;
          
       if [[ $debug_status == "Debug enabled" ]]
-         then debug_on ; set -x 2>/dev/null ;
+         then debug_on ; set -x #2>/dev/null ;
          else debug_off
       fi ;
       }
