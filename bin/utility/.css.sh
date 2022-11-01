@@ -16,7 +16,7 @@ function css()
       else msg_debug_status=$(echo -e "${RED}Debug disabled${NC}") 
       fi ;
       
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e "${RED} ${msg_debug_status}${NC}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_status}" ;
       
        
     
