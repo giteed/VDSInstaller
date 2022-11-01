@@ -10,9 +10,8 @@
 function css() 
    { 
       (debug_status=$(cat ~/.debug.txt)) 2>/dev/null; 
-      if [[ $debug_status == 1 ]] then msg_debug_status=$(echo -e "${RED}Debug enabled${NC}") else msg_debug_status=$(echo -e "${RED}Debug disabled${NC}") fi ;
       
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e "${RED} ${msg_debug_status}${NC}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e "${RED} ${debug_status}${NC}" ;
    }
    
    #-----------------------------------
