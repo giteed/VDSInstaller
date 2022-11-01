@@ -11,7 +11,7 @@ function css()
    { 
       ( debug_status=$(echo -e "${BLACK}   $(cat ~/.debug.txt)${NC}") ) 2>/dev/null; 
       
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e "${debug_status}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e "${RED} ${debug_status}${NC}" ;
    }
    
    #-----------------------------------
