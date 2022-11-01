@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-   
+   debug_status=$(cat /root/.debug.txt) ;
    
    #------------------------------------
    # баннер
@@ -11,7 +11,7 @@ function css()
    { 
       (debug_status=$(cat ~/.debug.txt)) 2>/dev/null; 
       
-      if [[ $debug_status == 1 ]] 
+      if [[ $debug_status == "1" ]]
       then msg_debug_status=$(echo -e "${RED}Debug enabled${NC}") 
       else msg_debug_status=$(echo -e "${RED}Debug disabled${NC}") 
       fi ;
@@ -92,7 +92,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
  function debug()
    {
       
-      function debug_on()
+      function debug_1_on()
       {
          path_n=$0
          
@@ -106,18 +106,18 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          echo -e "        $(black_U23A9    ) \n" ;
       }
       
-      function debug_off()
+      function debug_0_off()
       {
-       echo off ;
+       echo debug_off_css ;
       }
       
       function debug_on_off()
       {
-         debug_status=$(cat /root/.debug.txt) ;
+         
          
       if [[ $debug_status == "1" ]]
-         then debug_on ;
-         else debug_off
+         then debug_1_on ;
+         else debug_0_off
       fi ;
       }
       
