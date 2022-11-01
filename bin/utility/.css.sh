@@ -14,6 +14,7 @@
          function debug_1_on()
          {
             path_n=$0
+            echo -e "debug status is $debug_stat" ;
             
             echo -e "        $(black_U23A7    ) " ;
             echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
@@ -27,14 +28,14 @@
          
          function debug_0_off()
          {
-          echo debug_off_css ;
+          echo -e "debug status is $debug_stat" ;
          }
          
          function debug_check_status()
          {
             
             
-         if [[ $debug_status == "1" ]]
+         if [[ $debug_stat == "1" ]]
             then debug_1_on ;
             else debug_0_off
          fi ;
@@ -65,7 +66,7 @@ function css()
    { 
      
       if [[ $debug_stat == '1' ]] 
-         then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") ;
+         then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
          else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
       fi ;
 
