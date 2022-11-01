@@ -1,7 +1,61 @@
 #!/bin/bash
 
 
-   debug_status=$(cat /root/.debug.txt) ;
+
+   debug_stat=$(cat /root/.debug.txt) ;
+   
+   #------------------------------------
+      # script_name debug
+      #------------------------------------   
+      
+    function debug()
+      {
+         
+         function debug_1_on()
+         {
+            path_n=$0
+            
+            echo -e "        $(black_U23A7    ) " ;
+            echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
+            echo -en "       $(red_star)$(ellow_1       )  ${BLACK}Path ......${NC}: " ; echo -e "${NC}$(pwd)" ;
+            echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
+            echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Date ......${NC}: "$(date)" ${NC}" ;
+            echo -e "       $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
+            echo -e "       $(red_star)$(ellow_1        ) " ;
+            echo -e "        $(black_U23A9    ) \n" ;
+         }
+         
+         function debug_0_off()
+         {
+          echo debug_off_css ;
+         }
+         
+         function debug_check_status()
+         {
+            
+            
+         if [[ $debug_status == "1" ]]
+            then debug_1_on ;
+            else debug_0_off
+         fi ;
+         }
+         
+         debug_check_status ;
+         
+      }
+   
+      #------------------------------------
+      # script_name
+      #------------------------------------  
+      
+   function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
+   
+   
+   
+   
+   
+   
+   
    
    #------------------------------------
    # баннер
@@ -9,14 +63,13 @@
    
 function css() 
    { 
-      (debug_status=$(cat ~/.debug.txt)) 2>/dev/null; 
-      
-      if [[ $debug_status == "1" ]]
-      then msg_debug_status=$(echo -e "${RED}Debug enabled${NC}") 
-      else msg_debug_status=$(echo -e "${RED}Debug disabled${NC}") 
+     
+      if [[ $debug_stat == '1' ]] 
+         then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") ;
+         else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
       fi ;
-      
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_status}" ;
+
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_stat}" ;
       
        
     
@@ -85,51 +138,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
 
 
 
-   #------------------------------------
-   # script_name debug
-   #------------------------------------   
-   
- function debug()
-   {
-      
-      function debug_1_on()
-      {
-         path_n=$0
-         
-         echo -e "        $(black_U23A7    ) " ;
-         echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
-         echo -en "       $(red_star)$(ellow_1       )  ${BLACK}Path ......${NC}: " ; echo -e "${NC}$(pwd)" ;
-         echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
-         echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Date ......${NC}: "$(date)" ${NC}" ;
-         echo -e "       $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
-         echo -e "       $(red_star)$(ellow_1        ) " ;
-         echo -e "        $(black_U23A9    ) \n" ;
-      }
-      
-      function debug_0_off()
-      {
-       echo debug_off_css ;
-      }
-      
-      function debug_on_off()
-      {
-         
-         
-      if [[ $debug_status == "1" ]]
-         then debug_1_on ;
-         else debug_0_off
-      fi ;
-      }
-      
-      debug_on_off ;
-      
-   }
 
-   #------------------------------------
-   # script_name
-   #------------------------------------  
-   
-function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
     
    #-----------------------------------
    # Таблица символов Юникода
