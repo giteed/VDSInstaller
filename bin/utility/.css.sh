@@ -115,7 +115,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
       {
          debug_status=$(cat /root/.debug.txt) ;
          
-      if [[ $debug_status == "Debug enabled" ]]
+      if [[ $debug_status == "1" ]]
          then debug_on ; set -x ;
          else debug_off
       fi ;
