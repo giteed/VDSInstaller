@@ -98,6 +98,27 @@ function test100()
       else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
    fi ;
    
+   function dsm_en()
+   {
+      echo -e "\n $(black_U23A7) $(green_star) Debug enabled" ;
+      echo -e " $(black_U23A9) $(green_tick) run: $0 -d0 to disabled Debug.\n" ;
+   }
+  
+   function dsm_dis()
+   {
+      echo -e "\n $(black_U23A7) $(green_star) Debug disabled" ;
+      echo -e " $(black_U23A9) $(green_tick) run: $0 -d1 to enabled Debug.\n" ; 
+   }
+   
+   
+   if [[ $debug_stat == '1' ]] 
+      then dsm=$(dsm_en) ;
+      else dsm=$(dsm_dis) ;
+   fi ;
+   
+   
+   
+   
 function css() 
    { 
      
