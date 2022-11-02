@@ -91,7 +91,7 @@ function test100()
          
          function debug_0_off()
          {
-          #echo -e "debug status is $debug_stat" ;
+          +x #echo -e "debug status is $debug_stat" ;
          }
          
          function debug_check_status()
