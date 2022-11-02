@@ -114,7 +114,7 @@ function test100()
       # script_name
       #------------------------------------  
       
-    function script_name() { (debug ;) 2>/dev/null }#|| echo no_debug ; }
+    function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
    
 
    #------------------------------------
