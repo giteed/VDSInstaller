@@ -4,14 +4,14 @@
       # Информация о версии скрипта VDSetup
       #------------------------------------ 
       
-    function ver(){ echo -e "$(Version_vdsetup)" ;}
+    function ver() { echo -e "$(Version_vdsetup)" ;}
 
    
    #------------------------------------
       # Cтатус "Debug"
       #------------------------------------ 
       
-    function ds(){ echo -e "${msg_debug_stat}" ;}
+    function ds() { echo -e "${msg_debug_stat}" ;}
 
 
    #------------------------------------
