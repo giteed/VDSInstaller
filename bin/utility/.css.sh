@@ -41,6 +41,32 @@ function test100()
 
    debug_stat=$(cat /root/.debug.txt) ;
    
+   if [[ $debug_stat == '1' ]] 
+      then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+      else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
+   fi ;
+   
+   function dsm_en()
+   {
+      echo -e "\n $(black_U23A7) $(green_star) Debug enabled\n" ;
+      echo -e " $(black_U23A9) $(green_tick) run: $0 -d0 to disabled Debug.\n" ;
+   }
+   
+   function dsm_dis()
+   {
+      echo -e "\n $(black_U23A7) $(green_star) Debug disabled\n" ;
+      echo -e " $(black_U23A9) $(green_tick) run: $0 -d1 to enabled Debug.\n" ; 
+   }
+   
+   function dsm()
+   {
+      if [[ $debug_stat == '1' ]] 
+      then dsm_en ;
+      else dsm_dis ;
+      fi ;
+   }
+   
+   
    #------------------------------------
       # script_name debug
       #------------------------------------   
@@ -93,28 +119,7 @@ function test100()
    # баннер
    #------------------------------------
    
-   if [[ $debug_stat == '1' ]] 
-      then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
-      else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
-   fi ;
-   
-   function dsm_en()
-   {
-      echo -e "\n $(black_U23A7) $(green_star) Debug enabled\n" ;
-      echo -e " $(black_U23A9) $(green_tick) run: $0 -d0 to disabled Debug.\n" ;
-   }
   
-   function dsm_dis()
-   {
-      echo -e "\n $(black_U23A7) $(green_star) Debug disabled\n" ;
-      echo -e " $(black_U23A9) $(green_tick) run: $0 -d1 to enabled Debug.\n" ; 
-   }
-   
-   
-   if [[ $debug_stat == '1' ]] 
-      then dsm=$(dsm_en) ;
-      else dsm=$(dsm_dis) ;
-   fi ;
    
    
    
