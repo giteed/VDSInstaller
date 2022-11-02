@@ -7,7 +7,7 @@
     function ver() 
     { 
        source ~/.bashrc ; css ; 
-       echo -e "\ $(Version_vdsetup)" ;
+       echo -e "\n $(Version_vdsetup)" ;
     }
 
    
