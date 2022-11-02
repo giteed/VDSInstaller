@@ -6,7 +6,7 @@
       
     function ver() 
     { 
-       source ~/.bashrc ;
+       source ~/.bashrc ; css ;
        echo -e "$(Version_vdsetup)" ;
     }
 
@@ -18,7 +18,7 @@
     function ds() 
     { 
        #css ;
-       source ~/.bashrc ;
+       source ~/.bashrc ; css ;
        echo -e " ${msg_debug_stat}" ;
     }
 
