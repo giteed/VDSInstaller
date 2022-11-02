@@ -22,7 +22,7 @@
 
 function test100()
 {
-   echo -e "${msg_debug_stat}" 
+   echo -e "$$$$" 
 }
 
 
