@@ -50,12 +50,14 @@ function test100()
    {
       echo -e "\n $(black_U23A7) $(green_star) Debug enabled" ;
       echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disabled Debug.\n" ;
+      source ~/.bashrc ;
    }
    
    function dsm_dis()
    {
       echo -e "\n $(black_U23A7) $(green_star) Debug disabled" ;
       echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enabled Debug.\n" ; 
+      source ~/.bashrc ;
    }
    
    function dsm()
