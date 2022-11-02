@@ -1,6 +1,14 @@
 #!/bin/bash
 
-
+   #------------------------------------
+      # Version_vdsetup
+      #------------------------------------ 
+      
+    function Version_vdsetup()
+      {
+         echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
+         
+      }
 
    debug_stat=$(cat /root/.debug.txt) ;
    
@@ -45,11 +53,11 @@
          
       }
    
-      #------------------------------------
+   #------------------------------------
       # script_name
       #------------------------------------  
       
-   function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
+    function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
    
    
    
@@ -121,15 +129,7 @@ function hip() # host/ip
       
 
 
-   #------------------------------------
-   # Version_vdsetup
-   #------------------------------------ 
-   
-function Version_vdsetup()
-   {
-      echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
-      
-   }
+
 
    #------------------------------------
    # my ip
