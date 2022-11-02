@@ -6,8 +6,8 @@
       
     function ver() 
     { 
-       source ~/.bashrc ; css ; echo ;
-       echo -e "$(Version_vdsetup)" ;
+       source ~/.bashrc ; css ; 
+       echo -e "\ $(Version_vdsetup)" ;
     }
 
    
@@ -18,8 +18,8 @@
     function ds() 
     { 
        #css ;
-       source ~/.bashrc ; css ; echo ;
-       echo -e " ${msg_debug_stat}" ;
+       source ~/.bashrc ; css ; 
+       echo -e "\n ${msg_debug_stat}" ;
     }
 
 
