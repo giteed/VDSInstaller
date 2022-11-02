@@ -16,7 +16,7 @@
       
     function ds() 
     { 
-       echo -e "${msg_debug_stat}" ;
+       echo -e " ${msg_debug_stat}" ;
     }
 
 
@@ -91,14 +91,14 @@ function test100()
    # баннер
    #------------------------------------
    
+   if [[ $debug_stat == '1' ]] 
+      then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+      else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
+   fi ;
+   
 function css() 
    { 
      
-      if [[ $debug_stat == '1' ]] 
-         then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
-         else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
-      fi ;
-
       echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_stat}" ;
       
        
