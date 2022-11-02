@@ -1,13 +1,26 @@
 #!/bin/bash
 
    #------------------------------------
+      # Информация о версии скрипта VDSetup
+      #------------------------------------ 
+      
+    function ver(){ echo -e "$(Version_vdsetup)" ;}
+
+   
+   #------------------------------------
+      # Cтатус "Debug"
+      #------------------------------------ 
+      
+    function ds(){ echo -e "${msg_debug_stat}" ;}
+
+
+   #------------------------------------
       # Version_vdsetup
       #------------------------------------ 
       
     function Version_vdsetup()
       {
-         echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" )
-         
+         echo -e "Ver: GH-1.0.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
       }
 
    debug_stat=$(cat /root/.debug.txt) ;
@@ -59,13 +72,7 @@
       
     function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
    
-   
-   
-   
-   
-   
-   
-   
+
    #------------------------------------
    # баннер
    #------------------------------------

@@ -11,11 +11,7 @@
 . ~/.bash_ali_hosts ;
    
    
-   # Информация о версии скрипта VDSetup
-   function ver(){ echo -e "$(Version_vdsetup)" ;}
-   
-   # Cтатус "Debug"
-   function ds(){ echo -e "${msg_debug_stat}" ;}
+
     
    
    function press_enter_to_continue_or_any_key_to_cancel()
