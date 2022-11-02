@@ -16,6 +16,7 @@
       
     function ds() 
     { 
+       css ;
        echo -e " ${msg_debug_stat}" ;
     }
 
