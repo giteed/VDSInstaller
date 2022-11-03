@@ -61,10 +61,10 @@ script_name ;
              
              debug_stat=$(cat /root/.debug.txt)
                
-               if [[ $debug_stat == '1' ]] 
-               then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") 
-               else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") 
-               fi ;
+              # if [[ $debug_stat == '1' ]] 
+               #then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") 
+              # else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") 
+              # fi ;
                
                if [[ "$debug_stat" == '1' ]] 
                then echo -e "		1-${RED}$(cat ~/.debug.txt)${NC}), Debug enabled and will be disable now" ; sleep 2; vdsetup -d0 ;
