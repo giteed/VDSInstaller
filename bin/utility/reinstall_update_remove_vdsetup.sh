@@ -29,11 +29,11 @@ script_name ;
             echo -e " $(white_1        )    Что вы хотите сделать с vdsetup?" 
             echo -e " $(white_1        ) " ; 
             echo -e " $(green_1        ) $(green_n1)) Синхронизировать (до последней beta версии).${NC} " ;
-            echo -e " $(green_1        ) $(green_n2)) Включить${BLACK}/${NC}отключить автоматическую синхронизацию. ${BLACK}(todo)${NC} " ; 
+            echo -e " $(green_1        ) $(green_n2)) ${GREEN}Включить${NC}/${BLACK}отключить автоматическую синхронизацию. ${BLACK}(todo)${NC} " ; 
             echo -e " $(red_1          ) $(red_n3  )) Удалить и переустановить vdsetup (до последней beta версии). " ; 
             echo -e " $(red_1          ) $(red_n4  )) Удалить полностью. ${BLACK}(todo)${NC}" 
             echo -e " $(white_1        ) " ; 
-            echo -e " $(white_1        ) $(red_n5  )) Включить или выключить Debug" ; 
+            echo -e " $(white_1        ) $(red_n5  )) ${GREEN}Включить${NC}/${BLACK}отключить Debug" ; 
             echo -e " $(white_1        ) $(green_n0)) Выход." ; 
             echo -e " $(black_U23A9    )\n" ;
          
