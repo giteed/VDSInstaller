@@ -70,12 +70,12 @@ script_name ;
                then 
                
                     echo -e "\n $(black_U23A7) $(green_star) Debug enabled and ...." ; sleep 2; 
-                    echo -e " $(black_U23A9) $(green_tick) ...will be disable now" ; sleep 2; vdsetup -d0 ;
+                    echo -e " $(black_U23A9) $(green_tick) ...will be ${BLACK}disable${NC} now!\n" ; sleep 2; vdsetup -d0 ;
                
                
                else 
                     echo -e "\n $(black_U23A7) $(green_star) Debug disabled and ..." ; sleep 2 ; 
-                    echo -e " $(black_U23A9) $(green_tick) ... will be enable now" ; sleep 2 ; vdsetup -d1 ;
+                    echo -e " $(black_U23A9) $(green_tick) ... will be ${GREEN}enable${NC} now!\n" ; sleep 2 ; vdsetup -d1 ;
                fi
                
              
