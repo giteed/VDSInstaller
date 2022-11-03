@@ -242,7 +242,7 @@ function green_star37()
 
 	echo ;
 	script_name ;
-	#dsm ;
+	
 	
 	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
@@ -281,11 +281,11 @@ function cp_old()
 . ~/.bashrc
 
 # --> Прочитать настройки:
+. ~/bin/utility/.debug_version_vdsetup.sh
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
 	
-#script_name ; 
-
+dsm ;
 inesync ;
 (cp_old) 2>/devnull ;
 
