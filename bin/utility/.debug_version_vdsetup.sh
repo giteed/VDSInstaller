@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# Source global definitions
-# --> Прочитать настройки из /etc/bashrc
-#. ~/.bashrc
-
-# --> Прочитать настройки:
-#. ~/bin/utility/.varfunc.sh &>/dev/null ;
-#. ~/bin/utility/.css.sh &>/dev/null ;
-
-echo ;
-script_name ;
 
    #------------------------------------
 	  # Информация о версии скрипта VDSetup
@@ -130,4 +120,3 @@ function test100()
 	  (debug ;) 2>/dev/null ; 
    }
 
-exit 0 ; 

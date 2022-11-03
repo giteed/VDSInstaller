@@ -14,9 +14,10 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # --> Прочитать настройки из
+. ~/bin/utility/.debug_version_vdsetup.sh
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
-. ~/bin/utility/.debug_version_vdsetup.sh
+
 #-----------------------------------
 
 chmod +x -R /root/bin/ ;
