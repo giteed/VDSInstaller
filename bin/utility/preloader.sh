@@ -1,6 +1,3 @@
-
-#!/bin/bash
-
    #------------------------------------
 	  # Информация о версии скрипта VDSetup
 	  #------------------------------------ 
@@ -24,13 +21,6 @@
 	}
 
 
-function test100()
-{
-   echo -e "$$$$" 
-}
-
-
-
    #------------------------------------
 	  # Version_vdsetup
 	  #------------------------------------ 
@@ -42,6 +32,34 @@ function test100()
 
    debug_stat=$(cat /root/.debug.txt) ;
    
+   if [[ $debug_stat == '1' ]] 
+	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+	  else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
+   fi ;
+   
+   function dsm_en()
+   {
+	  echo -e "\n $(black_U23A7) $(green_star) Debug enabled" ;
+	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disabled Debug.\n" ;
+	  source ~/.bashrc ;
+   }
+   
+   function dsm_dis()
+   {
+	  echo -e "\n $(black_U23A7) $(green_star) Debug disabled" ;
+	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enabled Debug.\n" ; 
+	  source ~/.bashrc ;
+   }
+   
+   function dsm()
+   {
+	  if [[ $debug_stat == '1' ]] 
+	  then source ~/.bashrc ; dsm_en ;
+	  else source ~/.bashrc ; dsm_dis ;
+	  fi ;
+   }
+   
+   
    #------------------------------------
 	  # script_name debug
 	  #------------------------------------   
@@ -52,7 +70,7 @@ function test100()
 		 function debug_1_on()
 		 {
 			path_n=$0
-			echo -e "debug status is $debug_stat" ;
+			# echo -e "debug status is $debug_stat" ;
 			
 			echo -e "        $(black_U23A7    ) " ;
 			echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
@@ -66,7 +84,7 @@ function test100()
 		 
 		 function debug_0_off()
 		 {
-		  echo -e "debug status is $debug_stat" ;
+		  +x #echo -e "debug status is $debug_stat" ;
 		 }
 		 
 		 function debug_check_status()
@@ -87,7 +105,12 @@ function test100()
 	  # script_name
 	  #------------------------------------  
 	  
-	function script_name() { (debug ;) 2>/dev/null || echo no_debug ; }
+	function script_name() 
+	{ 
+	  (debug ;) 2>/dev/null ; 
+   }
+
+
    
 
    #------------------------------------
@@ -120,10 +143,6 @@ function hip() # host/ip
    
    }
 
-   #------------------------------------
-   # шаблон
-   #------------------------------------
-   
    #-----------------------------------
    # Цвета терминала
    #-----------------------------------
@@ -223,7 +242,7 @@ function green_star37()
 
 	echo ;
 	script_name ;
-	
+	dsm ;
 	
 	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
@@ -292,15 +311,3 @@ sleep 1 ;
 
 	
 exit 0 ;
-
-
-path_n=$0 ;
-
-echo -en "\n    >>>>> Debug! " ;
-echo -en "\n           Path: " ; pwd ;
-echo -e  "    Script Name: "$0"\n" ;
-( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
-sleep 1 ;
-echo -e "\n # GitHub Синхронизация, " 
-echo -e " # локального репо: /root/.VDSInstaller/ установщика," 
-echo -e " #        с папкой: /root\n" 
