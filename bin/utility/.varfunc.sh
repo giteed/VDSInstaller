@@ -16,7 +16,7 @@
    
    function press_enter_to_continue_or_any_key_to_cancel()
    {
-         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  "
+         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  \n\n"
          read -s answ ;
       if 
          [[ "$answ" == "" ]] 
