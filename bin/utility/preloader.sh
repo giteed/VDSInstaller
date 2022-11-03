@@ -242,7 +242,7 @@ function green_star37()
 
 	echo ;
 	script_name ;
-	dsm ;
+	#dsm ;
 	
 	
 	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
