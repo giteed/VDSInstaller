@@ -16,6 +16,7 @@ fi
 # --> Прочитать настройки из
 . ~/bin/utility/.varfunc.sh
 . ~/bin/utility/.css.sh
+. ~/bin/utility/.debug_version_vdsetup.sh
 #-----------------------------------
 
 chmod +x -R /root/bin/ ;
