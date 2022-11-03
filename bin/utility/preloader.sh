@@ -31,11 +31,11 @@
 	  }
 
    debug_stat=$(cat /root/.debug.txt) ;
-   
-   if [[ $debug_stat == '1' ]] 
-	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
-	  else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") ;
-   fi ;
+		 
+		 if [[ $debug_stat == '1' ]] 
+			then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+			else msg_debug_stat=$(echo -e "${BLACK}Debug disabled${NC}") ;
+		 fi ;
    
    function dsm_en()
    {
