@@ -5,8 +5,8 @@
 . ~/.bashrc
 
 # --> Прочитать настройки:
-. ~/bin/utility/.varfunc.sh &>/dev/null ;
-. ~/bin/utility/.css.sh &>/dev/null ;
+#. ~/bin/utility/.varfunc.sh &>/dev/null ;
+#. ~/bin/utility/.css.sh &>/dev/null ;
 
 echo ;
 script_name ;
