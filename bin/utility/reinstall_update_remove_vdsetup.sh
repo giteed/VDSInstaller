@@ -46,7 +46,7 @@ script_name ;
                         2) auto_sync_2 ; sleep 1 ; css ; menu ;;
                         3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
                         4) remove_vdsetup_4 ; sleep 1 ; css ; menu ;;
-                        5) debug_en_dis ; css ; menu ;;
+                        5) debug_en_dis ; menu ;;
                     0) echo -e ${BLACK}"\n   		Bye bye ..."${NC} ; exit 0 ;;
                     *) echo -e ${RED}"\n   		Wrong option."${NC}; css ; menu ;;
                     esac
