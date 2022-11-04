@@ -9,9 +9,8 @@
 
 
  >  Для загрузки и запуска этого скрипта из репозитория GitHub, нужно выполнить:
+(Скопируйте и вставьте в терминал команду ниже)
 
->   (Скопируйте и вставьте в терминал команду ниже)
-- Только для CentOS 8 (Stream)
 
 ```console
 (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/dev/null ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh welcome) ;
