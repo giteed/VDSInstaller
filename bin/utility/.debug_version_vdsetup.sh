@@ -36,7 +36,7 @@ function test100()
 	  
 	function Version_vdsetup()
 	  {
-		 echo -e "$(cat ~/.ver.txt)" || echo -e "PRELOADER"  ;
+		 cat ~/.ver.txt 2>/dev/null || echo -e "PRELOADER"
 	  }
 
    debug_stat=$(cat /root/.debug.txt) ;
