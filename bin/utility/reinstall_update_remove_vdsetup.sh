@@ -28,12 +28,12 @@ script_name ;
             echo -e " $(white_1        ) " ; 
             echo -e " $(white_1        )    Что вы хотите сделать с vdsetup?" 
             echo -e " $(white_1        ) " ; 
-            echo -e " $(green_1        ) $(green_n1)) Синхронизировать (до последней beta версии).${NC} " ;
+            echo -e " $(green_1        ) $(green_n1)) Синхронизировать (до свежей beta).${NC} " ;
             echo -e " $(green_1        ) $(green_n2)) ${GREEN}Включить${NC}/${BLACK}отключить${NC} автоматическую синхронизацию. ${BLACK}(todo)${NC} " ; 
-            echo -e " $(red_1          ) $(red_n3  )) Удалить и переустановить vdsetup (до последней beta версии). " ; 
+            echo -e " $(red_1          ) $(red_n3  )) Удалить и переустановить (до свежей beta). " ; 
             echo -e " $(red_1          ) $(red_n4  )) Удалить полностью. ${BLACK}(todo)${NC}" 
             echo -e " $(white_1        ) " ; 
-            echo -e " $(white_1        ) $(red_n5  )) ${GREEN}Включить${NC}/${BLACK}отключить${NC} Debug" ; 
+            echo -e " $(white_1        ) $(red_n5  )) ${GREEN}Включить${NC}/${BLACK}отключить${NC} Debuger" ; 
             echo -e " $(white_1        ) $(green_n0)) Выход." ; 
             echo -e " $(black_U23A9    )\n" ;
          
@@ -63,7 +63,7 @@ script_name ;
                
               # if [[ $debug_stat == '1' ]] 
                #then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") 
-              # else msg_debug_stat=$(echo -e "${RED}Debug disabled${NC}") 
+              # else msg_debug_stat=$(echo -e "${RED}Debugger disabled${NC}") 
               # fi ;
                
                if [[ "$debug_stat" == '1' ]] 
@@ -87,7 +87,7 @@ script_name ;
          {
             # sync
             echo -e "\n $(black_U23A7) $(green_star) Вы выбрали:" ;
-            echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать до последней доступной бета версии.\n" ;
+            echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать vdsetup до последней доступной beta.\n" ;
             ~/bin/utility/gh-ss.sh ;
             #(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
             script_name ;
@@ -105,7 +105,7 @@ script_name ;
              function del_reinstall()
             {
                echo -e "\n $(black_U23A7) $(green_star) Вы выбрали:" ;
-               echo -e " $(black_U23A9) $(green_tick) $(red_n3  )) Удалить и переустановить vdsetup на последнюю доступную бета версию.\n" ; 
+               echo -e " $(black_U23A9) $(green_tick) $(red_n3  )) Удалить и переустановить vdsetup на последнюю доступную beta.\n" ; 
                
                cd ~ ; (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/dev/null ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ; 
                

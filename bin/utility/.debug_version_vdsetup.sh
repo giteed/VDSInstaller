@@ -44,7 +44,7 @@ function test100()
    
    if [[ $debug_stat == '1' ]] 
 	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
-	  else msg_debug_stat=$(echo -e "${BLACK}Debug disabled${NC}") ;
+	  else msg_debug_stat=$(echo -e "${BLACK}Debugger disabled${NC}") ;
    fi ;
    
    function dsm_en()
