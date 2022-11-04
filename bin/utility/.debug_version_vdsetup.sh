@@ -43,7 +43,7 @@ function test100()
    debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
    
    if [[ $debug_stat == '1' ]] 
-	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+	  then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
 	  else msg_debug_stat=$(echo -e "${BLACK}Debugger disabled${NC}") ;
    fi ;
    

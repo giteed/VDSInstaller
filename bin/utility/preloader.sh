@@ -33,13 +33,13 @@
    debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
 		 
 		 if [[ $debug_stat == '1' ]] 
-			then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+			then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
 			else msg_debug_stat=$(echo -e "${BLACK}Debugger disabled${NC}") ;
 		 fi ;
    
    function dsm_en()
    {
-	  echo -e "\n $(black_U23A7) $(green_star) Debug enabled" ;
+	  echo -e "\n $(black_U23A7) $(green_star) Debugger enabled" ;
 	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disabled Debug.\n" ;
 	  source ~/.bashrc ;
    }
@@ -118,7 +118,7 @@
    #------------------------------------
    
    if [[ $debug_stat == '1' ]] 
-	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
+	  then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
 	  else msg_debug_stat=$(echo -e "${RED}Debugger disabled${NC}") ;
    fi ;
    
