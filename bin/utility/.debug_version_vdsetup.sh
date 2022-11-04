@@ -40,7 +40,7 @@ function test100()
 		 cat ~/.ver.txt 2>/dev/null || echo -e "PRELOADER"
 	  }
 
-   debug_stat=$(cat /root/.debug.txt) ;
+   debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
    
    if [[ $debug_stat == '1' ]] 
 	  then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;
@@ -63,7 +63,7 @@ function test100()
    
    function dsm()
    {
-	  debug_stat=$(cat /root/.debug.txt) ;
+	  debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
 	  if [[ $debug_stat == '1' ]] 
 	  then source ~/.bashrc ; dsm_en ;
 	  else source ~/.bashrc ; dsm_dis ;
@@ -101,7 +101,7 @@ function test100()
 		 function debug_check_status()
 		 {
 			
-			debug_stat=$(cat /root/.debug.txt) ;
+			debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
 		 if [[ $debug_stat == "1" ]]
 			then debug_1_on ;
 			else debug_0_off

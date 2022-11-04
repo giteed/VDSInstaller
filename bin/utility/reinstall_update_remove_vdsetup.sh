@@ -42,7 +42,7 @@ script_name ;
          
             read a
                     case $a in
-                        1) sync_1 ; sleep 1 ; css ; menu ;;
+                        1) sync_1 ; sleep 1 ; exit 0 ;;
                         2) auto_sync_2 ; sleep 1 ; menu ;;
                         3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
                         4) remove_vdsetup_4 ; sleep 1 ; menu ;;
@@ -59,7 +59,7 @@ script_name ;
          function debug_en_dis()
          {
              
-             debug_stat=$(cat /root/.debug.txt)
+             debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
                
               # if [[ $debug_stat == '1' ]] 
                #then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") 
@@ -82,7 +82,7 @@ script_name ;
              
              
          }
-         
+        
          function sync_1()
          {
             # sync
@@ -107,7 +107,7 @@ script_name ;
                echo -e "\n $(black_U23A7) $(green_star) Вы выбрали:" ;
                echo -e " $(black_U23A9) $(green_tick) $(red_n3  )) Удалить и переустановить vdsetup на последнюю доступную бета версию.\n" ; 
                
-               (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/dev/null ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ; 
+               cd ~ ; (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/dev/null ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ; 
                
             }
            
