@@ -66,7 +66,6 @@ press_enter_to_continue_or_any_key_to_cancel ;
 Installing_VDSetup_scripts ;
 
 
-exit 0 ;
 
 
 
@@ -91,5 +90,6 @@ exit 0 ;
 esac
 	
 
+exit 0 ;
 
 
