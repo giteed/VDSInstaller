@@ -79,8 +79,8 @@ function Installing_VDSetup_scripts()
    ;;
    
  reinstall )
- 	echo -en "" ; ver ;
-	echo -e  "REINSTALL NOW !!!\n" ; sleep 3 ;
+ 	echo -en "${RED}" ; ver ;
+	echo -e  "${GREEN} REINSTALL NOW !!!\n${NC}" ; sleep 3 ;
    Installing_VDSetup_scripts ;
    
    ;;
