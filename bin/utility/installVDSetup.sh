@@ -69,6 +69,10 @@ function Installing_VDSetup_scripts()
   Installing_VDSetup_scripts ;
   
   ;;
+ welcome )
+   welcome_to_installer ;
+   
+   ;;
   
   *) welcome_to_installer ;
   
