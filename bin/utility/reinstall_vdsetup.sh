@@ -41,7 +41,7 @@ sleep 1 ;
 {
 	echo -e " # Reinstall VDSetup in progress ..." 
 	(git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ;
-	sleep 2 ;
+	sleep 1 ;
 }
 
 
@@ -58,3 +58,4 @@ reinstall_vdsetup ;
 	
 exit 0 ;
 
+https://losst.pro/rsync-primery-sinhronizatsii?ysclid=l9p9k9xci5475918261

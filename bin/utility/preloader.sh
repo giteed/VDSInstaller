@@ -123,13 +123,13 @@
    fi ;
    
 function css() 
-   { 
-	 
-	  echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_stat}" ;
-	  
+	  { 
+		 Version_vdsetup #&>/dev/null ;
+		 echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) VDSetup scripts $(Version_vdsetup)" ;  echo -e " ${msg_debug_stat}" ;
+		 
+		  
 	   
-	
-   }
+	  }
    
    #-----------------------------------
    
