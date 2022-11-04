@@ -42,6 +42,9 @@ function welcome_to_installer()
 		echo -e " $(red_1          ) ${RED}Do not continue${NC} if the ${ELLOW}/root/bin ${NC}folder" ;
 		echo -e " $(red_1          ) contains the files you need${RED}!${NC}" ;
 		echo -e " $(black_U23A9    ) \n" ;
+		
+		press_enter_to_continue_or_any_key_to_cancel ;
+		Installing_VDSetup_scripts ;
 }
 
 
@@ -61,25 +64,9 @@ function Installing_VDSetup_scripts()
 }
 
 
-welcome_to_installer ;
-press_enter_to_continue_or_any_key_to_cancel ;
-Installing_VDSetup_scripts ;
-
-
-
-
-
-#reinstall_CH ;
-  function reinstall_CH()
-  {
-	  [[ -z $1 =="reinstall" ]] 2>/dev/null && echo Installing_VDSetup_scripts || echo welcome_to_installer ;
-  }
-  
-
-
  case $1 in
 "" )
-  reinstall_CH ;
+  Installing_VDSetup_scripts ;
   
   ;;
   
