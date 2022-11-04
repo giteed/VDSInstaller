@@ -22,9 +22,9 @@
 - Удаление старой папки инсталлера и GitHub репо (если она уже была) /root/.VDSInstaller /root/.GitHub_Repo
 - Удаление всего содержимого ~/bin/ (если оно было)
 
-- Не запускайте этот инсталлятор, если в папке  ~/bin/
+# Не запускайте этот инсталлятор, если в папке  ~/bin/
   содержатся нужные вам файлы:
-  # rm -rf ~/.VDSInstaller ~/bin/* ;
+  - rm -rf ~/.VDSInstaller ~/bin/* ;
 
 - Установка rsync rsync-daemon git mc:
   (dnf -y install rsync rsync-daemon git mc) &>/devnull ;
