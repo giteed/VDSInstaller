@@ -36,6 +36,7 @@ function test100()
 	  
 	function Version_vdsetup()
 	  {
+		 
 		 cat ~/.ver.txt 2>/dev/null || echo -e "PRELOADER"
 	  }
 
