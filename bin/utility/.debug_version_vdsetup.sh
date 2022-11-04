@@ -48,15 +48,15 @@ function test100()
    
    function dsm_en()
    {
-	  echo -e "\n $(black_U23A7) $(green_star) Debug enabled" ;
-	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disabled Debug.\n" ;
+	  echo -e "\n $(black_U23A7) $(green_star) Debugging enabled" ;
+	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disable debugging.\n" ;
 	  source ~/.bashrc ;
    }
    
    function dsm_dis()
    {
-	  echo -e "\n $(black_U23A7) $(green_star) Debug disabled" ;
-	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enabled Debug.\n" ; 
+	  echo -e "\n $(black_U23A7) $(green_star) Debugging disabled" ;
+	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enable debugging.\n" ; 
 	  source ~/.bashrc ;
    }
    
