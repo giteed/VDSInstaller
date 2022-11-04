@@ -70,7 +70,7 @@
 		 function debug_1_on()
 		 {
 			path_n=$0
-			# echo -e "debug status is $debug_stat" ;
+			# echo -e "Debugger status is $debug_stat" ;
 			
 			echo -e "        $(black_U23A7    ) " ;
 			echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
@@ -84,7 +84,7 @@
 		 
 		 function debug_0_off()
 		 {
-		  +x #echo -e "debug status is $debug_stat" ;
+		  +x #echo -e "Debugger status is $debug_stat" ;
 		 }
 		 
 		 function debug_check_status()
