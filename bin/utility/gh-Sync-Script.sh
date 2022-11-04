@@ -25,7 +25,7 @@ script_name ;
 	{
 		 function txt_bat(){ echo -e " $(ellow_1    ) " ;  bat hi_giteed.txt | bat -l nix -p ; } 
 		 function txt_nobat(){ echo -e " $(white_1     )   $(cat hi_giteed.txt) " ; } 
-		 ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) && txt_nobat ; ) || ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) ; txt_nobat )  ;
+		 ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) && txt_bat ; ) || ( echo -e $( ssh -T git@github.com &>hi_giteed.txt ) ; txt_nobat )  ;
 	}
 	
 function SSH_keys_here()
