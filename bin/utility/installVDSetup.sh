@@ -80,7 +80,7 @@ function Installing_VDSetup_scripts()
    
  reinstall )
  
- 	echo -e  "${GREEN} Reinstall ${RED}" ; Version_vdsetup ; sleep 1 ;
+ 	echo -en  "${GREEN} Reinstall ${RED}" ; Version_vdsetup ; sleep 1 ;
    Installing_VDSetup_scripts ;
    
    ;;
