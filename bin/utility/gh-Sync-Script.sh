@@ -107,8 +107,13 @@ function gh_auth_Token_login()
 	 echo -e " $(blue_1        )" ;
 	 echo -e " $(black_U23A9   )\n" ; 
 	 
-	/root/bin/utility/.UpdateVersion.sh || echo -e "	${RED}ERRORRR ${NC} .UpdateVersion.sh\n" ;
-	echo ;
+	
+	function UpdateVersion_sh()
+	{
+		(/root/bin/utility/.UpdateVersion.sh) || echo -e "	${RED}ERRORRR ${NC} .UpdateVersion.sh\n" ;
+		echo ; error_exit_en_MSG ; 
+	}
+	UpdateVersion_sh ;
 	
 	# gh auth login 
 	echo -e " $(black_U23A7    )" ;

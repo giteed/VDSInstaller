@@ -1,17 +1,10 @@
 #!/bin/bash
 
 
-   
-
    #------------------------------------
    # баннер
    #------------------------------------
-   
-  
-   
-   
-   
-   
+
 function css() 
    { 
      
@@ -21,18 +14,7 @@ function css()
     
    }
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
    
    
    #-----------------------------------
@@ -75,9 +57,6 @@ function hip() # host/ip
 function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
 
 
-
-
-    
    #-----------------------------------
    # Таблица символов Юникода
    # https://unicode-table.com/ru/ 
@@ -88,6 +67,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          
          function error_MSG() { echo -e "${RED}✖ Error${NC}" ; } ;
          function error_exit_MSG() { echo -e "${RED}✖ Выход${NC} " ; exit 0 ; } ;
+         function error_exit_en_MSG() { echo -e "${RED}✖ Exit${NC} " ; exit 0 ; } ;
          
          function green_tick() { echo -e "${GREEN}✓${NC}" ; } ;
          function green_star() { echo -e "${GREEN}☆${NC}" ; } ;
