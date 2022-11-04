@@ -88,7 +88,7 @@ script_name ;
             # sync
             echo -e "\n $(black_U23A7) $(green_star) Вы выбрали:" ;
             echo -e " $(black_U23A9) $(green_tick) $(green_n1)) Синхронизировать до последней доступной бета версии.\n" ;
-            ~/bin/utility/gh-Sync-Script.sh ;
+            ~/bin/utility/gh-ss.sh ;
             #(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log ;
             script_name ;
          }
