@@ -22,7 +22,7 @@ script_name ;
          function menu()
          {
             # gh auth login 
-            scc ;
+            css ;
             echo -e "\n $(black_U23A7    )" ;
             echo -en " $(white_1       ) $(green_tick) Now you use GitHub Token" ; echo -e " : ${BLACK}$(gh auth token)" ;
             echo -e " $(white_1        ) " ; 
@@ -42,10 +42,10 @@ script_name ;
          
             read a
                     case $a in
-                        1) sync_1 ; sleep 1 ; css ; menu ;;
-                        2) auto_sync_2 ; sleep 1 ; css ; menu ;;
-                        3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
-                        4) remove_vdsetup_4 ; sleep 1 ; css ; menu ;;
+                        1) sync_1 ; sleep 1 ; menu ;;
+                        2) auto_sync_2 ; sleep 1 ; menu ;;
+                        3) del_reinstall_3 ; sleep 1 menu ;;
+                        4) remove_vdsetup_4 ; sleep 1 ; menu ;;
                         5) debug_en_dis ; menu ;;
                     0) exit 0 ;;
                     *) echo -e ${RED}"\n   		Wrong option."${NC}; menu ;;
