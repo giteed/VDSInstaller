@@ -110,8 +110,8 @@ function gh_auth_Token_login()
 	
 	function UpdateVersion_sh()
 	{
-		(/root/bin/utility/.UpdateVersion.sh) || echo -e "	${RED}ERRORRR ${NC} .UpdateVersion.sh\n" ;
-		echo ; error_exit_en_MSG ; 
+		(/root/bin/utility/.UpdateVersion.sh) || (echo -e "	${RED}ERRORRR ${NC} .UpdateVersion.sh\n" ;
+		echo ; error_exit_en_MSG ; )
 	}
 	UpdateVersion_sh ;
 	
