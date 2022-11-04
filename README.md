@@ -13,7 +13,7 @@
   (Скопируйте и вставьте в терминал команду ниже)
 - Только для CentOS 8 (Stream)
 
-  (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ;
+  (rm -rf /root/.VDSInstaller /root/.GitHub_Repo ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/dev/null ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ;
 
   ---------------------------------------------
   В команде выше содержатся следующие действия:
@@ -26,7 +26,7 @@
   - rm -rf ~/.VDSInstaller ~/bin/* ;
 
 - Установка rsync rsync-daemon git mc:
-  (dnf -y install rsync rsync-daemon git mc) &>/devnull ;
+  (dnf -y install rsync rsync-daemon git mc) &>/dev/null ;
 
 - Клонирование репо с GitHub в локальный репо:
   (git clone https://github.com/giteed/VDSInstaller.git ~/.VDSInstaller) ;
