@@ -60,10 +60,36 @@ function Installing_VDSetup_scripts()
 	echo -e " $(black_U23A9 ) " ;
 }
 
+
 welcome_to_installer ;
 press_enter_to_continue_or_any_key_to_cancel ;
 Installing_VDSetup_scripts ;
-	
+
+
 exit 0 ;
+
+
+
+#reinstall_CH ;
+  function reinstall_CH()
+  {
+	  [[ -z $1 =="reinstall" ]] 2>/dev/null && echo Installing_VDSetup_scripts || echo welcome_to_installer ;
+  }
+  
+
+
+ case $1 in
+"" )
+  reinstall_CH ;
+  
+  ;;
+  
+  *) welcome_to_installer ;
+  
+  ;;
+  
+esac
+	
+
 
 
