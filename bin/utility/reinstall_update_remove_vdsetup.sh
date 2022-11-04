@@ -47,8 +47,8 @@ script_name ;
                         3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
                         4) remove_vdsetup_4 ; sleep 1 ; css ; menu ;;
                         5) debug_en_dis ; menu ;;
-                    0)  exit 0 ;;
-                    *) echo -e ${RED}"\n   		Wrong option."${NC}; css ; menu ;;
+                    0) exit 0 ;;
+                    *) echo -e ${RED}"\n   		Wrong option."${NC}; menu ;;
                     esac
             
             
