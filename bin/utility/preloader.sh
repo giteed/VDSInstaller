@@ -30,7 +30,7 @@
 		 echo -e "Ver: preloader 1.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
 	  }
 
-   debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
+   debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
 		 
 		 if [[ $debug_stat == '1' ]] 
 			then msg_debug_stat=$(echo -e "${GREEN}Debug enabled${NC}") ;

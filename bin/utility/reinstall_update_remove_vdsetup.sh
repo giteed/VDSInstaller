@@ -59,7 +59,7 @@ script_name ;
          function debug_en_dis()
          {
              
-             debug_stat=$(cat /root/.debug.txt) 2>/dev/null ;
+             debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
                
               # if [[ $debug_stat == '1' ]] 
                #then msg_debug_stat=$(echo -e "${RED}Debug enabled${NC}") 
