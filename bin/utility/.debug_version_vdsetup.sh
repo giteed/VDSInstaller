@@ -118,5 +118,5 @@ function test100()
 	function script_name() 
 	{ 
 	  (debug ;) 2>/dev/null ; 
-   }
+    }
 
