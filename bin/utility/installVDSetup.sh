@@ -59,7 +59,7 @@ function Installing_VDSetup_scripts()
 	echo -e " $(ellow_1     ) $(green_arrow) Reload ~/.bashrc and Run vdsetup" ;
 	echo -e " $(white_1     ) ${RED}#${NC} source ~/.bashrc ${NC}" ;
 	echo -e " $(white_1     ) ${RED}#${NC} vdsetup ${NC}" ;
-	
+	echo -en "\n${RED}" ; ver ; echo ;
 	echo -e " $(black_U23A9 ) " ;
 }
 
@@ -79,7 +79,7 @@ function Installing_VDSetup_scripts()
    ;;
    
  reinstall )
- 	echo -en "${RED}" ; ver ;
+ 	echo -en "${RED}" ; ver ; echo ;
 	echo -e  "${GREEN} REINSTALL NOW !!!\n${NC}" ; sleep 3 ;
    Installing_VDSetup_scripts ;
    
