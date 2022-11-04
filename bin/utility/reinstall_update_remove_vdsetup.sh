@@ -42,9 +42,9 @@ script_name ;
          
             read a
                     case $a in
-                        1) sync_1 ; sleep 1 ; menu ;;
+                        1) sync_1 ; sleep 1 ; css ; menu ;;
                         2) auto_sync_2 ; sleep 1 ; menu ;;
-                        3) del_reinstall_3 ; sleep 1 menu ;;
+                        3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
                         4) remove_vdsetup_4 ; sleep 1 ; menu ;;
                         5) debug_en_dis ; menu ;;
                     0) exit 0 ;;
