@@ -36,7 +36,7 @@ function test100()
 	  
 	function Version_vdsetup()
 	  {
-		 echo -e "Ver: GH-1.0.0.57"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
+		 echo -e "Ver: GH-1.0.0.59"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
 	  }
 
    debug_stat=$(cat /root/.debug.txt) ;
