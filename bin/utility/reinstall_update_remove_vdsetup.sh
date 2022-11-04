@@ -107,7 +107,7 @@ script_name ;
                echo -e "\n $(black_U23A7) $(green_star) Вы выбрали:" ;
                echo -e " $(black_U23A9) $(green_tick) $(red_n3  )) Удалить и переустановить vdsetup на последнюю доступную бета версию.\n" ; 
                
-               (rm -rf /root/.VDSInstaller ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (return | /root/.VDSInstaller/bin/utility/preloader.sh) ; 
+               (rm -rf /root/.VDSInstaller ~/bin/* ) 2>/dev/null ; (dnf -y install rsync rsync-daemon git mc) &>/devnull ; (echo); (git clone https://github.com/giteed/VDSInstaller.git /root/.VDSInstaller) ; (/root/.VDSInstaller/bin/utility/preloader.sh reinstall) ; 
                
             }
            
