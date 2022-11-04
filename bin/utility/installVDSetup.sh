@@ -64,13 +64,23 @@ function Installing_VDSetup_scripts()
 }
 
 
+
+
+
  case $1 in
 "" )
   Installing_VDSetup_scripts ;
   
   ;;
  welcome )
+ 
    welcome_to_installer ;
+   
+   ;;
+   
+ reinstall )
+ 	echo "REINSTALL NOW !!!" ; sleep 3 ;
+   Installing_VDSetup_scripts ;
    
    ;;
   
