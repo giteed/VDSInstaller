@@ -193,7 +193,7 @@
    
    function ww() 
    {  
-    (( type -a $* | bat --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ) 2>/dev/null || ( type -a $* p ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ))
+    (( type -a $* | bat --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ) 2>/dev/null || ( type -a $* ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ))
    }
    
 
