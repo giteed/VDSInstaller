@@ -57,12 +57,12 @@ function GitHub_install()
 	
 	function version_GH_bat()
 	{
-		echo -en $(green_star) ; echo -e " GitHub version : $( gh --version 2>/dev/null || $(not_found_MSG) )" | bat --paging=never -l nix -p 2>/dev/null ;
+		( echo -en "$(green_star)" ; echo -e " GitHub version : $( gh --version 2>/dev/null )") || $(not_found_MSG) ) | bat --paging=never -l nix -p 2>/dev/null ;
 	}
 	
 	function version_GH_NO_bat()
 	{
-		echo -e "\n GitHub version : $( gh --version 2>/dev/null || $(not_found_MSG) )" ;
+		echo -e " GitHub version : $( gh --version 2>/dev/null || $(not_found_MSG) )" ;
 		
 	}
 	version_GH_bat || version_GH_NO_bat ;
