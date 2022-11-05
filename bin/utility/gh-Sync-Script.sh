@@ -73,7 +73,7 @@ function gh_auth_Token_login()
 	echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
 	echo -e " $(white_1        ) $(red_U0023) gh repo list " ;
 	echo -e " $(purple_U23A6   ) " ;
-		( gh repo list ) || echo - e "	Для этого сервера нужно получить новый ключ\n" ; exit 0 ; 
+		( gh repo list ) # || ( echo - e "	Для этого сервера нужно получить новый ключ\n" ; exit 0 ; )
 		echo ;
 		( git --version ) ;
 		( gh --version ) ;
