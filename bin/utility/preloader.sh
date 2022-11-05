@@ -289,7 +289,7 @@ inesync ;
 
 function gh_install()
 {
-	echo -e " $(black_U23A7 ) " ;
+	echo -e "\n $(black_U23A7 ) " ;
 	echo -e " $(blue_1      ) GitHub (gh) не установлен!" ;
 	echo -e " $(black_U23A9 ) " ; sleep 1 ;
 	/root/bin/utility/github.sh 2>/dev/null ;
