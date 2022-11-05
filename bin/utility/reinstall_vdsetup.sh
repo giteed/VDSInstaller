@@ -51,7 +51,7 @@ function reinstall_vdsetup()
 	reinstall_vdsetup_msg ;
 	(dnf -y install rsync rsync-daemon git mc) &>/devnull ; 
 	#(git clone https://github.com/giteed/VDSInstaller.git /.VDSInstaller) ; 
-	(/.VDSInstaller/bin/utility/pre.sh) ;
+	(/.VDSInstaller/bin/utility/preloader.sh) ;
 }
 
 reinstall_vdsetup ;
