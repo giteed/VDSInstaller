@@ -59,8 +59,8 @@ function Installing_VDSetup_scripts()
 	echo -e " $(ellow_1     ) $(green_arrow) Reload ~/.bashrc and Run vdsetup" ;
 	echo -e " $(white_1     ) ${RED}#${NC} source ~/.bashrc ${NC}" ;
 	echo -e " $(white_1     ) ${RED}#${NC} vdsetup ${NC}" ;
-	echo -en " $(white_1     ) ;" echo -e "${GREEN} Installation is complete${NC}! " ; 
-	echo -e " $(white_1     ) ; ${GREEN}" ; Version_vdsetup ; echo -e "${NC}" ;
+	echo -en " $(white_1    ) " ; echo -e "${GREEN} Installation is complete${NC}! " ; 
+	echo -e " $(white_1     )  ${GREEN}" ; Version_vdsetup ; echo -e "${NC}" ;
 	echo -e " $(black_U23A9 ) " ;
 }
 
