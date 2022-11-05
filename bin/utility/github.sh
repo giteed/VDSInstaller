@@ -71,6 +71,6 @@ function GitHub_install()
 
 GitHub_info_and_update ; 
 echo ;
-echo -e "\n\n		$(green_star) GitHub reference";
+echo -e "\n		$(green_star) GitHub reference";
 echo -e "		$(red_U0023) gh reference";
 exit 0 ; 
