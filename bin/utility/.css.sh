@@ -8,10 +8,8 @@
 function css() 
    { 
       Version_vdsetup &>/dev/null ;
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) $(white_1    )   ${BLACK}VDSetup ${GREEN}version${NC}: ${GREEN} $(Version_vdsetup)${NC}" ;  echo -e " ${msg_debug_stat}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray}(For update type: vdsetup -sync)${NC}\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick)   ${BLACK}VDSetup ${GREEN}version${NC}: ${GREEN} $(Version_vdsetup)${NC}" ;  echo -e " ${msg_debug_stat}" ;
       
-       
-    #echo -en " $(white_1    )   ${BLACK}VDSetup ${GREEN}version${NC}: ${GREEN}" ; Version_vdsetup ; echo -e "${NC}"
    }
    
 
