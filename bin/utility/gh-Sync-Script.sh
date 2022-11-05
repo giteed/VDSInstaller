@@ -50,7 +50,7 @@ function SSH_keys_here()
 gh auth token &> login.txt
 auth_token=$(cat login.txt) 
  if [[ $auth_token == "$( echo "no oauth token" )" ]]
-    then gh auth login ;
+    then gh auth login || ( gh auth logout || gh auth login ) ;
     else hi_giteed ;
  fi ;
 
@@ -73,7 +73,8 @@ function gh_auth_Token_login()
 	echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
 	echo -e " $(white_1        ) $(red_U0023) gh repo list " ;
 	echo -e " $(purple_U23A6   ) " ;
-		gh repo list ; echo ;
+		( gh repo list ) || echo - e "	Для этого сервера нужно получить новый ключ\n" ; exit 0 ; 
+		echo ;
 		( git --version ) ;
 		( gh --version ) ;
 	echo -e "\n $(purple_U23A6 ) " ;
