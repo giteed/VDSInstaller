@@ -50,7 +50,7 @@ function GitHub_install()
 # ФУНКЦИЯ: Проверка установки GitHub и если не найден - пишет "не найден", если найден обновит sudo yum update gh -y и покажет версию
    function GitHub_info_and_update() 
 {
-	echo -e "\n 	Проверка установки GitHub: " ;
+	echo -e "\n   Проверка установки GitHub: " ;
 	echo -e " $(green_star) Если GitHub не установлен - будет произведена его установка " ;
 	echo -e " $(green_star) Если GitHub установлен - будет произведено обновление\n" ;
 	GitHubCH || echo -en " gh GitHub    : $(found_MSG) \n" && echo ; cat /etc/yum.repos.d/gh-cli.repo 2>/dev/null | grep name 2>/dev/null | bat --paging=never -l nix -p 2>/dev/null ; ww gh ; 
