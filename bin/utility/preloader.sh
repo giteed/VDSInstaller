@@ -292,9 +292,9 @@ function gh_install()
 	echo -e " $(black_U23A7 ) " ;
 	echo -e " $(blue_1      ) GitHub (gh) не установлен!" ;
 	echo -e " $(black_U23A9 ) " ; sleep 1 ;
-	/root/bin/utility/github.sh ;
+	/root/bin/utility/github.sh 2>/dev/null ;
 }
-( (gh) >/dev/null || gh_install )
+( (gh) 2>/dev/null || gh_install )
 
 
 # echo -e "\n # Перезагрузка ~/.bashrc " ;
