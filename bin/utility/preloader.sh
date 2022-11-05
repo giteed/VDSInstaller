@@ -294,7 +294,7 @@ function gh_install()
 	echo -e " $(black_U23A9 ) " ; sleep 1 ;
 	/root/bin/utility/github.sh 2>/dev/null ;
 }
-( (gh) 2>/dev/null || gh_install )
+( (gh) &>/dev/null || gh_install )
 
 
 # echo -e "\n # Перезагрузка ~/.bashrc " ;
