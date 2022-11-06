@@ -12,9 +12,9 @@
    
    
 
-   function sync()
+   function vsync()
    {
-      /root/bin/utility/sync-no-msg.ch ;
+      /root/bin/utility/sync-no-msg.sh  ;
    }
    
    function press_enter_to_continue_or_any_key_to_cancel()
