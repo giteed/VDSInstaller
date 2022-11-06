@@ -20,7 +20,7 @@ fi
 . ~/bin/utility/.root
 
 # User specific environment and startup programs
-hip ; . ~/bin/lastf ;
+hip ; #. ~/bin/lastf ;
 PATH=$PATH:$HOME/bin
 
 export PATH
