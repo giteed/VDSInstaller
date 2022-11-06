@@ -28,16 +28,16 @@ script_name ;
             echo -e " $(white_1        ) " ; 
             echo -e " $(white_1        )    Что вы хотите сделать с vdsetup?" 
             echo -e " $(white_1        ) " ; 
-            echo -e " $(green_1        ) $(green_n1)) Синхронизировать (до свежей beta).${NC} " ;
-            echo -e " $(green_1        ) $(green_n2)) ${GREEN}Включить${NC}/${BLACK}отключить${NC} автоматическую синхронизацию. ${BLACK}(todo)${NC} " ; 
-            echo -e " $(red_1          ) $(red_n3  )) Удалить и переустановить (до свежей beta). " ; 
-            echo -e " $(red_1          ) $(red_n4  )) Удалить полностью. ${BLACK}(todo)${NC}" 
+            echo -e " $(green_1        ) $(green_n1)) Синхронизировать (${BLACK}до свежей beta${NC}) vsync. ${BLACK}(press Enter).${NC} " ;
+            echo -e " $(green_1        ) $(green_n2)) ${GREEN}Включить${NC}/${BLACK}отключить${NC} автоматическую синхронизацию. (${BLACK}todo..${NC}) " ; 
+            echo -e " $(red_1          ) $(red_n3  )) Удалить и переустановить (${BLACK}до свежей beta${NC}). " ; 
+            echo -e " $(red_1          ) $(red_n4  )) Удалить полностью. (${BLACK}todo..${NC})" 
             echo -e " $(white_1        ) " ; 
             echo -e " $(white_1        ) $(red_n5  )) ${GREEN}Включить${NC}/${BLACK}отключить${NC} Debugger" ; 
             echo -e " $(white_1        ) $(green_n0)) Выход." ; 
             echo -e " $(black_U23A9    )\n" ;
          
-         echo -e "${BLACK}		Введите цифру пункта меню от 0 до 4\n ${NC}"
+         echo -e "${BLACK}		Введите цифру меню от 0 до 4\n ${NC}"
          echo -en "		Ваш выбор? ${BLACK}"
          
             read a
@@ -47,6 +47,7 @@ script_name ;
                         3) del_reinstall_3 ; sleep 1 ; css ; menu ;;
                         4) remove_vdsetup_4 ; sleep 1 ; menu ;;
                         5) debug_en_dis ; menu ;;
+                        "") sync_1 ;;
                     0) exit 0 ;;
                     *) echo -e ${RED}"\n   		Wrong option."${NC}; menu ;;
                     esac
