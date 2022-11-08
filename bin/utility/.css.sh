@@ -4,13 +4,47 @@
    #------------------------------------
    # баннер
    #------------------------------------
+   
+   function RED_VER()
+   {
+      echo -e "${RED}$(Version_vdsetup)${NC}"
+   }
+   
+   function GREEN_VER()
+   {
+      echo -e "${GREEN}$(Version_vdsetup)${NC}"
+   }
+   
+   function Version_vdsetup_Ver_RED_or_GREEN()
+   {
+      cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt ;
+      
+      new_V=$(cat /tmp/.ver.txt)
+      current_V=$(cat ~/.ver.txt)
+      
+      if [ ${new_V} != ${current_V} ] 
+      then echo -e "$(RED_VER)" ;
+      
+      else 
+      echo -e "$(GREEN_VER)" ;
+      
+      fi 
+   
+}
+
+
+   #------------------------------------
+   # баннер
+   #------------------------------------
 
 function css() 
    { 
+      
       Version_vdsetup &>/dev/null ;
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${gray} ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}:${GREEN} $(Version_vdsetup)${NC} vsync" ;  echo -e "  ${msg_debug_stat}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}:${GREEN} $(Version_vdsetup_Ver_RED_or_GREEN)${NC} vsync" ;  echo -e "  ${msg_debug_stat}" ;
       
    }
+   
    
 
    
