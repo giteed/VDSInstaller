@@ -47,8 +47,8 @@ function SSH_keys_here()
 	echo -e " $(black_U23A7    ) " ;
 	echo -en " $(ellow_1       ) $(red_U0023) gh auth token " ;
 
-gh auth token &> login.txt
-auth_token=$(cat login.txt) 
+gh auth token &>/tmp/.gh_tocken.txt
+auth_token=$(cat /tmp/.gh_tocken.txt) 
  if [[ $auth_token == "$( echo "no oauth token" )" ]]
     then gh auth login || ( gh auth logout || gh auth login ) ;
     else hi_giteed ;
