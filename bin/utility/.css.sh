@@ -1,18 +1,19 @@
 #!/bin/bash
 
-
    #------------------------------------
    # баннер
    #------------------------------------
    
    function RED_VER()
    {
-      echo -e "${RED}$(Version_vdsetup)${NC}"
+      echo -e "${RED}$(Version_vdsetup) $(red_U0023) vsync ${red}\e[5m!\e[0m${NC}"
    }
    
    function GREEN_VER()
    {
-      echo -e "${GREEN}$(Version_vdsetup)${NC}"
+      source ~/.bashrc ;
+      echo -e "${green}$(Version_vdsetup) $(red_U0023) vdsetup sync${NC}"
+      
    }
    
    function Version_vdsetup_Ver_RED_or_GREEN()
@@ -31,7 +32,29 @@
       fi 
    
 }
-
+   
+   
+      
+   function hip() # host/ip
+      {
+         
+         tor_ip="${green}TOR${NC} ip: ${green}$(curl -s --socks5 127.0.0.1:${tor_port} icanhazip.com)${NC}"
+         tor_Socks5_ip_port=" | ${green}TOR Socks5${NC}: 127.0.0.1 ${green}port${NC}: $tor_port"
+         
+         
+         
+         if [[ $tor_port == "" ]] ; then tor_ip="" ; fi
+         if [[ $tor_ip == "" ]] ; then tor_Socks5_ip_port="" ; fi
+         
+       
+         
+         
+         echo -e "${NC} ¯\_("$RED"ツ"${NC}")_/¯  :  ${gray}$(cat /etc/redhat-release)"
+         echo -e "${green} Host ${white} Name  : ${RED} ${HOSTNAME}"${NC} ${tor_Socks5_ip_port}
+         echo -e "${green} Server ${white} ip  : ${gray} $(ifconfig_real_ip) ${white} ${tor_ip}"
+         
+        
+      }
 
    #------------------------------------
    # баннер
@@ -41,25 +64,16 @@ function css()
    { 
       
       Version_vdsetup &>/dev/null ;
-      echo -en "$( clear && source ~/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}:${GREEN} $(Version_vdsetup_Ver_RED_or_GREEN)${NC} vsync" ;  echo -e "  ${msg_debug_stat}" ;
+      echo -en "$( clear && source ~/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}: $(Version_vdsetup_Ver_RED_or_GREEN)${NC}" ;  echo -e " ${msg_debug_stat}" ;
+      
       
    }
-   
    
 
    
    
    #-----------------------------------
-   
-function hip() # host/ip
-   {
-      echo -en "${NC}         ¯\_("$RED"ツ"${NC}")_/¯"
-      echo -e "${NC}" && ip=$(wget -qO- icanhazip.com)
-      echo -e "${green} Host ${white} Name  : ${RED} ${HOSTNAME}"
-      echo -e "${green} Server ${white} ip  : ${gray} ${ip} ${white}"
-      ip=''
-   
-   }
+
 
    #------------------------------------
    # шаблон
@@ -67,6 +81,7 @@ function hip() # host/ip
    
    #-----------------------------------
    # Цвета терминала
+   # https://www.shellhacks.com/bash-colors/
    #-----------------------------------
       NC='\e[0m' ; WHITE='\e[1;0m' ; white='\e[0;0m' ; BLACK='\e[1;30m' ; black='\e[0;30m' ; RED='\e[1;31m' ; red='\e[0;31m' ; GREEN='\e[1;32m' ; green='\e[0;32m' ; ELLOW='\e[1;33m' ; ellow='\e[0;33m' ; PURPLE='\e[1;35m' ; purple='\e[0;35m' ; BLUE='\e[1;34m' ; blue='\e[0;34m'  ; CYAN='\e[1;36m' ; cyan='\e[0;36m' ; GRAY='\e[1;37m' ; gray='\e[0;37m' ; 
       #-----------------------------------
