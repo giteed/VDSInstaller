@@ -65,27 +65,27 @@ function gh_auth_Token_login()
 
 	echo -e " $(black_U23A9   ) " ;
 
-		echo ;
+	#	echo ;
 		
 	    #press_enter ;
 
-	echo -e " $(black_U23A7    ) " ;
-	echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
-	echo -e " $(white_1        ) $(red_U0023) gh repo list " ;
-	echo -e " $(purple_U23A6   ) " ;
-		( gh repo list ) # || ( echo - e "	Для этого сервера нужно получить новый ключ\n" ; exit 0 ; )
-		echo ;
-		( git --version ) ;
-		( gh --version ) ;
-	echo -e "\n $(purple_U23A6 ) " ;
-	echo -e " $(ellow_1        ) $(green_arrow) Release List " ;
-	echo -e " $(white_1        ) $(red_U0023) gh release list " ;
-	echo -e " $(purple_U23A6   ) \n" ;
-		( gh release list ) 2>/dev/null ; 
-	echo -e "\n $(purple_U23A6   )" ;
-	echo -e " $(black_U23A9    )" ;
+	#echo -e " $(black_U23A7    ) " ;
+	#echo -e " $(ellow_1        ) $(green_arrow) Repo List " ;
+	#echo -e " $(white_1        ) $(red_U0023) gh repo list " ;
+	#echo -e " $(purple_U23A6   ) " ;
+	#	( gh repo list ) # || ( echo - e "	Для этого сервера нужно получить новый ключ\n" ; exit 0 ; )
+	#	echo ;
+	#	( git --version ) ;
+	#	( gh --version ) ;
+	#echo -e "\n $(purple_U23A6 ) " ;
+	#echo -e " $(ellow_1        ) $(green_arrow) Release List " ;
+	#echo -e " $(white_1        ) $(red_U0023) gh release list " ;
+	#echo -e " $(purple_U23A6   ) \n" ;
+	#	( gh release list ) 2>/dev/null ; 
+	#echo -e "\n $(purple_U23A6   )" ;
+	#echo -e " $(black_U23A9    )" ;
 		
-		echo ;
+	#	echo ;
 		#press_enter ;
 
 	echo -e " $(black_U23A7    )" ;
