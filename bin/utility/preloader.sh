@@ -327,8 +327,8 @@
 	
 function cp_old() 
 {
-	ttb=$(echo -e "# Функция копирования предыдущих: .bash* файлов в: /tmp/ " ) && lang="nix" && bpn_p_lang ;
-	ttb=$(echo -e "# Переход в домашний каталог (root). " ) && lang="nix" && bpn_p_lang ;
+	ttb=$(echo -e " # Функция копирования предыдущих: .bash* файлов в: /tmp/ " ) && lang="nix" && bpn_p_lang ;
+	ttb=$(echo -e " # Переход в домашний каталог (root). " ) && lang="nix" && bpn_p_lang ;
 	
 	(cd ~/) ; 
 	ttb=$(echo -e " # Сохранение старых версий.  " ) && lang="nix" && bpn_p_lang ;
@@ -368,11 +368,11 @@ function gh_install()
 
 # echo -e "\n # Перезагрузка ~/.bashrc " ;
 #(source ~/.bashrc) ;
-echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " ;
+ttb=$(echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " && lang="nix" && bpn_p_lang ;
 
 echo ;
-echo -e " # Установка VDSetup - переход к установке \n" 
-sleep 1 ;
+ttb=$(echo -e " # Установка VDSetup - переход к установке \n"  && lang="nix" && bpn_p_lang ;
+sleep 0 ;
 /root/bin/utility/installVDSetup.sh $1 ;
 
 
