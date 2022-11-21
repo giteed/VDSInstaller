@@ -29,8 +29,9 @@
 	  {
 		 echo -e "Ver: preloader 1.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
 	  }
-
-   debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+	
+	
+     	 debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
 		 
 		 if [[ $debug_stat == '1' ]] 
 			then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
@@ -108,38 +109,79 @@
 	function script_name() 
 	{ 
 	  (debug ;) 2>/dev/null ; 
-   }
+	}
 
 
    
 
    #------------------------------------
-   # баннер
-   #------------------------------------
-   
-   if [[ $debug_stat == '1' ]] 
-	  then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
-	  else msg_debug_stat=$(echo -e "${RED}Debugger disabled${NC}") ;
-   fi ;
-   
-function css() 
-	  { 
-		 Version_vdsetup &>/dev/null ;
-		 echo -en "$( clear && source ~/.bashrc && hip )\n ${gray} ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}:${GREEN} $(Version_vdsetup)${NC}" ;  echo -e "  ${msg_debug_stat}" ;
+	  # баннер
+	  #------------------------------------
+	  
+	  function RED_VER()
+	  {
+		 echo -e "${RED}$(Version_vdsetup) $(red_U0023) vsync ${red}\e[5m!\e[0m${NC}"
+	  }
+	  
+	  function GREEN_VER()
+	  {
+		 source ~/.bashrc ;
+		 echo -e "${green}$(Version_vdsetup) $(red_U0023) vdsetup sync${NC}"
 		 
 	  }
-   
-   #-----------------------------------
-   
-function hip() # host/ip
-   {
-	  echo -en "${NC}         ¯\_("$RED"ツ"${NC}")_/¯"
-	  echo -e "${NC}" && ip=$(wget -qO- icanhazip.com)
-	  echo -e "${green} Host ${white} Name  : ${RED} ${HOSTNAME}"
-	  echo -e "${green} Server ${white} ip  : ${gray} ${ip} ${white}"
-	  ip=''
-   
+	  
+	  function Version_vdsetup_Ver_RED_or_GREEN()
+	  {
+		 cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt ;
+		 
+		 new_V=$(cat /tmp/.ver.txt)
+		 current_V=$(cat ~/.ver.txt)
+		 
+		 if [ ${new_V} != ${current_V} ] 
+		 then echo -e "$(RED_VER)" ;
+		 
+		 else 
+		 echo -e "$(GREEN_VER)" ;
+		 
+		 fi 
+	  
    }
+	  
+	  
+		 
+	  function hip() # host/ip
+		 {
+			
+			tor_ip="${green}TOR${NC} ip: ${green}$(curl -s --socks5 127.0.0.1:${tor_port} icanhazip.com)${NC}"
+			tor_Socks5_ip_port=" | ${green}TOR Socks5${NC}: 127.0.0.1 ${green}port${NC}: $tor_port"
+			
+			
+			
+			if [[ $tor_port == "" ]] ; then tor_ip="" ; fi
+			if [[ $tor_ip == "" ]] ; then tor_Socks5_ip_port="" ; fi
+			
+		  
+			
+			
+			echo -e "${NC} ¯\_("$RED"ツ"${NC}")_/¯  :  ${gray}$(cat /etc/redhat-release)"
+			echo -e "${green} Host ${white} Name  : ${RED} ${HOSTNAME}"${NC} ${tor_Socks5_ip_port}
+			echo -e "${green} Server ${white} ip  : ${gray} $(ifconfig_real_ip) ${white} ${tor_ip}"
+			
+		   
+		 }
+   
+	  #------------------------------------
+	  # баннер
+	  #------------------------------------
+   
+   function css() 
+	  { 
+		 
+		 Version_vdsetup &>/dev/null ;
+		 echo -en "$( clear && source ~/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}: $(Version_vdsetup_Ver_RED_or_GREEN)${NC}" ;  echo -e " ${msg_debug_stat}" ;
+		 
+		 
+	  }
 
    #-----------------------------------
    # Цвета терминала

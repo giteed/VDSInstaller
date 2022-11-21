@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+
+
+
+
+
    #------------------------------------
    # баннер
    #------------------------------------
@@ -33,9 +39,7 @@
    
 }
    
-   
-      
-   function hip() # host/ip
+function hip() # host/ip
       {
          
          tor_ip="${green}TOR${NC} ip: ${green}$(curl -s --socks5 127.0.0.1:${tor_port} icanhazip.com)${NC}"
@@ -69,21 +73,12 @@ function css()
       
    }
    
-
-   
-   
-   #-----------------------------------
-
-
-   #------------------------------------
-   # шаблон
-   #------------------------------------
    
    #-----------------------------------
    # Цвета терминала
    # https://www.shellhacks.com/bash-colors/
    #-----------------------------------
-      NC='\e[0m' ; WHITE='\e[1;0m' ; white='\e[0;0m' ; BLACK='\e[1;30m' ; black='\e[0;30m' ; RED='\e[1;31m' ; red='\e[0;31m' ; GREEN='\e[1;32m' ; green='\e[0;32m' ; ELLOW='\e[1;33m' ; ellow='\e[0;33m' ; PURPLE='\e[1;35m' ; purple='\e[0;35m' ; BLUE='\e[1;34m' ; blue='\e[0;34m'  ; CYAN='\e[1;36m' ; cyan='\e[0;36m' ; GRAY='\e[1;37m' ; gray='\e[0;37m' ; 
+      NC='\e[0m' ; nc='\e[0m' ; WHITE='\e[1;1m' ; white='\e[0;0m' ; BLACK='\e[1;30m' ; black='\e[0;30m' ; RED='\e[1;31m' ; red='\e[0;31m' ; GREEN='\e[1;32m' ; green='\e[0;32m' ; ELLOW='\e[1;33m' ; ellow='\e[0;33m' ; PURPLE='\e[1;35m' ; purple='\e[0;35m' ; BLUE='\e[1;34m' ; blue='\e[0;34m'  ; CYAN='\e[1;36m' ; cyan='\e[0;36m' ; GRAY='\e[1;37m' ; gray='\e[0;37m' ; 
       #-----------------------------------
       # Дата: $D $T $Day $Month $Data $DMY
       D=$(date  +%Y-%m-%d) ; T=$(date +%H:%M:%S) ; Day="$(echo -e $( date | awk '{ print $1 } '))" ; Month="$(echo -e $( date | awk '{ print $2 } '))" ; Data="$(echo -e $( date | awk '{ print $3 } '))" ; DMY="$(echo -e "${red}"$( date | awk '{ print $1, $2, $6 } ')"${NC}")" 
@@ -95,8 +90,23 @@ function css()
       
 
 
-
-
+   #------------------------------------
+   # bat / no bat
+   #------------------------------------ 
+   if  [[ $lang == "" ]] ; then lang="nix" ; fi ;
+   function bpn_p_lang() {
+     ( echo -e "${ttb}" | bat --paging=never -l ${lang} -p 2>/dev/null || echo $ttb ) 
+      
+    }
+    
+   if  [[ $lang == "" ]] ; then lang="nix" ; fi ;
+   function bpal_p_lang() {
+     ( echo -e "${ttb}" | bat --paging=always -l ${lang} -p 2>/dev/null || echo $ttb ) 
+     
+    }
+   
+   
+   
    #------------------------------------
    # my ip
    #------------------------------------ 
@@ -109,7 +119,7 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
    # https://unicode-table.com/ru/ 
    #-----------------------------------
    
-         function not_found_MSG() { echo -e "${RED}✖ Не найден${NC}" ; } ;
+         function not_found_MSG() { echo -e "${RED}✖ ${NC}Не найден" ; } ;
          function found_MSG() { echo -e "${GREEN}✓ Найден${NC}" ; } ;
          
          function error_MSG() { echo -e "${RED}✖ Error${NC}" ; } ;
@@ -117,6 +127,12 @@ function myip() { echo -e "$( wget -qO- icanhazip.com )" ; }
          function error_exit_en_MSG() { echo -e "${RED}✖ Exit${NC} " ; exit 0 ; } ;
          
          function green_tick() { echo -e "${GREEN}✓${NC}" ; } ;
+         function green_tick_en() { echo -en "$(green_tick) " ; } ;
+         
+
+         
+         
+         
          function green_star() { echo -e "${GREEN}☆${NC}" ; } ;
          function red_star() { echo -e "${RED}☆${NC}" ; } ;
          

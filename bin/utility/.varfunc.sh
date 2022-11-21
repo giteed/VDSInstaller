@@ -19,7 +19,7 @@
    
    function press_enter_to_continue_or_any_key_to_cancel()
    {
-         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  \n\n"
+         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  \n"
          read -s answ ;
       if 
          [[ "$answ" == "" ]] 
@@ -244,11 +244,24 @@
    function allip() { hostname --all-ip-addresses ; }
    #-----------------------------------
    
+   function ifconfig_real_ip() 
+   {
+       ifconfig | grep --color=auto -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep --color=auto -Eo '([0-9]*\.){3}[0-9]*' | head -n 1 ;
+   }
+   
+   
+   
+   
    function ii() # Дополнительные сведения о системе
    {
       echo -e "\n${cyan}Вы находитесь на ${green}$(hostname)$NC\n"
       hostnamectl | bat -l nix -p || hostnamectl ;
-      echo -e "\nДополнительная информация:$NC " ; echo -e "\n $( red_U0023 ) uname -a " ; uname -a | bat  --paging=never -l nix -p
+      echo -e "\nДополнительная информация:$NC " ; 
+      echo -e "\n $( red_U0023 ) uname -a " ; 
+      uname -a ;
+      echo cat /etc/redhat-release ;
+      cat /etc/redhat-release ;
+      
       echo -e "\n${cyan}Дата:$NC " ; echo -e " $( red_U0023 ) date " ; date | bat  --paging=never -l nix -p
       echo -e "\n${cyan}Время, прошедшее с момента последней перезагрузки :$NC " ; echo -e "\n $( red_U0023 ) uptime " ; uptime | bat  --paging=never -l log -p ;
       echo -e "\n${cyan}В системе работают пользователи:$NC " ; echo -e "\n $( red_U0023 ) who" ; who ; 
@@ -311,6 +324,29 @@
       TopRAM25 | bat -p -l c
    }
    
+   function wport() {
+      
+      function netstat_tulanp_nogrep() {
+         ( echo -e "\n${green}$(netstat -tulanp | head --lines 2 | grep -v "Active Internet" )${NC}\n" ; netstat -tulanp | grep -v "Active Internet" | grep -v " Foreign Address" |  bat --paging=never -l nix -p ) || ( echo -e "\n${green}$(netstat -tulanp | head --lines 2 | grep -v "Active Internet" )${NC}\n" ; netstat -tulanp | grep -v "Active Internet" | grep -v " Foreign Address" ) ;
+      }
+      
+      function netstat_tulanp() {
+         
+         ( echo -e "\n${green}$(netstat -tulanp | head --lines 2 | grep -v "Active Internet" )${NC}\n" ; netstat -tulanp | rg "$1" | bat --paging=never -l nix -p ) || ( echo -e "\n${green}$(netstat -tulanp | head --lines 2 | grep -v "Active Internet" )${NC}\n" ; netstat -tulanp | rg $1 ) ;
+      }
+      
+      function help_wport() {
+          echo -e "\n ${green}This function print${NC}:\n  netstat -tulanp | grep \"\$1\"\n\n ${green}Usage${NC}:\n  wport \"keyword\" or \":port\"\n  wport all or \"${red}.${NC}\"\n  wport :22\n  wport :80\n  wport tcp\n  wport udp\n  wport LISTEN\n  wport ESTABLISHED\n  wport 127.0.0.1 "
+          # Usage: grep [OPTION]... PATTERN [FILE]...
+      }
+       if [[ $1 == "" ]] ; then help_wport && return ; fi ;
+       if [[ $1 == "all" ]] ; then netstat_tulanp_nogrep && return ; fi ;
+       if [[ $1 == "." ]] ; then netstat_tulanp_nogrep && return ; fi ;
+       if [[ $1 == "-h" ]] ; then help_wport && return ; fi ;
+       
+       netstat_tulanp $1 ;
+   }
+   
    
    #-----------------------------------
    
@@ -322,7 +358,75 @@
       echo -en "\n${cyan}*** ${green}FILE SYSTEM ${RED}***$NC"; df; 
    }
    
-
+   
+   #tor_ip=$(echo -e "TOR ip: ${GREEN}$(curl -s --socks5 127.0.0.1:${tor_port} icanhazip.com)${NC}") ;
+   
+   for test in 9150 9050 ''; do
+      { >/dev/tcp/127.0.0.1/$test; } 2>/dev/null && { tor_port="$test"; break; }
+      [ -z "$test" ] && echo >&2 -e "\n Нет открытого Tor порта ... EXITING\n Похоже ТОР еще не установлен или не работает." &>/dev/null ;
+   done
+   
+   # Функция возвращает бекап файл /etc/wgetrc_old на прежнее место /etc/wgetrc (отключает использование прокси ТОР http://localhost:8118 ) "
+   function wgetrc_config_revert() {
+      
+      function revert_MSG() {
+         echo -e " $(black_U23A7 ) " ;
+         echo -e " $(ellow_1     ) Отключить TOR Socks5 proxy для wget ${red}?${NC}" ;
+         echo -e " $(white_1     ) "
+         echo -e " $(ellow_1     ) wget будет настроен без TOR ${red}!${NC}" ;
+         
+         echo -e " $(ellow_1     ) Оригинал /etc/wgetrc будет заменен  " ;
+         echo -e " $(ellow_1     ) сохраненным бекапом: /etc/wgetrc_old"
+         echo -e " $(white_1     ) "
+         echo -e " $(ellow_1     ) Вы можете в любой момент вернуть это обратно." ;
+         echo -e " $(white_1     ) "
+         echo -e " $(ellow_1     ) Включить или выключить для wget эти настройки: "
+         echo -e " $(ellow_1     ) ${green}Включить${NC} : $(red_U0023) vdsetup ${green}wget-proxy-on${NC}"
+         echo -e " $(ellow_1     ) ${red}Выключить${NC}: $(red_U0023) vdsetup ${red}wget-proxy-off${NC}"
+         echo -e " $(black_U23A9 ) \n" ;
+      }
+      
+      function not_found_wgetrc_old_MSG() {
+          echo -e "\n ${not_found_MSG} Файл /etc/wgetrc_old не существует!"
+      }
+      
+      
+    if [[ -z /etc/wgetrc_old ]] ; then not_found_wgetrc_old_MSG ; else revert_MSG ; fi ;
+      
+      
+      press_enter_to_continue_or_any_key_to_cancel ;
+      
+      
+      function OK_wgetrc_old() {
+         echo -e " $(black_U23A7 ) " ;
+         echo -e " $(ellow_1     ) $(green_tick) Оригинал /etc/wgetrc заменен  " ;
+         echo -e " $(ellow_1     ) сохраненным бекапом: /etc/wgetrc_old"
+         echo -e " $(white_1     ) "
+         echo -e " $(ellow_1     ) ${green}Включить${green} TOR Socks5 proxy${NC} для wget :"
+         echo -e " $(ellow_1     ) $(red_U0023) vdsetup ${green}wget-proxy-on${NC}"
+         echo -e " $(black_U23A9 ) \n" ;
+      }
+      
+      cp -a /etc/wgetrc_old /etc/wgetrc && OK_wgetrc_old || not_found_wgetrc_old_MSG ;
+      
+   }
+   
+   function tor-restart() {
+       ~/bin/utility/tor_installer.sh tor-restart
+       
+   }
+   
+   tcurl() {
+      curl -x "socks5://127.0.0.1:${tsport}" \
+      -A "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" \
+      -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" \
+      -H "Accept-Language: en-US,en;q=0.5" \
+      -H "Accept-Encoding: gzip, deflate" \
+      -H "Connection: keep-alive" \
+      -H "Upgrade-Insecure-Requests: 1" \
+      -H "Expect:" --compressed "$@"
+   }
+   
    
    #-----------------------------------
    
@@ -332,6 +436,9 @@
       ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'
       echo -e "$cyan""\nexternal"$NC":" ;
       myip ;
+      
+      echo -e "\n"$green""Privoxy TOR Socks5 127.0.0.1:9050"$NC":" " ;
+      curl --socks5 127.0.0.1:9050 http://2ip.ua
    }
    
    #-----------------------------------

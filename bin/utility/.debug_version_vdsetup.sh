@@ -49,15 +49,15 @@ function test100()
    
    function dsm_en()
    {
-	  echo -e "\n $(black_U23A7) $(green_star) Debugging enabled" ;
-	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disable debugging.\n" ;
+	  echo -en "\n $(black_U23A7) $(green_star) " ; ttb=$(echo -e "Debugging enabled") && lang="nix" && bpn_p_lang ;
+	  echo -en " $(black_U23A9) $(green_tick) " ; ttb=$(echo -e "run: vdsetup -d0 to disable debugging.\n") && lang="nix" && bpn_p_lang ;
 	  source ~/.bashrc ;
    }
    
    function dsm_dis()
    {
-	  echo -e "\n $(black_U23A7) $(green_star) Debugging disabled" ;
-	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enable debugging.\n" ; 
+	  echo -en "\n $(black_U23A7) $(green_star) " ; ttb=$(echo -e "Debugging disabled") && lang="nix" && bpn_p_lang ;
+	  echo -en " $(black_U23A9) $(green_tick) " ; ttb=$(echo -e "run: vdsetup -d1 to enable debugging.\n") && lang="nix" && bpn_p_lang ; 
 	  source ~/.bashrc ;
    }
    

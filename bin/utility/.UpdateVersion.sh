@@ -24,8 +24,8 @@ script_name ;
 # Чистим каталог ~/bin
 # rm -rf ~/bin/* || echo -e "error \"rm -rf ~/bin/*\" " ;
 # Cкопировать из локального репо в папку bin только новые и свежие файлы
-echo -e "	$(green_arrow) Upgraded scripts ... : $(green_tick) ${GREEN}In progress ...${NC}" ;
-( cp -a /root/.GitHub_Repo/VDSetup/. /root ) && echo -e "	$(green_arrow) Update version ..... : $(green_tick) ${GREEN}$(Version_vdsetup)${NC} \n" || echo -e "${RED}ERROR\n${NC}" ;
+echo -en "	$(green_tick_en)" && ttb=$(echo -e " Upgraded scripts ... : In progress ...") && lang=nix ; bpn_p_lang
+( cp -a /root/.GitHub_Repo/VDSetup/. /root ) && echo -en "	$(green_tick_en)" && ttb=$(echo -e " Update version ..... : $(Version_vdsetup) \n") && lang=nix ; bpn_p_lang ; echo || echo -e "${RED}ERROR\n${NC}" ;
 
 #(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.GitHub_Repo/VDSetup/ /root) &>/root/rsync_GitHub_Repo-VDSetup.log
 
