@@ -62,7 +62,7 @@ function Installing_VDSetup_scripts()
 	echo -e " $(green_1     ) ${NC}" ;
 	echo -en " $(white_1    ) $(green_tick)" ; echo -e "${GREEN} Installation is complete${NC}! " ; 
 	echo -en " $(white_1    )   ${BLACK}VDSetup ${GREEN}version${NC}: ${GREEN}" ; Version_vdsetup ; echo -e "${NC}" ;
-	echo -e " $(black_U23A9 ) " ;
+	echo -e " $(black_U23A9 ) \n" ;
 }
 
 
