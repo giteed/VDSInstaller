@@ -368,10 +368,10 @@ function gh_install()
 
 # echo -e "\n # Перезагрузка ~/.bashrc " ;
 #(source ~/.bashrc) ;
-ttb=$(echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 " && lang="nix" && bpn_p_lang ;
+ttb=$(echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 ") && lang="nix" && bpn_p_lang ;
 
 echo ;
-ttb=$(echo -e " # Установка VDSetup - переход к установке \n"  && lang="nix" && bpn_p_lang ;
+ttb=$(echo -e " # Установка VDSetup - переход к установке \n"  && lang="nix") && bpn_p_lang ;
 sleep 0 ;
 /root/bin/utility/installVDSetup.sh $1 ;
 
