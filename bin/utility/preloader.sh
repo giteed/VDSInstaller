@@ -317,7 +317,7 @@
 	
 	function inesync()
 	{
-			echo -e "\n # Установка rsync rsync-daemon git mc gh." 
+			ttb=$(echo -e "\n # Установка rsync rsync-daemon git mc gh." ) && lang="nix" && bpn_p_lang ;
 	
 	(dnf -y install rsync rsync-daemon git mc gh ; sudo systemctl start rsync ; sudo systemctl enable rsync ) &>/dev/null ;
 	
@@ -327,18 +327,18 @@
 	
 function cp_old() 
 {
-	echo -e " # Функция копирования предыдущих: .bash* файлов в: /tmp/ " 
-	echo -e " # Переход в домашний каталог (root). " 
+	ttb=$(echo -e "# Функция копирования предыдущих: .bash* файлов в: /tmp/ " ) && lang="nix" && bpn_p_lang ;
+	ttb=$(echo -e "# Переход в домашний каталог (root). " ) && lang="nix" && bpn_p_lang ;
 	
 	(cd ~/) ; 
-	echo -e " # Сохранение старых версий.  " 
+	ttb=$(echo -e " # Сохранение старых версий.  " ) && lang="nix" && bpn_p_lang ;
 	
 	yes | cp -Rf .bash_ali_hosts /tmp/.bash_ali_hosts_old ;
 	yes | cp -Rf .bash_profile /tmp/.bash_profile_old ; 
 	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
 	yes | cp -Rf .bashrc /tmp/.bashrc_old 
 	
-	echo -e " # Создать каталог ~/root/bin если его нет. " 	
+	ttb=$(echo -e " # Создать каталог ~/root/bin если его нет. " ) && lang="nix" && bpn_p_lang ;
 	(mkdir -p /root/bin) ; 
 
 }
