@@ -2,21 +2,21 @@
 
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
-. ~/.bashrc
+. /root/.bashrc
 
 # --> Прочитать настройки:
-. ~/bin/utility/.varfunc.sh &>/dev/null ;
-. ~/bin/utility/.css.sh &>/dev/null ;
+. /root/bin/utility/.varfunc.sh &>/dev/null ;
+. /root/bin/utility/.css.sh &>/dev/null ;
 
-script_name ;
+debug_message ;
 
-# --> Использовать ~/.bash_ali*
-. ~/.bash_aliases ;
-. ~/.bash_ali_hosts ;
+# --> Использовать /root/.bash_ali*
+. /root/.bash_aliases ;
+. /root/.bash_ali_hosts ;
 
-# --> Использовать . ~/bin/utility/.root (требует для скрипта права root)
-. ~/bin/utility/.root
-# Перезагрузка ~/.bashrc
+# --> Использовать . /root/bin/utility/.root (требует для скрипта права root)
+. /root/bin/utility/.root
+# Перезагрузка /root/.bashrc
 
 
 # css ;
@@ -56,8 +56,8 @@ function Installing_VDSetup_scripts()
 	( /root/bin/utility/gh-Sync-Script.sh ) && echo -e "\n	$(green_arrow) Install vdsetup .... : $(green_tick) ${GREEN}Done${NC}! " || echo -e "${RED}ERROR\n${NC}" ;
 
 	echo -e "\n $(black_U23A7 ) " ;
-	echo -e " $(ellow_1     ) $(green_arrow) Reload ~/.bashrc and Run vdsetup" ;
-	echo -e " $(white_1     ) ${RED}#${NC} source ~/.bashrc ${NC}" ;
+	echo -e " $(ellow_1     ) $(green_arrow) Reload /root/.bashrc and Run vdsetup" ;
+	echo -e " $(white_1     ) ${RED}#${NC} source /root/.bashrc ${NC}" ;
 	echo -e " $(white_1     ) ${RED}#${NC} vdsetup ${NC}" ;
 	echo -e " $(green_1     ) ${NC}" ;
 	echo -en " $(white_1    ) $(green_tick)" ; echo -e "${GREEN} Installation is complete${NC}! " ; 

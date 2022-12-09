@@ -5,7 +5,7 @@
 	function ver() 
 	{ 
 	   source ~/.bashrc ; #css ; 
-	   echo -e "\n $(Version_vdsetup)" ;
+	   auto_update_status ;
 	}
 
    
@@ -62,7 +62,7 @@
    
    
    #------------------------------------
-	  # script_name debug
+	  # debug_message debug
 	  #------------------------------------   
 	  
 	function debug()
@@ -70,6 +70,7 @@
 		 
 		 function debug_1_on()
 		 {
+			set -x ;
 			path_n=$0
 			# echo -e "Debugger status is $debug_stat" ;
 			
@@ -85,7 +86,7 @@
 		 
 		 function debug_0_off()
 		 {
-		  +x #echo -e "Debugger status is $debug_stat" ;
+		  set +x #echo -e "Debugger status is $debug_stat" ;
 		 }
 		 
 		 function debug_check_status()
@@ -103,10 +104,10 @@
 	  }
    
    #------------------------------------
-	  # script_name
+	  # debug_message
 	  #------------------------------------  
 	  
-	function script_name() 
+	function debug_message() 
 	{ 
 	  (debug ;) 2>/dev/null ; 
 	}
@@ -132,10 +133,12 @@
 	  
 	  function Version_vdsetup_Ver_RED_or_GREEN()
 	  {
-		 cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt ;
+		 #cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt 2>/dev/null &
 		 
 		 new_V=$(cat /tmp/.ver.txt)
 		 current_V=$(cat ~/.ver.txt)
+		 
+		 cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt 2>/dev/null &
 		 
 		 if [ ${new_V} != ${current_V} ] 
 		 then echo -e "$(RED_VER)" ;
@@ -308,7 +311,7 @@
 
 
 	echo ;
-	script_name ;
+	debug_message ;
 	
 	
 	

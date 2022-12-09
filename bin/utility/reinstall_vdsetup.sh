@@ -1,5 +1,5 @@
 #!/bin/bash
-script_name ;
+debug_message ;
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
 . ~/.bashrc
@@ -8,7 +8,7 @@ script_name ;
 . ~/bin/utility/.varfunc.sh &>/dev/null ;
 . ~/bin/utility/.css.sh &>/dev/null ;
 
-script_name ;
+debug_message ;
 
 	
 	clear ;

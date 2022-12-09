@@ -8,7 +8,7 @@
 	. ~/bin/utility/.varfunc.sh &>/dev/null ;
 	. ~/bin/utility/.css.sh &>/dev/null ;
 	
-	script_name ;
+	debug_message ;
 	
 echo ;
 

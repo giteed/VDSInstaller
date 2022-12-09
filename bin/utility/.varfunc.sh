@@ -3,12 +3,12 @@
 # Source global definitions
 
 # --> Прочитать настройки:
-. ~/bin/utility/.css.sh &>/dev/null ;
+. /root/bin/utility/.css.sh &>/dev/null ;
 
 
-# --> Использовать ~/.bash_ali*
-. ~/.bash_aliases ;
-. ~/.bash_ali_hosts ;
+# --> Использовать /root/.bash_ali*
+. /root/.bash_aliases ;
+. /root/.bash_ali_hosts ;
    
    
 
@@ -19,7 +19,7 @@
    
    function press_enter_to_continue_or_any_key_to_cancel()
    {
-         echo -en "     Press 'ENTER' to continue or 'ESC' to cancel...  \n"
+         echo -en "\n     " ; ttb=$(echo -e "Press 'ENTER' to continue or 'ESC' to cancel...  \n") && lang="nix" && bpn_p_lang ;
          read -s answ ;
       if 
          [[ "$answ" == "" ]] 
@@ -31,6 +31,87 @@
       fi
       
    }
+   
+   function epel_repo_Check_or_install() {
+      
+      yum_epel=epel.repo
+      
+      function msg_in1() {
+         ttb=$(echo -e " $yum_epel успешно установлен.") && lang="nix" && bpn_p_lang ;
+      }
+      
+      function msg_in2() {
+         ttb=$(echo -e " Ошибка установки. $yum_epel") && lang="nix" && bpn_p_lang ;
+      }
+      
+      function msg_in3() {
+         ttb=$(echo -e " $yum_epel уже был установлен.") && lang="nix" && bpn_p_lang ;
+      }
+      
+      
+       [[ -z $( cat /etc/yum.repos.d/epel.repo ) ]] 2>/dev/null && ( yum install epel-release &>/dev/null && msg_in1 || msg_in2 ) || msg_in3 ;
+       return ;
+   }
+   
+   # Функция cash_var_sh_150_start_and_stop включает и отключает кеширование ip адреса тора и версии vdsetup на 150 секунд.
+   function cash_var_sh_150_start_and_stop() {
+        ( cash_var_sh_150 ) &>/dev/null 
+        
+        ps ax | awk '/[s]leep_kill/ { print $1 }' | xargs kill &>/dev/null 
+        pkill -f "sleep_kill" &>/dev/null
+        screen -wipe &>/dev/null 
+        # ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill (тоже рабочий вариант вместо snippet имя скрипта или программы)
+       ( /usr/bin/screen -dmS sleep_kill /bin/bash /root/bin/utility/.sleep_kill.sh ) #&>/dev/null ; 
+       return ;
+       # killall -s KILL .sleep_kill.sh &>/dev/null & 
+       # tldr screen ; echo ;
+       # echo screen -r ;
+       # echo screen -ls ;
+    }
+   
+   # Функция удаляет юнит кеширования ip адреса тора и версии vdsetup
+   # 
+   function remove_unit_stop_cashing() {
+      ${msg9} ;
+      
+      systemctl disable cash_var.service &>/dev/null || ttb=$(echo -e "\n Error disable Unit /etc/systemd/system/cash_var.service could not be found. \n") && bpn_p_lang  ;
+      systemctl stop cash_var.service &>/dev/null ||  ttb=$(echo -e "\n Error stop Unit /etc/systemd/system/cash_var.service could not be found. \n") && bpn_p_lang  ;
+      rm /etc/systemd/system/cash_var.service &>/dev/null || ttb=$(echo -e "\n Error remove Unit /etc/systemd/system/cash_var.service could not be found. \n") && bpn_p_lang  ;
+      systemctl daemon-reload &>/dev/null ||  ttb=$(echo -e "\n Error daemon-reload \n") && bpn_p_lang  ;
+    
+      ttb=$(echo -e "\n Unit /etc/systemd/system/cash_var.service removed \n") && bpn_p_lang  ;
+      #systemctl status cash_var.service 2>/dev/null;
+      return ;
+   }
+   
+   
+ function start_http_server() {
+     /root/bin/utility/file_to_http_start_stop.sh start ;
+  }
+ 
+ function stop_http_server() {
+     /root/bin/utility/file_to_http_start_stop.sh stop ;
+  }
+  
+  function status_http_server() {
+      /root/bin/utility/file_to_http_start_stop.sh status ;
+   }
+ 
+ function start_http_light() {
+      /root/bin/utility/file_to_http_light_start_stop.sh start ;
+  }
+  
+  function stop_http_light() {
+      /root/bin/utility/file_to_http_light_start_stop.sh stop ;
+  }
+  
+  function status_http_light() {
+        /root/bin/utility/file_to_http_light_start_stop.sh status ;
+  }
+
+
+   
+   
    
    
    
@@ -61,7 +142,7 @@
       read yesno
       
       if [[ "$yesno" == "" ]]
-      then echo ; css ;
+      then echo ; test ;
          echo -e ;
       else 
          exit 0 ;
@@ -69,12 +150,17 @@
       fi ;
    }
    
-   function press_anykey()
+   function press_anykey2()
    {
       #( read -n1 -r -p " $(echo -e $ELLOW)PRESS $(echo -e $NC)any key $(echo -e $ELLOW)to continue...$(echo -e "$NC \n")" ) ;
       ( read -n 1 -s -r -p " $(echo -e "$ELLOW\n")    Press $(echo -e $BLACK)any key ...$(echo -e "$NC \n")" ) ;
    }
     
+    
+   function press_anykey()
+   {
+     read -n1 -r -p "	$(ttb=$(echo -e "Press any key to continue...") && bpn_p_lang ) " ;
+   }
    
    
    #------------------------------------
@@ -353,9 +439,11 @@
    function memc() # Показать первые 10 прожорливых процессов CPU/RAM
    { 
       echo -en "\n${cyan}*** ${green}MEMORY RAM/SWAP ${RED}***$NC"; mem; echo -e "\n"${cyan}*** ${green}Top 25 RAM ${RED}"***$NC"; t25r ;
-      echo -e "\n${cyan}*** ${green}Top 10 RAM ${RED}***$NC"; ps auxf | sort -nr -k 4 | head -10 |bat  --paging=never -l bash -p;
-      echo -e "\n${cyan}*** ${green}Top 10 CPU ${RED}***$NC"; ps auxf | sort -nr -k 3 | head -10 |bat  --paging=never -l bash -p;
+      echo -e "\n${cyan}*** ${green}Top 10 RAM ${RED}***$NC"; ttb=$(ps auxf | sort -nr -k 4 | head -10 ) && lang=bash && bpn_p_lang ;
+      echo -e "\n${cyan}*** ${green}Top 10 CPU ${RED}***$NC"; ttb=$(ps auxf | sort -nr -k 3 | head -10 ) && lang=bash && bpn_p_lang ;
       echo -en "\n${cyan}*** ${green}FILE SYSTEM ${RED}***$NC"; df; 
+      
+      ttb=$(echo -e "\n # ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill\n Убить процесс по имени ")&& lang=bash && bpn_p_lang ;
    }
    
    
@@ -412,7 +500,7 @@
    }
    
    function tor-restart() {
-       ~/bin/utility/tor_installer.sh tor-restart
+       /root/bin/utility/tor_installer.sh tor-restart
        
    }
    
@@ -427,6 +515,9 @@
       -H "Expect:" --compressed "$@"
    }
    
+   toriptables2.py() {
+      bin/utility/tor-for-all-sys-app.sh $1 ;
+   }
    
    #-----------------------------------
    
@@ -477,6 +568,11 @@
    }
    
    #-----------------------------------
+   
+   
+   function gkill() {
+       /root/bin/utility/k-i-l-l_b-y_k-e-y-w-o-r-d.sh ;
+   }
    
    function fkill() # Убить процесс по неточному совадению - должен быть установлен fzf (brew install fzf)
    {

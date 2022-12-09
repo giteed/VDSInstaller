@@ -8,7 +8,7 @@
 	function ver() 
 	{ 
 	   source ~/.bashrc ; 
-	   echo -e "\n $(Version_vdsetup)" ;
+	   auto_update_status ;
 	}
 
    
@@ -25,7 +25,7 @@
 
 function test100()
 {
-   echo -e "$$$$" 
+   echo -e " 〠 PID $$ " 
 }
 
 
@@ -72,7 +72,7 @@ function test100()
    
    
    #------------------------------------
-	  # script_name debug
+	  # debug_message debug
 	  #------------------------------------   
 	  
 	function debug()
@@ -80,22 +80,28 @@ function test100()
 		 
 		 function debug_1_on()
 		 {
+			set -x ;
 			path_n=$0
-			# echo -e "Debugger status is $debug_stat" ;
+			ttb=$(echo -e "\n		Debugger status is: $debug_stat \n" ;) && bpn_p_lang ;
 			
-			echo -e "        $(black_U23A7    ) " ;
-			echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} ---------------${BLACK}Debug${RED}--------------- ${BLACK}#${NC}!" ;
+			echo -e "        $(black_U23A7    )   ㋛ " ;
+			echo -e "       $(red_star)$(red_1          ) ${NC}!${NC}${BLACK}#${RED} -----$(test100)----- ت ټ${BLACK}Debug${RED}ت ټ ----- $(Version_vdsetup) --------- ${BLACK}#${NC}!" ;
 			echo -en "       $(red_star)$(ellow_1       )  ${BLACK}Path ......${NC}: " ; echo -e "${NC}$(pwd)" ;
-			echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" ${NC}" ;
+			echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Script Name${NC}:${GREEN} "$0" at $(hostname) ${NC}" ;
 			echo -e "       $(red_star)$(ellow_1        )  ${BLACK}Date ......${NC}: "$(date)" ${NC}" ;
-			echo -e "       $(red_star)$(ellow_1        ) " ; ( ( ( ps aux | grep $path_n ) | bat -l nix -p ) 2>/dev/null || ps aux | grep $path_n ) ;
-			echo -e "       $(red_star)$(ellow_1        ) " ;
+			echo -e "       $(red_star)$(ellow_1        ) " ; (  ttb=$( ps aux | grep $path_n | grep -v grep  ) && bpn_p_lang ; ) 2>/dev/null ;
+			echo -e "       $(red_star)$(ellow_1        )  ツ ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill 回 ₪™ " ;
+			echo -e "       $(red_star)$(ellow_1        )  ツ pidof snippet | awk '{ print $1 }' | xargs kill 回 ₪™ " ;
 			echo -e "        $(black_U23A9    ) \n" ;
+			
+
+			#ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill
+			#pidof sleep | awk '{ print $1 }' | xargs kill
 		 }
 		 
 		 function debug_0_off()
 		 {
-		  +x #echo -e "Debugger status is $debug_stat" ;
+		  set +x ;
 		 }
 		 
 		 function debug_check_status()
@@ -113,10 +119,10 @@ function test100()
 	  }
    
    #------------------------------------
-	  # script_name
+	  # debug_message
 	  #------------------------------------  
 	  
-	function script_name() 
+	function debug_message() 
 	{ 
 	  (debug ;) 2>/dev/null ; 
     }
