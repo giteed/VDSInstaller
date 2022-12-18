@@ -4,7 +4,7 @@
 	  
 	function ver() 
 	{ 
-	   source ~/.bashrc ; #css ; 
+	   source /root/.bashrc ; #css ; 
 	   auto_update_status ;
 	}
 
@@ -16,7 +16,7 @@
 	function ds() 
 	{ 
 	   #css ;
-	   source ~/.bashrc ; #css ; 
+	   source /root/.bashrc ; #css ; 
 	   echo -e "\n ${msg_debug_stat}" ;
 	}
 
@@ -30,8 +30,8 @@
 		 echo -e "Ver: preloader 1.0"  #| bat -l nix ) #|| $( echo -e "${RED}Ver${NC}: GH-1.0.0${NC}" ) 
 	  }
 	
-	
-     	 debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+		 echo 0 > /root/temp/.debug.txt ;
+     	 debug_stat=$(cat /root/temp/.debug.txt 2>/dev/null) ;
 		 
 		 if [[ $debug_stat == '1' ]] 
 			then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
@@ -42,21 +42,21 @@
    {
 	  echo -e "\n $(black_U23A7) $(green_star) Debugger enabled" ;
 	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d0 to disabled Debug.\n" ;
-	  source ~/.bashrc ;
+	  source /root/.bashrc ;
    }
    
    function dsm_dis()
    {
 	  echo -e "\n $(black_U23A7) $(green_star) Debugger disabled" ;
 	  echo -e " $(black_U23A9) $(green_tick) run: vdsetup -d1 to enabled Debug.\n" ; 
-	  source ~/.bashrc ;
+	  source /root/.bashrc ;
    }
    
    function dsm()
    {
 	  if [[ $debug_stat == '1' ]] 
-	  then source ~/.bashrc ; dsm_en ;
-	  else source ~/.bashrc ; dsm_dis ;
+	  then source /root/.bashrc ; dsm_en ;
+	  else source /root/.bashrc ; dsm_dis ;
 	  fi ;
    }
    
@@ -126,17 +126,16 @@
 	  
 	  function GREEN_VER()
 	  {
-		 source ~/.bashrc ;
+		 source /root/.bashrc ;
 		 echo -e "${green}$(Version_vdsetup) $(red_U0023) vdsetup sync${NC}"
 		 
 	  }
 	  
 	  function Version_vdsetup_Ver_RED_or_GREEN()
 	  {
-		 #cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt 2>/dev/null &
 		 
 		 new_V=$(cat /tmp/.ver.txt)
-		 current_V=$(cat ~/.ver.txt)
+		 current_V=$(cat /root/.ver.txt)
 		 
 		 cd /tmp/ ; wget -q  -O .ver.txt https://raw.githubusercontent.com/giteed/VDSInstaller/main/.ver.txt 2>/dev/null &
 		 
@@ -179,7 +178,7 @@
 	  { 
 		 
 		 Version_vdsetup &>/dev/null ;
-		 echo -en "$( clear && source ~/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}: $(Version_vdsetup_Ver_RED_or_GREEN)${NC}" ;  echo -e " ${msg_debug_stat}" ;
+		 echo -en "$( clear && source /root/.bashrc && hip )\n ${RED}-${ellow}=---${ELLOW}=${ellow}-${GREEN}-${green}-${NC}-------------------------------------------------------------------------\n ${NC}$(green_tick) ${BLACK}VDSetup ${GREEN}version${NC}: $(Version_vdsetup_Ver_RED_or_GREEN)${NC}" ;  echo -e " ${msg_debug_stat}" ;
 		 
 		 
 	  }
@@ -314,8 +313,8 @@
 	debug_message ;
 	
 	
-	
-	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/VDSInstaller.log ;
+	mkdir -p /root/temp/ ;
+	(rsync -avp --exclude '.git' --exclude '.DS_Store' /root/.VDSInstaller/ /root) &>/root/temp/VDSInstaller.log ;
 	
 	
 	function inesync()
@@ -333,7 +332,7 @@ function cp_old()
 	ttb=$(echo -e " # Функция копирования предыдущих: .bash* файлов в: /tmp/ " ) && lang="nix" && bpn_p_lang ;
 	ttb=$(echo -e " # Переход в домашний каталог (root). " ) && lang="nix" && bpn_p_lang ;
 	
-	(cd ~/) ; 
+	(cd /root/) ; 
 	ttb=$(echo -e " # Сохранение старых версий.  " ) && lang="nix" && bpn_p_lang ;
 	
 	yes | cp -Rf .bash_ali_hosts /tmp/.bash_ali_hosts_old ;
@@ -341,19 +340,19 @@ function cp_old()
 	yes | cp -Rf .bash_aliases /tmp/.bash_aliases_old ; 
 	yes | cp -Rf .bashrc /tmp/.bashrc_old 
 	
-	ttb=$(echo -e " # Создать каталог ~/root/bin если его нет. " ) && lang="nix" && bpn_p_lang ;
+	ttb=$(echo -e " # Создать каталог /root/bin если его нет. " ) && lang="nix" && bpn_p_lang ;
 	(mkdir -p /root/bin) ; 
 
 }
 
 # Source global definitions
 # --> Прочитать настройки из /etc/bashrc
-. ~/.bashrc
+. /root/.bashrc
 
 # --> Прочитать настройки:
-. ~/bin/utility/.debug_version_vdsetup.sh
-. ~/bin/utility/.varfunc.sh
-. ~/bin/utility/.css.sh
+. /root/bin/utility/.debug_version_vdsetup.sh
+. /root/bin/utility/.varfunc.sh
+. /root/bin/utility/.css.sh
 	
 dsm ;
 inesync ;
@@ -369,9 +368,9 @@ function gh_install()
 ( (gh) &>/dev/null || gh_install )
 
 
-# echo -e "\n # Перезагрузка ~/.bashrc " ;
-#(source ~/.bashrc) ;
-ttb=$(echo -e " # Перезагрузка ~/.bashrc введите: # source ~/.bashrc	 ") && lang="nix" && bpn_p_lang ;
+# echo -e "\n # Перезагрузка /root/.bashrc " ;
+#(source /root/.bashrc) ;
+ttb=$(echo -e " # Перезагрузка /root/.bashrc введите: # source /root/.bashrc	 ") && lang="nix" && bpn_p_lang ;
 
 echo ;
 ttb=$(echo -e " # Установка VDSetup - переход к установке \n"  && lang="nix") && bpn_p_lang ;

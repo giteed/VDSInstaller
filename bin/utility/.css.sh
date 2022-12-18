@@ -192,6 +192,7 @@ function css()
    # bat / no bat
    #------------------------------------ 
    if  [[ $lang == "" ]] ; then lang="nix" ; fi ;
+   
    function bpn_p_lang() {
       
      ( echo -e "${ttb}" | bat --paging=never -l ${lang} -p 2>/dev/null || echo -e "$ttb" ) 
@@ -200,7 +201,9 @@ function css()
     }
     
    
+   
    if  [[ $lang == "" ]] ; then lang="nix" ; fi ;
+   
    function bpal_p_lang() {
      
      ( echo -e "${ttb}" | bat --paging=always -l ${lang} -p 2>/dev/null || echo -e "$ttb" ) 
@@ -214,6 +217,10 @@ function css()
    
    function lang_bash() {
       lang=bash ;
+   }
+   
+   function lang_help() {
+      lang=help ;
    }
    
    #------------------------------------

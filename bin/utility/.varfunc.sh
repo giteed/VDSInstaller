@@ -97,20 +97,23 @@
       /root/bin/utility/file_to_http_start_stop.sh status ;
    }
  
- function start_http_light() {
-      /root/bin/utility/file_to_http_light_start_stop.sh start ;
+ function start_light_server() {
+      /root/bin/utility/file_to_light_server_start_stop.sh start ;
   }
   
-  function stop_http_light() {
-      /root/bin/utility/file_to_http_light_start_stop.sh stop ;
+  function stop_light_server() {
+      /root/bin/utility/file_to_light_server_start_stop.sh stop ;
   }
   
-  function status_http_light() {
-        /root/bin/utility/file_to_http_light_start_stop.sh status ;
+  function status_light_server() {
+        /root/bin/utility/file_to_light_server_start_stop.sh status ;
   }
 
 
-   
+   function open_port_and_services_firewall() {
+       ttb=$(echo -e " \n  FirewallD инфо: (Открытые ports и services)\n" ;) && lang="passwd" && bpn_p_lang ;
+       ttb=$( firewall-cmd --list-all | rg "(services|ports)" | rg -v "(forward|source)"  2>/dev/null ) && lang="passwd" && bpn_p_lang ;
+   }
    
    
    
@@ -332,13 +335,13 @@
    
    function ifconfig_real_ip() 
    {
-       ifconfig | grep --color=auto -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep --color=auto -Eo '([0-9]*\.){3}[0-9]*' | head -n 1 ;
+       ifconfig | grep -Eo 'inet ([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | head -n 1 ;
    }
    
    
    
-   
-   function ii() # Дополнительные сведения о системе
+   # Дополнительные сведения о системе
+   function ii() 
    {
       echo -e "\n${cyan}Вы находитесь на ${green}$(hostname)$NC\n"
       hostnamectl | bat -l nix -p || hostnamectl ;
@@ -446,13 +449,24 @@
       ttb=$(echo -e "\n # ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill\n Убить процесс по имени ")&& lang=bash && bpn_p_lang ;
    }
    
+   # Функция определяет port на котором работает ТОР, и назначает переменную tor_port которая потом используется
+   # другими функциями vdsetup.
+   function tor_port_ch() {
+      lang_nix
+       for test in 9150 9050 ''; do
+           { >/dev/tcp/127.0.0.1/$test; } 2>/dev/null && { tor_port="$test"; break; }
+           [ -z "$test" ] && ttb=$(echo -e "\n ⎧ ! Нет открытого Tor порта (9150 9050).\n ⎩ # systemctl start tor\n") && bpn_p_lang ;
+       done
+   }
+   tor_port_ch 2>/dev/null ;
    
-   #tor_ip=$(echo -e "TOR ip: ${GREEN}$(curl -s --socks5 127.0.0.1:${tor_port} icanhazip.com)${NC}") ;
    
-   for test in 9150 9050 ''; do
-      { >/dev/tcp/127.0.0.1/$test; } 2>/dev/null && { tor_port="$test"; break; }
-      [ -z "$test" ] && echo >&2 -e "\n Нет открытого Tor порта ... EXITING\n Похоже ТОР еще не установлен или не работает." &>/dev/null ;
-   done
+   function tor_check_ip() {
+      tor_port_ch ;
+      /root/bin/utility/tor_check.sh ;
+   }
+   
+   
    
    # Функция возвращает бекап файл /etc/wgetrc_old на прежнее место /etc/wgetrc (отключает использование прокси ТОР http://localhost:8118 ) "
    function wgetrc_config_revert() {
@@ -504,6 +518,13 @@
        
    }
    
+   function tor-stop() {
+       toriptables2.py -i ;
+       toriptables2.py -f ;
+       systemctl stop tor ;
+       ttb=$(echo -e "\n Tor is now stopped\n") && bpn_p_lang ;
+   }
+   
    tcurl() {
       curl -x "socks5://127.0.0.1:${tsport}" \
       -A "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" \
@@ -516,7 +537,7 @@
    }
    
    toriptables2.py() {
-      bin/utility/tor-for-all-sys-app.sh $1 ;
+      /root/bin/utility/tor-for-all-sys-app.sh $1 ;
    }
    
    #-----------------------------------

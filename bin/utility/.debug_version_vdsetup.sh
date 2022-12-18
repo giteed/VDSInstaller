@@ -7,7 +7,7 @@
 	  
 	function ver() 
 	{ 
-	   source ~/.bashrc ; 
+	   source /root/.bashrc ; 
 	   auto_update_status ;
 	}
 
@@ -18,7 +18,7 @@
 	  
 	function ds() 
 	{ 
-	   source ~/.bashrc ; 
+	   source /root/.bashrc ; 
 	   echo -e "\n ${msg_debug_stat}" ;
 	}
 
@@ -37,10 +37,10 @@ function test100()
 	function Version_vdsetup()
 	  {
 		 
-		 cat ~/.ver.txt 2>/dev/null || echo -e "PRELOADER"
+		 cat /root/.ver.txt 2>/dev/null || echo -e "PRELOADER"
 	  }
 
-   debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+   debug_stat=$(cat /root/temp/.debug.txt 2>/dev/null) ;
    
    if [[ $debug_stat == '1' ]] 
 	  then msg_debug_stat=$(echo -e "${GREEN}Debugger enabled${NC}") ;
@@ -51,22 +51,22 @@ function test100()
    {
 	  echo -en "\n $(black_U23A7) $(green_star) " ; ttb=$(echo -e "Debugging enabled") && lang="nix" && bpn_p_lang ;
 	  echo -en " $(black_U23A9) $(green_tick) " ; ttb=$(echo -e "run: vdsetup -d0 to disable debugging.\n") && lang="nix" && bpn_p_lang ;
-	  source ~/.bashrc ;
+	  source /root/.bashrc ;
    }
    
    function dsm_dis()
    {
 	  echo -en "\n $(black_U23A7) $(green_star) " ; ttb=$(echo -e "Debugging disabled") && lang="nix" && bpn_p_lang ;
 	  echo -en " $(black_U23A9) $(green_tick) " ; ttb=$(echo -e "run: vdsetup -d1 to enable debugging.\n") && lang="nix" && bpn_p_lang ; 
-	  source ~/.bashrc ;
+	  source /root/.bashrc ;
    }
    
    function dsm()
    {
-	  debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+	  debug_stat=$(cat /root/temp/.debug.txt 2>/dev/null) ;
 	  if [[ $debug_stat == '1' ]] 
-	  then source ~/.bashrc ; dsm_en ;
-	  else source ~/.bashrc ; dsm_dis ;
+	  then source /root/.bashrc ; dsm_en ;
+	  else source /root/.bashrc ; dsm_dis ;
 	  fi ;
    }
    
@@ -94,9 +94,6 @@ function test100()
 			echo -e "       $(red_star)$(ellow_1        )  ツ pidof snippet | awk '{ print $1 }' | xargs kill 回 ₪™ " ;
 			echo -e "        $(black_U23A9    ) \n" ;
 			
-
-			#ps ax | awk '/[s]nippet/ { print $1 }' | xargs kill
-			#pidof sleep | awk '{ print $1 }' | xargs kill
 		 }
 		 
 		 function debug_0_off()
@@ -107,7 +104,7 @@ function test100()
 		 function debug_check_status()
 		 {
 			
-			debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+			debug_stat=$(cat /root/temp/.debug.txt 2>/dev/null) ;
 		 if [[ $debug_stat == "1" ]]
 			then debug_1_on ;
 			else debug_0_off

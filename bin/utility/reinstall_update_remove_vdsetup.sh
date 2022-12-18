@@ -67,7 +67,7 @@ debug_message ;
          function debug_en_dis()
          {
              
-             debug_stat=$(cat /root/.debug.txt 2>/dev/null) ;
+             debug_stat=$(cat /root/temp/.debug.txt 2>/dev/null) ;
                
                if [[ "$debug_stat" == '1' ]] 
                then 
