@@ -187,7 +187,14 @@ function css()
       function im() { whoami ; } ;
       
 
-
+   function msg_done() {
+      echo -e "\n${green}  ✓ Done ${nc}"
+   }
+   
+   function vcc() {
+       vsync;c;c;
+   }
+   
    #------------------------------------
    # bat / no bat
    #------------------------------------ 
@@ -211,9 +218,17 @@ function css()
      #return ;
     }
    
+   #function lang_x() {
+   #   lang=$1 ;
+   #   if [[ $1 == "" ]] ; then lang=cr ; fi ;
+   #}
+   
    function lang_nix() {
       lang=nix
    }
+   function lang_cr() {
+      lang=cr
+   }   
    
    function lang_bash() {
       lang=bash ;

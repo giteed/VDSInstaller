@@ -261,7 +261,7 @@
          then 
          GLIG_ASTRX_OF ;
          echo -e "\n Пустой запрос "$cyan""lk""$NC" покажет все,\n кроме скрытых файлов и папок\n путь:"$ELLOW""$(pwd)""$NC"\n"
-         stat -c '%a:%A %U %G %s %n' . .. * | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l c -p ;
+         stat -c '%a:%A %U %G %s %n' . .. * | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l java -p ;
          return; 
       fi
       
@@ -269,13 +269,13 @@
          then 
          GLIG_ASTRX_OF ;
          echo -e "\n Запрос "$cyan""lk""$NC" c $NC\""$RED"."$NC"\" покажет все,\n включая cкрытые файлы и папки\n путь:"$ELLOW""$(pwd)""$NC"\n"
-         stat -c '%a:%A %U %G %s %n' .* ** | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l c -p ;
+         stat -c '%a:%A %U %G %s %n' .* ** | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l java -p ;
          return; 
       fi
       
          GLIG_ASTRX_OF ;
          echo -e "\n Вы можете выводить файлы и папки,\n используя маску. Пример: "$RED"# "$cyan"lk "$RED"*"$NC"e"$RED"*"$NC"\n путь:"$ELLOW""$(pwd)""$NC" \n"
-         stat -c '%a:%A %U %G %s %n' $* | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l c -p ;
+         stat -c '%a:%A %U %G %s %n' $* | numfmt --header --field 4 --from=iec --to=si | column -t | bat  --paging=never -l java -p ;
    }
    
    #-----------------------------------
@@ -283,10 +283,24 @@
    # Поиск информации о программе. пример: ww hh
    #function ww() { type -a $* | bat  --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ; }
    
-   function ww() 
-   {  
-    (( type -a $* | bat --paging=never -l nix -p ; echo ; yum info $1 | bat -p --paging=never -l nix ) 2>/dev/null || ( type -a $* ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ) || ( type -a $* ; echo ; yum info $1 ))
+   function ww() {
+       
+       function msg_ww() {
+         
+     ttb=$(echo -e "
+ ⎧ Чтобы получить информацию сразу по двум командам: 
+ | type -a [имя] и yum info [имя], используйте: 
+ | # ww [имя_программы] или [имя_скрипта] или [имя_функции]
+ ⎩ пример: # ww perl nginx ww ff htop mc
+   ") && bpn_p_lang ;
+   
+   }  
+   
+    if [[ $1 == "" ]] ; then msg_ww && return ; fi ;
+    echo ; ttb=$(type -a $*)  && bpn_p_lang 2>/dev/null ; echo ;
+    echo ; ttb=$(yum info $*) && bpn_p_lang 2>/dev/null ; echo ;
    }
+   
    
 
    #-----------------------------------
@@ -458,7 +472,7 @@
            [ -z "$test" ] && ttb=$(echo -e "\n ⎧ ! Нет открытого Tor порта (9150 9050).\n ⎩ # systemctl start tor\n") && bpn_p_lang ;
        done
    }
-   tor_port_ch 2>/dev/null ;
+   tor_port_ch &>/dev/null ;
    
    
    function tor_check_ip() {
